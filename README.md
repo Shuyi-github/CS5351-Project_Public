@@ -19,7 +19,7 @@ _Note 2: Feel free to make adjustments_
     * Linhai ZHENG
         * DB, Front-end
     * Shuyi TANG
-        * Front-end，DB
+        * Front-end, DB
     * Jingyang CAO
         * Back-end 
     * Pengpeng FAN
