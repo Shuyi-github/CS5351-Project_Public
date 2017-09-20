@@ -8,6 +8,8 @@ _Note 2: Feel free to make adjustments_
 * Requirement Analysts
     * Pengpeng FAN
     * Zhibo LIU
+    * Yihuan WEI
+        * Support
 * Testers
     * Jingyang CAO 
         * Test plan, Test cases
