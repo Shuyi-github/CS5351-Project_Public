@@ -1,3 +1,7 @@
+## Introduction
+### Background
+### ...
+
 ## Scope Statement
 The main requirements of the system are to
 
@@ -48,3 +52,11 @@ The system contains lots of personal privacy information of all clients and thei
 6.5 Provide other staff with access to these concept notes
 
 6.6 Schedule the dates when ads will be run
+
+## Work Breakdown Structure
+
+## Roles & Responsibilities
+
+## Hardware & Software Resources
+
+## Project Schedule
