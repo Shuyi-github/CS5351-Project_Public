@@ -1,4 +1,4 @@
-##Scope Statement
+## Scope Statement
 The main requirements of the system are to
 
 ### RECORD INFORMATION OF SAG CLIENTS AND THEIR CAMPAIGN ADS
