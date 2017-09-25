@@ -60,3 +60,4 @@ The system contains lots of personal privacy information of all clients and thei
 ## Hardware & Software Resources
 
 ## Project Schedule
+* Gantte Chart
