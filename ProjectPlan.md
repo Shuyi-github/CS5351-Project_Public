@@ -21,13 +21,13 @@ The main requirements of the system are to
 
 2.4 Check on the status of campaigns and whether they are within their budget
 ### 3.Monitor the campaigns
-This system is also used by account manager to manager their campaigns. Through this system, they can track the campaigns via
+This system is also used by account manager and senior management to manager their campaigns. Through this system, they can track the campaigns via
 
 3.1  Overview of clients and their companies' campaigns over a period of time
 
 3.2  View the selected client company and its campaign
 
-3.3 View the selected campaign: detail of information of campaign and ads, status of the campaign
+3.3  View the selected campaign: detail of information of campaign and ads, status of the campaign
 ### 4.Usability
 4.1 Web enabled
 
@@ -61,3 +61,4 @@ The system contains lots of personal privacy information of all clients and thei
 
 ## Project Schedule
 * Gantte Chart
+* Critical Path
