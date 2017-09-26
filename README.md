@@ -6,7 +6,7 @@ _Note 2: Feel free to make adjustments_
 * Project Manager
     * Yihuan WEI
 * Requirement Analysts
-    * Pengpeng FAN
+    * Pengpeng FAN - 67231947
     * Zhibo LIU
     * Yihuan WEI
         * Support
@@ -24,7 +24,7 @@ _Note 2: Feel free to make adjustments_
         * Front-end, DB
     * Jingyang CAO
         * Back-end 
-    * Pengpeng FAN
+    * Pengpeng FAN - 67231947
         * Code review 
     * Zhibo LIU, Hao LUO
         * Support
