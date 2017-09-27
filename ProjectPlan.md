@@ -37,7 +37,7 @@ The system contains lots of personal privacy information of all clients and thei
 
 5.1 Each campaign's information can only be accessed by the staff who is working on it under separate account. As soon as he/she has dropped out of the campaign, this accessibility should be terminated.
 
-5.2 The information stored in the database is encrypted. The encryption and decryption procedures are performed only at the application server.
+5.2 The information stored in the database is password proctected. Access control should be implemented to ensure user can access only the necessary information.
 
 ### 6.Review campaigns
 #### For account manager to review their previous campaigns
@@ -50,8 +50,6 @@ The system contains lots of personal privacy information of all clients and thei
 6.4 Record notes of ideas for campaigns and ads
 
 6.5 Provide other staff with access to these concept notes
-
-6.6 Schedule the dates when ads will be run
 
 ## Work Breakdown Structure
 
