@@ -5,7 +5,7 @@
 ## Scope Statement
 The main requirements of the system are to
 
-### 1. RECORD INFORMATION OF SAG CLIENTS AND THEIR CAMPAIGN ADS
+### 1. Record information of SAG clients and their campaign Ads
 1.1 Records clients' names, address, contact details.
 1.2 Records each campaign's information including:
      - Title
@@ -28,11 +28,11 @@ This system is also used by account manager and senior management to manager the
 3.2  View the selected client company and its campaign
 
 3.3  View the selected campaign: detail of information of campaign and ads, status of the campaign
-### 4.Usability
+### 4.Provide Usability
 4.1 Web enabled
 
 4.2 English interface
-### 5. Privacy and protection of data 
+### 5. Protect data privacy 
 The system contains lots of personal privacy information of all clients and their companies that it should be designed to minimize the chance of sensitive information divulgation especially one staff work on different campaign at the same time. Thus, it is designed to have such features:
 
 5.1 Each campaign's information can only be accessed by the staff who is working on it under separate account. As soon as he/she has dropped out of the campaign, this accessibility should be terminated.
