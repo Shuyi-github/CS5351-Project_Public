@@ -20,7 +20,7 @@ The main requirements of the system are to
 2.3 Record which staff is assigned as staff contact to clients
 
 2.4 Check on the status of campaigns and whether they are within their budget
-### 3.Monitor the campaigns
+### 3.Monitor campaigns
 This system is also used by account manager and senior management to manager their campaigns. Through this system, they can track the campaigns via
 
 3.1  Overview of clients and their companies' campaigns over a period of time
