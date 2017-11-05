@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Nav Test</title>
+    <link rel="stylesheet" type="text/css" href="css/nav.css" >
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/ButtonFuntion.js"></script>
+
+
+</head>
+<body>
+
+<div class="container">
+
+    <div id="light" class="white_content">This is the lightbox content.
+        <a class="jqbtn" id="btn4">Close</a>
+    </div>
+    <div id="fade" class="black_overlay"></div>
+
+    <div class="topnav">
+        <table>
+            <tr>
+                <th>
+              <ul class="navbar_left">
+            <li>
+                <a href="#home">Home</a>
+            </li>
+            <li>
+                <a href="#news">News</a>
+            </li>
+            <li>
+                <a href="#campaign">Campaign</a>
+            </li>
+                       <!-- link to an element with a specified id within a page -->
+             <li>
+                 <a href="#about">About</a>
+             </li>
+            </ul>
+                </th>
+                <th>
+            <ul class="navbar_right">
+                <li>
+                    <a href="#view" id="view">View Personal Profile</a>
+                </li>
+                <li>
+                    <a href="#logout" id="logout">Log out</a>
+                </li>
+
+              </ul>
+                </th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="content">
+        <div class="center_content">
+        center
+            <button type="button" onclick="myfunction()">
+                <p id="getbutton">
+                    get data
+                </p>
+            </button>
+            <h3 id="test">请点击下面的按钮，通过 jQuery AJAX 改变这段文本。</h3>
+            <buttton class="jqbtn" type="button" id="btn1">jquery_test</buttton>
+
+            <p id="line"></p>
+            <buttton class="jqbtn" type="button" id="btn2">next</buttton>
+            <p id="l2">To display</p>
+            <a class="jqbtn" id="btn3">show me the compaign</a>
+
+
+        </div>
+
+
+    </div>
+
+    </div>
+
+
+    <div class="footer">
+        <p>
+            This is footer
+        </p>
+    </div>
+</div>
+
+
+
+</body>
+</html>
