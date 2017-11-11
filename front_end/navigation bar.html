@@ -13,7 +13,8 @@
 
 <div class="container">
 
-    <div id="light" class="white_content">This is the lightbox content.
+    <div id="light" class="white_content">
+        <span>This is the lightbox content.</span>
         <a class="jqbtn" id="btn4">Close</a>
     </div>
     <div id="fade" class="black_overlay"></div>
@@ -30,7 +31,7 @@
                 <a href="#news">News</a>
             </li>
             <li>
-                <a href="#campaign">Campaign</a>
+                <a href="#campaign" type="button" onclick="hidediv()">Campaign</a>
             </li>
                        <!-- link to an element with a specified id within a page -->
              <li>
@@ -55,21 +56,37 @@
 
     <div class="content">
         <div class="center_content">
-        center
-            <button type="button" onclick="myfunction()">
-                <p id="getbutton">
-                    get data
-                </p>
-            </button>
-            <h3 id="test">请点击下面的按钮，通过 jQuery AJAX 改变这段文本。</h3>
-            <buttton class="jqbtn" type="button" id="btn1">jquery_test</buttton>
+            <div id="centercontent_left">
+                left
+                <button type="button" onclick="myfunction()">
+                    <p id="getbutton">
+                        get data
+                    </p>
+                </button>
+                <h3 id="test">请点击下面的按钮，通过 jQuery AJAX 改变这段文本。</h3>
+                <buttton class="jqbtn" type="button" id="btn1">jquery_test</buttton>
 
-            <p id="line"></p>
-            <buttton class="jqbtn" type="button" id="btn2">next</buttton>
-            <p id="l2">To display</p>
-            <a class="jqbtn" id="btn3">show me the compaign</a>
+                <p id="line"></p>
+                <buttton class="jqbtn" type="button" id="btn2">next</buttton>
+                <p id="l2">To display</p>
+                <a class="jqbtn" id="btn3">show me the detail of this compaign</a>
+            </div>
+            <div id="centercontent_left_hide">
+                this is a hidden div.
+                <p id="brline">we will put compaigns name here later.</p>
+                <buttton class="jqbtn" type="button" id="btn5">next</buttton>
 
-
+            </div>
+            <div id="centercontent_right">
+                right
+                <form action="/action_page.php" onsubmit="test()" target="_self">
+                <br>please input following value for a new compaign:</br>
+                compaign name:<input type="text" name="compaign_name" > </input><br>
+                cost: <input type="text" name="FirstName"><br>
+                staff: <input type="text" name="LastName"><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
         </div>
 
 

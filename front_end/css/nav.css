@@ -60,21 +60,23 @@ th{
 
 .content{
     position:absolute;
+    top:0px;
+    left:0px;
     padding-top: 16px;
     padding-bottom: 16px;
     height:100%;
     width: 100%;
     background-color: #eeeeee;
     margin-left: auto;
-    margin-top: 50px;
-    margin-bottom: 60px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 .center_content{
     position:relative;
     height:100%;
     width:auto;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 100px;
+    margin-right: 100px;
     margin-top: 10px;
     background-color: white;
     overflow: scroll;
@@ -90,8 +92,8 @@ th{
     position:fixed;
     bottom:0;
     left:0;
-    height:60px;
-    background-color: #ddd;
+    height:40px;
+    background-color: #006198;
     width:100%;
     z-index: 10000;
 
@@ -101,6 +103,7 @@ th{
     text-align:left;
     text-decoration: none;
     font-size:15px;
+
 }
 
 .black_overlay {
@@ -112,7 +115,7 @@ th{
     width: 100%;
     height: 100%;
     background-color: black;
-    z-index: 1001;
+    z-index: 100100;
     -moz-opacity: 0.8;     /* safari */
     opacity: .80;
     filter: alpha(opacity=80); /* IE */
@@ -127,6 +130,33 @@ th{
     padding: 16px;
     border: 16px solid orange;
     background-color: white;
-    z-index: 1002;
+    z-index: 100200;
     overflow: auto;
 }
+
+#centercontent_left{
+    float:left;
+    width:50%;
+    background-color: white;
+
+}
+#centercontent_left_hide{
+    float:left;
+    width:50%;
+    display:none;
+    background-color: white;
+
+}
+#centercontent_right{
+    float:right;
+    width:50%;
+}
+
+input {
+    margin-left: 5px;
+    padding:5px 15px;
+    background:#ccc;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; }
