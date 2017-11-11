@@ -8,6 +8,28 @@ function hidediv(){
     y.style.display="block";
 }
 
+
+function insertclient() {
+
+      $.ajax({
+          type: "POST",     //提交方式
+          contentType: "application/json; charset=utf-8",   //内容类型
+          dataType: "text",     //传回类型
+          url: 'test.php',
+          data: {
+              client_name: $("input[name='client_name']").val(),
+              client_address:$("input[name='client_address']").val(),
+              contact_information:$("input[name='contact_information']").val(),
+          },
+          success: function (data) {
+              alert(data.d);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
+          },
+          error: function (err) {
+              alert("err:" + err);
+          }
+      });
+}
+
 //jquery
 $(document).ready(function(){
     $("#btn2").hide();
@@ -37,25 +59,7 @@ $(document).ready(function(){
     $("#btn5").click(function(){
         $("#brline").append(" <li>Appended text</li>");
     });
+
 })
 
-function insertclient() {
 
-    $.ajax({
-        type: "POST",     //提交方式
-        contentType: "application/json; charset=utf-8",   //内容类型
-        dataType: "text",     //传回类型
-        url: test.php,
-        data: {
-            client_name: $("input[name='client_name']").val(),
-            client_address:$("input[name='client_address']").val(),
-            contact_information:$("input[name='contact_information']").val(),
-        },
-        success: function (data) {
-            alert(data.d);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
-        },
-        error: function (err) {
-            alert("err:" + err);
-        }
-    });
-}
