@@ -81,7 +81,9 @@ body{
     background-color: white;
     overflow: scroll;
 }
-
+.center_content #centercontent_hide{
+    display: none;
+}
 .jqbtn {
     text-decoration: underline;
     color: blueviolet;

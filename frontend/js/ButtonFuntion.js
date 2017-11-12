@@ -13,8 +13,8 @@ function insertclient() {
 
       $.ajax({
           type: "POST",     //提交方式
-          contentType: "application/json; charset=utf-8",   //内容类型
-          dataType: "text",     //传回类型
+          //contentType: "application/json; charset=utf-8",   //内容类型
+          dataType: "json",     //传回类型
           url: 'backend/test.php',
           data: {
               client_name: $("input[name='client_name']").val(),
@@ -53,6 +53,10 @@ $(document).ready(function(){
         $("#light").show();
     });
     $("#btn4").click(function(){
+        $("#fade").hide();
+        $("#light").hide();
+    });
+    $("#fade").click(function(){
         $("#fade").hide();
         $("#light").hide();
     });
