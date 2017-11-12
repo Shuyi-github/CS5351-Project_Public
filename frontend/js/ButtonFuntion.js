@@ -13,9 +13,8 @@ function insertclient() {
 
       $.ajax({
           type: "POST",     //提交方式
-          contentType: "application/json; charset=utf-8",   //内容类型
-          dataType: "text",     //传回类型
-          url: 'backend/test.php',
+          dataType: "json",     //传回类型
+          url: 'backend/test',
           data: {
               client_name: $("input[name='client_name']").val(),
               client_address:$("input[name='client_address']").val(),
