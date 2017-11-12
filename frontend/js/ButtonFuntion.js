@@ -55,6 +55,10 @@ $(document).ready(function(){
         $("#fade").hide();
         $("#light").hide();
     });
+    $("#fade").click(function(){
+        $("#fade").hide();
+        $("#light").hide();
+    });
     $("#btn5").click(function(){
         $("#brline").append(" <li>Appended text</li>");
     });
