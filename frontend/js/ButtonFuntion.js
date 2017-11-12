@@ -13,15 +13,20 @@ function insertclient() {
 
       $.ajax({
           type: "POST",     //提交方式
+          //contentType: "application/json; charset=utf-8",   //内容类型
           dataType: "json",     //传回类型
-          url: 'backend/test',
+          url: 'backend/test.php',
           data: {
               client_name: $("input[name='client_name']").val(),
               client_address:$("input[name='client_address']").val(),
               contact_information:$("input[name='contact_information']").val(),
           },
           success: function (data) {
-              alert(data.status + data.message);              
+           //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
+              if(!data.status){
+                  alert("save success");
+              }
+              else alert("server error");
           },
           error: function (err) {
               alert("err:" + err);
