@@ -15,12 +15,12 @@ body{
     width:100%;
     z-index: 10000;
 }
-table{
+#nav_table{
     margin-top: 0px;
     width:100%;
     background-color: #006198;
 }
-th{
+#nav_th{
     width:50%;
 }
 .navbar_left{
@@ -153,6 +153,7 @@ th{
 }
 
 input {
+    vertical-align: middle;
     margin-left: 5px;
     padding:5px 15px;
     background:#ccc;

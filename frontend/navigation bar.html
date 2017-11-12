@@ -20,9 +20,9 @@
     <div id="fade" class="black_overlay"></div>
 
     <div class="topnav">
-        <table>
+        <table id="nav_table">
             <tr>
-                <th>
+                <th id="nav_th">
               <ul class="navbar_left">
             <li>
                 <a href="#home">Home</a>
@@ -79,13 +79,28 @@
             </div>
             <div id="centercontent_right">
                 right
-                <form action="/action_page.php" onsubmit="test()" target="_self">
+
+
+                    <table>
                 <br>please input following value for a new compaign:</br>
-                compaign name:<input type="text" name="compaign_name" > </input><br>
-                cost: <input type="text" name="FirstName"><br>
-                staff: <input type="text" name="LastName"><br>
-                    <input type="submit" value="Submit">
-                </form>
+                        <tr>
+                            <th align="right">client name:</th>
+                            <th><input type="text" name="client_name" > </input></th>
+                        </tr>
+                        <tr>
+                            <th align="right">client address:</th>
+                            <th><input type="text" name="client_address" > </input></th>
+                        </tr>
+                        <tr>
+                            <th align="right">contact information:</th>
+                            <th><input type="text" name="contact_information" > </input></th>
+                        </tr>
+
+            <!--    cost: <input type="text" name="cost"><br>
+                staff: <input type="text" name="LastName"><br>          -->
+                    </table>
+                    <input type="button" value="Submit" onclick="insertclient()"> </input>
+
             </div>
         </div>
 
