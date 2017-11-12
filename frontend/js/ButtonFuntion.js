@@ -21,7 +21,7 @@ function insertclient() {
               contact_information:$("input[name='contact_information']").val(),
           },
           success: function (data) {
-              alert(data.d);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
+              alert(data.status + data.message);              
           },
           error: function (err) {
               alert("err:" + err);
