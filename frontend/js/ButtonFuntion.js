@@ -7,8 +7,37 @@ function hidediv(){
     var y=document.getElementById("centercontent_left_hide");
     y.style.display="block";
 }
-
-
+function layout0(){
+    var currentdate =new Date();
+    var datetime="Today:"+currentdate.getDate()+"/"
+        + (currentdate.getMonth()+1)+"/"
+        +currentdate.getFullYear()+"@"
+        +currentdate.getHours()+":"
+        +currentdate.getMinutes();
+    $("#welcome").replaceWith("welcome back, "+datetime);
+    $('.centercontent_layout0').css('display','block');
+    $('.centercontent_layout1').css('display','none');
+    $('.centercontent_layout2').css('display','none');
+}
+function layout1(){
+  //  $(#lt1).attr('class',);
+    $('.centercontent_layout0').css('display','none');
+    $('.centercontent_layout1').css('display','block');
+    $('.centercontent_layout2').css('display','none');
+  //  var x=document.getElementsByClassName("centercontent_layout1");
+  //  x.style.display="block";
+}
+function layout2(){
+    $('.centercontent_layout0').css('display','none');
+    $('.centercontent_layout1').css('display','none');
+    $('.centercontent_layout2').css('display','block');
+}
+function insertcampaign(){
+    $('#lt1_left').css('display','none');
+    $('#lt1_right').css('display','none');
+    $('#lt1_left_hide').css('display','block');
+    $('#lt1_right_hide').css('display','block');
+}
 function insertclient() {
     var name = $("input[name='client_name']").val();
     var address = $("input[name='client_address']").val();
@@ -30,13 +59,13 @@ function insertclient() {
              //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
                 if(!data.status){
                     alert("save success");
-                    hidediv();
+                    layout1();
                 }
                 else alert("server error");
             },
             error: function (err) {
                 alert("err:" + err);
-                hidediv();
+                layout1();
     /* for temporary save on frontend
                 var x=document.createElement("button");
                 x.setAttribute("type","button");
@@ -56,10 +85,20 @@ function insertclient() {
     }
 }
 
+
 //jquery
 $(document).ready(function(){
     $("#btn2").hide();
     $("#line").hide();
+    //currenttime
+    var currentdate =new Date();
+    var datetime="Today:"+currentdate.getDate()+"/"
+        + (currentdate.getMonth()+1)+"/"
+        +currentdate.getFullYear()+"@"
+        +currentdate.getHours()+":"
+        +currentdate.getMinutes();
+    $("#welcome").replaceWith("welcome back, "+datetime);
+
     $("#btn1").click(function(){
         $('#test').load("doc/testjson.json",function (responseTxt,statusTxt,xhr){
             if(statusTxt=="success") {

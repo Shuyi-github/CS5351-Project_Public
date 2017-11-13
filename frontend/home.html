@@ -13,11 +13,12 @@
 
 <div class="container">
 
-    <div id="light" class="white_content">
-        <span>This is the lightbox content.</span>
-        <a class="jqbtn" id="btn4">Close</a>
-    </div>
-    <div id="fade" class="black_overlay"></div>
+                            <div id="light" class="white_content">
+                                <span>This is the lightbox content.</span>
+                                <a class="jqbtn" id="btn4">Close</a>
+                            </div>
+                            <div id="fade" class="black_overlay">
+                            </div>
 
     <div class="topnav">
         <table id="nav_table">
@@ -25,13 +26,13 @@
                 <th id="nav_th">
               <ul class="navbar_left">
             <li>
-                <a href="#home">Home</a>
+                <a href="#home" type="button" onclick="layout0()">Home</a>
             </li>
             <li>
-                <a href="#Actions">Actions</a>
+                <a href="#Actions" type="button" onclick="layout2()">Actions </a>
             </li>
             <li>
-                <a href="#campaign" type="button" onclick="hidediv()">Campaigns</a>
+                <a href="#campaign" type="button" onclick="layout1()">Campaigns</a>
             </li>
                        <!-- link to an element with a specified id within a page -->
              <li>
@@ -53,62 +54,101 @@
             </tr>
         </table>
     </div>
-
     <div class="content">
         <div class="center_content">
-            <div class="center_content" id="centercontent_hide">
-            </div>
-            <div id="centercontent_left">
-                left
-                <button type="button" onclick="myfunction()">
-                    <p id="getbutton">
-                        get data
-                    </p>
-                </button>
-                <h3 id="test">请点击下面的按钮</h3>
-                <buttton class="jqbtn" type="button" id="btn1">jquery_test</buttton>
+                <div class="centercontent_layout0" id="lt0">
+                        <p id="welcome">
+                            welcome back;
+                        </p>
+                </div>
+                    <div class="centercontent_layout1" id="lt1">
+                        <div class="centercontent_layout1" id="lt1_left">
+                            <p id="brline">we will put all compaigns name here later.</p>
+                            <a class="jqbtn" id="btn3">show me the detail of this compaign</a> <br>
+                            <buttton class="jqbtn" type="button" id="btn5">next</buttton>
+                        </div>
+                        <div class="centercontent_layout1" id="lt1_right">
+                            <button class="adbtn" id="add" onclick="insertcampaign()">add</button><br>
+                            <button class="adbtn" id="delete">delete</button>
+                        </div>
+                        <div id="lt1_left_hide">
+                            <table>
+                                <br>please input following value for a new compaign:</br>
+                                    <tr>
+                                        <th align="right">client name:</th>
+                                        <th><input type="text" name="client_name" placeholder="eg. JSMITH"> </input></th>
+                                    </tr>
+                                    <tr>
+                                        <th align="right">client address:</th>
+                                        <th><input type="text" name="client_address" placeholder="eg. JSMITH"> </input></th>
+                                    </tr>
+                                    <tr>
+                                        <th align="right">contact information:</th>
+                                        <th><input type="text" name="contact_information"> </input></th>
+                                    </tr>
 
-                <p id="line"></p>
-                <buttton class="jqbtn" type="button" id="btn2">next</buttton>
-                <p id="l2">To display</p>
-                <a class="jqbtn" id="btn3">show me the detail of this compaign</a>
+                                <!--    cost: <input type="text" name="cost"><br>
+                                    staff: <input type="text" name="LastName"><br>          -->
+                            </table>
+                        </div>
+                            <div id="lt1_right_hide">
+                                <button class="adbtn" value="Submit" onclick="insertclient()">Submit</button><br>
+                                <button class="adbtn" id="cancel" onclick="layout1()">Cancel</button>
+                            </div>
 
-    <!--            <p id="insert">   //for Temporary save on frontend
-                    insert area
-                </p>
-    -->
-            </div>
-            <div id="centercontent_left_hide">
-                this is a hidden div.
-                <p id="brline">we will put all compaigns name here later.</p>
-                <buttton class="jqbtn" type="button" id="btn5">next</buttton>
+                    </div>
+                    <div class="centercontent_layout2" id="lt2">
+                        <div id="centercontent_left">
+                            left
+                            <button type="button" onclick="myfunction()">
+                                <p id="getbutton">
+                                    get data
+                                </p>
+                            </button>
+                            <h3 id="test">请点击下面的按钮</h3>
+                            <buttton class="jqbtn" type="button" id="btn1">jquery_test</buttton>
 
-            </div>
-            <div id="centercontent_right">
-                right
+                            <p id="line"></p>
+                            <buttton class="jqbtn" type="button" id="btn2">next</buttton>
+                            <p id="l2">To display</p>
+
+                <!--            <p id="insert">   //for Temporary save on frontend
+                                insert area
+                            </p>
+                -->
+                        </div>
+                        <div id="centercontent_left_hide">
+                            this is a hidden div.
+               <!--             <p id="brline">we will put all compaigns name here later.</p>
+                            <buttton class="jqbtn" type="button" id="btn5">next</buttton>
+               -->
+                        </div>
+                        <div id="centercontent_right">
+                            right
 
 
-                    <table>
-                <br>please input following value for a new compaign:</br>
-                        <tr>
-                            <th align="right">client name:</th>
-                            <th><input type="text" name="client_name" placeholder="eg. JSMITH"> </input></th>
-                        </tr>
-                        <tr>
-                            <th align="right">client address:</th>
-                            <th><input type="text" name="client_address" placeholder="eg. JSMITH"> </input></th>
-                        </tr>
-                        <tr>
-                            <th align="right">contact information:</th>
-                            <th><input type="text" name="contact_information"> </input></th>
-                        </tr>
+                            <table>
+                            <br>please input following value for a new compaign:</br>
+                                    <tr>
+                                        <th align="right">client name:</th>
+                                        <th><input type="text" name="client_name" placeholder="eg. JSMITH"> </input></th>
+                                    </tr>
+                                    <tr>
+                                        <th align="right">client address:</th>
+                                        <th><input type="text" name="client_address" placeholder="eg. JSMITH"> </input></th>
+                                    </tr>
+                                    <tr>
+                                        <th align="right">contact information:</th>
+                                        <th><input type="text" name="contact_information"> </input></th>
+                                    </tr>
 
-            <!--    cost: <input type="text" name="cost"><br>
-                staff: <input type="text" name="LastName"><br>          -->
-                    </table>
-                    <input type="button" value="Submit" onclick="insertclient()"> </input>
+                        <!--    cost: <input type="text" name="cost"><br>
+                            staff: <input type="text" name="LastName"><br>          -->
+                                </table>
+                                <input type="button" value="Submit" onclick="insertclient()"> </input>
 
-            </div>
+                        </div>
+                    </div>
         </div>
 
 
@@ -118,7 +158,7 @@
 
 
     <div class="footer">
-        <p>
+        <p style="text-align: center; color:white;" >
             This is footer
         </p>
     </div>
