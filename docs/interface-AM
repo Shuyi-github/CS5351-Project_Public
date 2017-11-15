@@ -1,6 +1,6 @@
 Account Manager:
 
-/backend/updateCompaign
+/backend/updateCampaign
   auth:manager
   input:POST
     status:string
@@ -15,6 +15,42 @@ Account Manager:
     actual newspaper magazine space and air-time cost:float
     estimated other supporting services and products:float
     actual other supporting services and products:float
+    payment:float
   output:JSON
     status:0/1
     message:string
+
+/backend/updatePayrate
+  auth:manager
+  input:POST
+    staffID:int
+    payrate:float
+  output:JSON
+    status:0/1
+    message:string 
+  
+/backend/updateTimeSpend
+  auth:manager
+  input:POST
+    staff ID:int
+    campaign ID:int
+    time cost:int
+  output:JSON
+    status:0/1
+    message:string 
+    
+/backend/viewClinetCampaign
+  auth:manager
+  input:POST
+   status:0/1
+  output:JSON
+    status:0/1
+    message:string
+    clinet ID:int
+    client name:string
+    contact person:string
+    campaign:string[]
+    
+    
+    
+    
