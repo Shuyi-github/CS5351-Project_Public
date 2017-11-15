@@ -49,6 +49,7 @@ Account Manager:
     clinet ID:int
     client name:string
     contact person:string
+    account manager:string
     campaign:array
       name:string
       status:string
@@ -83,6 +84,15 @@ Account Manager:
       estimated:float
       actual:float
     
-    
+    /backend/viewAsTime
+  auth:manager
+  input:POST 
+    from time:date
+    to time:date
+  output:JSON
+    campaign name:string
+    campaign ID:int
+    start date:date
+    actual end date:date
     
     
