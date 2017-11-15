@@ -1,0 +1,88 @@
+Account Manager:
+
+/backend/updateCampaign
+  auth:manager
+  input:POST
+    status:string
+    startdate:date
+    expected enddate:date
+    actual enddate:date
+    estimated copyright material cost:folat
+    actual copyright material cost:folat
+    estimated studio time and actors cost:float
+    actual copyright material cost:folat
+    estimated newspaper magazine space and air-time cost:float
+    actual newspaper magazine space and air-time cost:float
+    estimated other supporting services and products:float
+    actual other supporting services and products:float
+    payment:float
+  output:JSON
+    status:0/1
+    message:string
+
+/backend/updatePayrate
+  auth:manager
+  input:POST
+    staffID:int
+    payrate:float
+  output:JSON
+    status:0/1
+    message:string 
+  
+/backend/updateTimeSpend
+  auth:manager
+  input:POST
+    staff ID:int
+    campaign ID:int
+    time cost:int
+  output:JSON
+    status:0/1
+    message:string 
+    
+/backend/viewClinetCampaign
+  auth:manager
+  input:POST
+    status:0/1
+  output:JSON
+    status:0/1
+    message:string
+    clinet ID:int
+    client name:string
+    contact person:string
+    campaign:array
+      name:string
+      status:string
+    
+ /backend/viewCampaign
+  auth:manager
+  input:POST
+    campaign name:string
+    campaign ID:int
+  output:JSON
+    campaign name:string
+    client:string
+    account manager:string
+    status:string
+    start date:date
+    estimated end date:date
+    actual end date:date
+    contact person(sag):string
+    staff and time:array
+      time:int
+      name:String
+    copyright material cost:array
+      estimated:float
+      actual:float
+    studio time and actors cost:array
+      estimated:float
+      actual:float
+    newspaper magazine space and air-time cost:array
+      estimated:float
+      actual:float
+    other supporting services and products cost:array
+      estimated:float
+      actual:float
+    
+    
+    
+    
