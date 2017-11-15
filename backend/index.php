@@ -1,22 +1,29 @@
 <?php
+	if(strlen($_SERVER['REQUEST_URI']) <= 9) {
+		echo json_encode(['status' => 1, 'message' => 'Invalid path.']);
+		exit;
+	}
+	$api = substr($_SERVER['REQUEST_URI'], 9);
+	if(!file_exists('./backend/logic/' . $api . '.php')) {
+		echo json_encode(['status' => 1, 'message' => 'Invalid path.']);
+		exit;
+	}
+
 	include 'config.php';
 	include 'tool.php';
-	$TOOL = new Tool();
-	$TOOL->initDB($db);
-	session_start();	
-
-	$api = $_GET['target'];
-	if($api != 'login' && !$TOOL->checkUserStatus()) {
-		echo json_encode(['status': 1, 'message': 'Please login first.']);
-	}
+	Tool::initDB(Config::$DBCONFIG);
+	session_start();
+	
+	/*if($api != 'login' && !$TOOL->checkUserStatus()) {
+		echo json_encode(['status' => 1, 'message' => 'Please login first.']);
+		exit;
+	}*/
 
 	include 'logic/' . $api . '.php';
 	$classname = $api . 'Logic';
-	$logic = new $classname();
-	if($TOOL->checkAuthoriation($logic->auth)) {
-		echo json_encode($logic->$api());
+	if(Tool::checkAuthoriation($classname::auth())) {
+		echo json_encode($classname::$api());
 	} else {
-		echo json_encode(['status': 1, 'message': 'Not authorized.']);
+		echo json_encode(['status' => 1, 'message' => 'Not authorized.']);
 	}
-
 ?>
