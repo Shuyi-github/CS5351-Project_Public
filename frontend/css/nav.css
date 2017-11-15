@@ -81,14 +81,54 @@ body{
     background-color: white;
     overflow: scroll;
 }
-.center_content #centercontent_hide{
-    display: none;
+.centercontent_layout0{
+    display: block;
+    position:relative;
+    height:100%;
+    width:auto;
+    background-color: whitesmoke;
+    overflow: scroll;
+
 }
-.jqbtn {
-    text-decoration: underline;
-    color: blueviolet;
-    text-decoration-color: blueviolet;
-    font-size: 16px;
+.centercontent_layout1{
+    display: none;
+    position:relative;
+    height:100%;
+    width:auto;
+    background-color: white;
+    overflow: scroll;
+
+}
+#lt1_left{
+    float:left;
+    width:70%;
+    background-color: white;
+}
+#lt1_right{
+    float:right;
+    width:30%;
+    background-color: white;
+}
+#lt1_left_hide{
+    display: none;
+    float:left;
+    width:70%;
+    background-color: white;
+}
+#lt1_right_hide{
+    display: none;
+    float:right;
+    width:30%;
+    background-color: white;
+}
+.centercontent_layout2{
+    display: none;
+    position:relative;
+    height:100%;
+    width:auto;
+    background-color: white;
+    overflow: scroll;
+
 }
 .footer{
     position:fixed;
@@ -98,7 +138,7 @@ body{
     background-color: #006198;
     width:100%;
     z-index: 10000;
-
+    text-align: center;
 }
 .footer p{
 
@@ -163,3 +203,19 @@ input {
     cursor:pointer;
     -webkit-border-radius: 5px;
     border-radius: 5px; }
+.jqbtn {
+    text-decoration: underline;
+    color: blueviolet;
+    text-decoration-color: blueviolet;
+    font-size: 16px;
+}
+.adbtn{
+    position: relative;
+    margin-left: 10px;
+    margin-top:20px;
+    width:120px;
+    height:40px;
+    border:3px;
+    orange:double;
+    background-color: #dddddd;
+}
