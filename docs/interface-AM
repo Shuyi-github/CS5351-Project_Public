@@ -43,6 +43,7 @@ Account Manager:
   auth:manager
   input:POST
     status:0/1
+    clinet name:string
     account manager ID:int //只能看自己的campaign
   output:JSON
     status:0/1
