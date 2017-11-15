@@ -5,12 +5,16 @@ Account Manager:
   input:POST
     status:string
     startdate:date
-    enddate:date
+    expected enddate:date
+    actual enddate:date
     estimated copyright material cost:folat
     actual copyright material cost:folat
     estimated studio time and actors cost:float
     actual copyright material cost:folat
-    
+    estimated newspaper magazine space and air-time cost:float
+    actual newspaper magazine space and air-time cost:float
+    estimated other supporting services and products:float
+    actual other supporting services and products:float
   output:JSON
     status:0/1
     message:string
