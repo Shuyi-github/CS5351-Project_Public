@@ -254,8 +254,7 @@ Campaign:
 /backend/addstafftocampaign
   auth:manager
   input:POST
-    ids:array
-      :int
+    id:int
   output:JSON
     status:0/1
     message:String
@@ -363,3 +362,91 @@ Staff:
   output:JSONARRAY
     name:String
     id:int
+
+ADS:
+
+/backend/ads/addad
+  auth:purchase/manager
+  input:POST
+    type:int
+    campaign:int
+    cost:int
+  output:JSON
+    status:0/1
+    message:String
+
+/backend/ads/deletead
+  auth:purchase/manager
+  input:POST
+    id:int
+  output:JSON
+    status:0/1
+    message:String
+
+/backend/ads/updatead
+  auth:purchase/manager
+  input:POST
+    id:int
+    type:int
+    campaign:int
+    cost:int
+  output:JSON
+    status:0/1
+    message:String
+
+/backend/ads/searchadsbycampaign
+  auth:purchase/manager
+  input:POST
+    campaign:int
+  output:JSONARRAY
+    id:int
+    type:int
+    campaign:int
+    cost:int
+
+/backend/ads/searchadbyid
+  auth:purchase/manager
+  input:POST
+    id:int
+  output:JSON
+    id:int
+    type:int
+    campaign:int
+    cost:int
+
+/backend/ads/getadstype
+  auth:purchase/manager
+  input:none
+  output:JSONARRAY
+    id:int
+    type:String
+
+Note:
+
+/backend/note/addnote
+  auth:staff/manager/purchase
+  input:POST
+    campaign:int
+    poster:int
+    note:String
+  output:JSON
+    status:0/1
+    message:String
+
+/backend/note/searchnote
+  auth:staff/manager/purchase/senior
+  input:POST
+    campaign:int
+  output:JSONARRAY
+    id:int
+    campaign:int
+    poster:int
+    note:String
+
+/backend/note/deletenote
+  auth:staff/manager/purchase/senior
+  input:POST
+    id:int
+  output:JSON
+    status:0/1
+    message:String

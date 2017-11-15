@@ -1,9 +1,8 @@
 senior manager:
 
-  /backend/viewClinetCampaign
-    auth:manager
+/backend/viewClinetCampaign
+  auth:manager
     input:POST
-      status:0/1
       clinet name:string
   output:JSON
     status:0/1
@@ -16,7 +15,7 @@ senior manager:
       name:string
       status:string
     
- /backend/viewCampaign
+/backend/viewCampaign
   auth:manager
   input:POST
     campaign name:string
