@@ -1,1 +1,60 @@
+senior manager:
 
+  /backend/viewClinetCampaign
+    auth:manager
+    input:POST
+      status:0/1
+      account manager ID:int //只能看自己的campaign
+  output:JSON
+    status:0/1
+    message:string
+    clinet ID:int
+    client name:string
+    contact person:string
+    account manager:string
+    campaign:array
+      name:string
+      status:string
+    
+ /backend/viewCampaign
+  auth:manager
+  input:POST
+    campaign name:string
+    campaign ID:int
+    account manager ID:int //只能看自己的campaign
+  output:JSON
+    campaign name:string
+    client:string
+    account manager:string
+    status:string
+    start date:date
+    estimated end date:date
+    actual end date:date
+    contact person(sag):string
+    staff and time:array
+      time:int
+      name:String
+    copyright material cost:array
+      estimated:float
+      actual:float
+    studio time and actors cost:array
+      estimated:float
+      actual:float
+    newspaper magazine space and air-time cost:array
+      estimated:float
+      actual:float
+    other supporting services and products cost:array
+      estimated:float
+      actual:float
+    
+    /backend/viewAsTime
+  auth:manager
+  input:POST 
+    from time:date
+    to time:date
+    account manager ID:int  //只能看自己的
+  output:JSON
+    campaign name:string
+    campaign ID:int
+    start date:date
+    actual end date:date
