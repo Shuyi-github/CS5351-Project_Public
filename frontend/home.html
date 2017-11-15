@@ -8,8 +8,6 @@
     <script type="text/javascript" src="js/onload.js"></script>
     <script type="text/javascript" src="js/ButtonFuntion.js"></script>
     <script type="text/javascript" src="js/layout.js"></script>
-
-
 </head>
 <body>
 
@@ -19,7 +17,7 @@
                                 <span id="detail">This is the lightbox content.</span>
                                 <div style="float: right">
                                 <span id="changebtn"><button id="edit"  class="adbtn">edit</button></span>
-                                <a class="jqbtn" id="btn4">Close</a>
+                                <a class="jqbtn" id="close">Close</a>
                                 </div>
                                 <table id="tb2">
                                     <tr>
@@ -109,18 +107,18 @@
                         </p>
                 </div>
                     <div class="centercontent_layout1" id="lt1">
+                      <div class="centercontent_layout1" id="lt1_right">
+                          <button class="adbtn" id="add" onclick="insertcampaign()" style="float:right">add</button><br>
+                      </div>
                         <div class="centercontent_layout1" id="lt1_left">
-                            <p id="brline">we will put all compaigns name here later.</p>
+                            <p id="brline">we will put compaign here</p>
                             <table id="tb1">
 
                             </table>
 
-                            <a class="jqbtn" id="btn3">show me the detail of this compaign</a> <br>
-                            <buttton class="jqbtn" type="button" id="btn5">next</buttton>
+
                         </div>
-                        <div class="centercontent_layout1" id="lt1_right">
-                            <button class="adbtn" id="add" onclick="insertcampaign()">add</button><br>
-                        </div>
+
                         <div id="lt1_left_hide">
                             <table>
                                 <br>please input following value for a new compaign:</br>

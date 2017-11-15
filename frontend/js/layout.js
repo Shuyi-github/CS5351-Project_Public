@@ -13,6 +13,7 @@ function layout0(){
 function layout1(){
 
     console.log("begin ajax");
+    $("#tb1").html("");
     $.ajax({
         type: "POST",     //提交方式
         dataType: "json",     //传回类型
