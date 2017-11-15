@@ -5,7 +5,9 @@
     <title>ACMS - Management Portal</title>
     <link rel="stylesheet" type="text/css" href="css/nav.css" >
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/onload.js"></script>
     <script type="text/javascript" src="js/ButtonFuntion.js"></script>
+    <script type="text/javascript" src="js/layout.js"></script>
 
 
 </head>
@@ -14,8 +16,53 @@
 <div class="container">
 
                             <div id="light" class="white_content">
-                                <span>This is the lightbox content.</span>
+                                <span id="detail">This is the lightbox content.</span>
+                                <div style="float: right">
+                                <span id="changebtn"><button id="edit"  class="adbtn">edit</button></span>
                                 <a class="jqbtn" id="btn4">Close</a>
+                                </div>
+                                <table id="tb2">
+                                    <tr>
+                                        <th align="right">compaign name:</th>
+                                        <th><input type="text" name="cn" class="inputDisabled" disabled> </input></th>
+                                    </tr>
+                                    <tr>
+                                        <th align="right">client:</th>
+                                        <th><input type="text" name="cd"class="inputDisabled" disabled> </input></th>
+                                    </tr>
+                                    <tr>
+                                        <th align="right">account manager:</th>
+                                        <th><input type="text" name="am" class="inputDisabled" disabled> </input></th>
+                                    </tr>
+                                    <tr>
+                                        <th align="right">status:</th>
+                                        <th><input type="text" name="st" class="inputDisabled" disabled> </input></th>
+                                    </tr>
+                                    <tr>
+                                        <th align="right">start date:</th>
+                                        <th><input type="text" name="sd" class="inputDisabled" disabled> </input></th>
+                                    </tr>
+                                    <tr>
+                                        <th align="right">end date:</th>
+                                        <th><input type="text" name="ed" class="inputDisabled" disabled> </input></th>
+                                    </tr>
+                                    <tr>
+                                        <th align="right">contact person:</th>
+                                        <th><input type="text" name="cp" class="inputDisabled" disabled> </input></th>
+                                    </tr>
+                                 <tr>
+                                    <th align="right">staff:</th>
+                                    <th><input type="text" name="staf" class="inputDisabled" disabled> </input></th>
+                                </tr>
+                                 <tr>
+                                        <th align="right">copyright material cost:</th>
+                                        <th><input type="text" name="cmc" class="inputDisabled" disabled> </input></th>
+                                 </tr>
+                                    <tr>
+                                        <th align="right">supporting service and products cost: </th>
+                                        <th><input type="text" name="ssapc" class="inputDisabled" disabled> </input></th>
+                                    </tr>
+                                </table>
                             </div>
                             <div id="fade" class="black_overlay">
                             </div>
@@ -64,35 +111,54 @@
                     <div class="centercontent_layout1" id="lt1">
                         <div class="centercontent_layout1" id="lt1_left">
                             <p id="brline">we will put all compaigns name here later.</p>
+                            <table id="tb1">
+
+                            </table>
+
                             <a class="jqbtn" id="btn3">show me the detail of this compaign</a> <br>
                             <buttton class="jqbtn" type="button" id="btn5">next</buttton>
                         </div>
                         <div class="centercontent_layout1" id="lt1_right">
                             <button class="adbtn" id="add" onclick="insertcampaign()">add</button><br>
-                            <button class="adbtn" id="delete">delete</button>
                         </div>
                         <div id="lt1_left_hide">
                             <table>
                                 <br>please input following value for a new compaign:</br>
-                                    <tr>
-                                        <th align="right">client name:</th>
-                                        <th><input type="text" name="client_name" placeholder="eg. JSMITH"> </input></th>
-                                    </tr>
-                                    <tr>
-                                        <th align="right">client address:</th>
-                                        <th><input type="text" name="client_address" placeholder="eg. JSMITH"> </input></th>
-                                    </tr>
-                                    <tr>
-                                        <th align="right">contact information:</th>
-                                        <th><input type="text" name="contact_information"> </input></th>
-                                    </tr>
+                                <tr>
+                                    <th align="right">compaign name:</th>
+                                    <th><input type="text" name="compaign_name" placeholder="eg. Black Friday"> </input></th>
+                                </tr>
+                                <tr>
+                                    <th align="right">client:</th>
+                                    <th><input type="text" name="client_id" placeholder="eg. JSMITH"> </input></th>
+                                </tr>
+                                <tr>
+                                    <th align="right">account manager:</th>
+                                    <th><input type="text" name="am_id" placeholder="eg. JSMITH"> </input></th>
+                                </tr>
+                                <tr>
+                                    <th align="right">status:</th>
+                                    <th><input type="text" name="status" placeholder="eg. JSMITH"> </input></th>
+                                </tr>
+                                <tr>
+                                    <th align="right">start date:</th>
+                                    <th><input type="text" name="start_date"> </input></th>
+                                </tr>
+                                <tr>
+                                    <th align="right">end date:</th>
+                                    <th><input type="text" name="end_date"> </input></th>
+                                </tr>
+                                <tr>
+                                    <th align="right">contact person:</th>
+                                    <th><input type="text" name="contact_person"> </input></th>
+                                </tr>
 
                                 <!--    cost: <input type="text" name="cost"><br>
                                     staff: <input type="text" name="LastName"><br>          -->
                             </table>
                         </div>
                             <div id="lt1_right_hide">
-                                <button class="adbtn" value="Submit" onclick="insertclient()">Submit</button><br>
+                                <button class="adbtn" value="Submit" onclick="insertcamp()">Submit</button><br>
                                 <button class="adbtn" id="cancel" onclick="layout1()">Cancel</button>
                             </div>
 
@@ -129,17 +195,25 @@
 
                             <table>
                             <br>please input following value for a new compaign:</br>
+                                <tr>
+                                    <th align="right">compaign name:</th>
+                                    <th><input type="text" name="compaign_name" placeholder="eg. Black Friday"> </input></th>
+                                </tr>
+                                <tr>
+                                    <th align="right">client:</th>
+                                    <th><input type="text" name="client_name" placeholder="eg. JSMITH"> </input></th>
+                                </tr>
                                     <tr>
-                                        <th align="right">client name:</th>
-                                        <th><input type="text" name="client_name" placeholder="eg. JSMITH"> </input></th>
+                                        <th align="right">account manager:</th>
+                                        <th><input type="text" name="account_manager" placeholder="eg. JSMITH"> </input></th>
                                     </tr>
                                     <tr>
-                                        <th align="right">client address:</th>
-                                        <th><input type="text" name="client_address" placeholder="eg. JSMITH"> </input></th>
+                                        <th align="right">status:</th>
+                                        <th><input type="text" name="status" placeholder="eg. JSMITH"> </input></th>
                                     </tr>
                                     <tr>
-                                        <th align="right">contact information:</th>
-                                        <th><input type="text" name="contact_information"> </input></th>
+                                        <th align="right">start date:</th>
+                                        <th><input type="text" name="start_date"> </input></th>
                                     </tr>
 
                         <!--    cost: <input type="text" name="cost"><br>
