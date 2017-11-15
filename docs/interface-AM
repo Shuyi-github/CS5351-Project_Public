@@ -1,0 +1,16 @@
+Account Manager:
+
+/backend/updateCompaign
+  auth:manager
+  input:POST
+    status:string
+    startdate:date
+    enddate:date
+    estimated copyright material cost:folat
+    actual copyright material cost:folat
+    estimated studio time and actors cost:float
+    actual copyright material cost:folat
+    
+  output:JSON
+    status:0/1
+    message:string
