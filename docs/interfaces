@@ -1,0 +1,32 @@
+Client:
+
+/backend/addclient
+  auth:manager
+  input:PSOT
+    name:String
+    phone:String
+    address:String
+    contact:String
+  output:JSON
+    status:0/1
+    message:string
+    
+/backend/updateclient
+  auth:manager
+  input:PSOT
+    name:String
+    phone:String
+    address:String
+    contact:String
+  output:JSON
+    status:0/1
+    message:string
+    
+/backend/deleteclient
+  auth:manager
+  input:POST
+    id:int
+  output:JSON
+    status:0/1
+    message:string
+
