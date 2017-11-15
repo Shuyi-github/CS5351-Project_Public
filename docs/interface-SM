@@ -4,7 +4,7 @@ senior manager:
     auth:manager
     input:POST
       status:0/1
-      account manager ID:int //只能看自己的campaign
+      clinet name:string
   output:JSON
     status:0/1
     message:string
@@ -21,7 +21,6 @@ senior manager:
   input:POST
     campaign name:string
     campaign ID:int
-    account manager ID:int //只能看自己的campaign
   output:JSON
     campaign name:string
     client:string
@@ -52,7 +51,6 @@ senior manager:
   input:POST 
     from time:date
     to time:date
-    account manager ID:int  //只能看自己的
   output:JSON
     campaign name:string
     campaign ID:int
