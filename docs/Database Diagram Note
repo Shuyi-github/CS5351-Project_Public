@@ -11,5 +11,6 @@ Privilege:
     7th: set personal teams
     8th: set all campaigns
     9th: set all teams
+  i.e. Senior Manager: 111111111, means he can WEI SUO YU WEI
   i.e. Manager: 001111111, means a manager can do everything except setting all campaigns and teams (as some are owned by other managers)
   i.e. Creative Staff: 000100011, means he can get his own campaigns/teams, and update the ads for those campaigns
