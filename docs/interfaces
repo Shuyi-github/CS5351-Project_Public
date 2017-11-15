@@ -3,13 +3,13 @@ Login:
 /backend/login
   auth:public
   input:POST
-    email:string
-    password:string
+    email:String
+    password:String
   output:JSON
     id:int
-    firstname:string
-    lastname:string
-    eamil:string
+    firstname:String
+    lastname:String
+    eamil:String
     auth:int
     cookie:array
       key:value
@@ -19,56 +19,59 @@ Login:
   input:none
   output:JSON
     status:0/1
-    message:string
+    message:String
 
-/backend/forgetpassword
-  auth:public
-  input:POST
-    email:string
-  output:JSON
-    status:0/1
-    message:string
+/*
+  /backend/forgetpassword
+    auth:public
+    input:POST
+      email:String
+    output:JSON
+      status:0/1
+      message:String
 
-/backend/changepassword
-  auth:public
-  input:GET
-    auth:string
-    password:string
-  output:JSON
-    status:0/1
-    message:string
+  /backend/changepassword
+    auth:public
+    input:GET
+      auth:String
+      password:String
+    output:JSON
+      status:0/1
+      message:String
+*/
 
 Client:
-
-/backend/addclient
-  auth:manager
-  input:POST
-    name:String
-    phone:String
-    address:String
-    contact:String
-  output:JSON
-    status:0/1
-    message:string
-    
-/backend/updateclient
-  auth:manager
-  input:POST
-    name:String
-    phone:String
-    address:String
-    contact:String
-  output:JSON
-    status:0/1
-    message:string
-    
-/backend/deleteclient
-  auth:manager
-  input:POST
-    id:int
-  output:JSON
-    status:0/1
-    message:string
+/*
+  /backend/addclient
+    auth:manager
+    input:POST
+      name:String
+      phone:String
+      address:String
+      contact:String
+    output:JSON
+      status:0/1
+      message:String
+      
+  /backend/updateclient
+    auth:manager
+    input:POST
+      name:String
+      phone:String
+      address:String
+      contact:String
+    output:JSON
+      status:0/1
+      message:String
+      
+  /backend/deleteclient
+    auth:manager
+    input:POST
+      id:int
+    output:JSON
+      status:0/1
+      message:String
+*/
 
 /backend/searchclientbyid
   auth:manager/senior
@@ -97,7 +100,7 @@ Campaign:
 /backend/addcampaign
   auth:manager
   input:POST
-    campaign:string
+    campaign:String
     client:int
     manager:int
     sdate:int
@@ -105,19 +108,19 @@ Campaign:
     contact:int
   output:JSON
     status:0/1
-    message:string
+    message:String
 
 /backend/updatecampaign
   auth:manager
   input:POST
-    campaign:string
+    campaign:String
     client:int
     sdate:int
     edate:int
     contact:int
   output:JSON
     status:0/1
-    message:string
+    message:String
 
 /backend/finishcampaign
   auth:manager
@@ -125,7 +128,7 @@ Campaign:
     id:int
   output:JSON
     status:0/1
-    message:string
+    message:String
 
 /backend/searchcampaignbyid
   auth:manager/staff/senior
@@ -133,16 +136,16 @@ Campaign:
     id:int
   output:JSON
     id:int
-    campaign:string
+    campaign:String
     manager:int
     manager_name:int
     client:int
-    client_name:string
+    client_name:String
     status:int
     sdate:int
     edate:int
     contact:int
-    contact_person:string
+    contact_person:String
     staff:array
       id:int
       name:String
@@ -157,16 +160,16 @@ Campaign:
     managerid:int
   output:JSONARRAY
     id:int
-    campaign:string
+    campaign:String
     manager:int
     manager_name:int
     client:int
-    client_name:string
+    client_name:String
     status:int
     sdate:int
     edate:int
     contact:int
-    contact_person:string
+    contact_person:String
     staff:array
       id:int
       name:String
@@ -181,16 +184,16 @@ Campaign:
     staffid:int
   output:JSONARRAY
     id:int
-    campaign:string
+    campaign:String
     manager:int
     manager_name:int
     client:int
-    client_name:string
+    client_name:String
     status:int
     sdate:int
     edate:int
     contact:int
-    contact_person:string
+    contact_person:String
     staff:array
       id:int
       name:String
@@ -199,22 +202,47 @@ Campaign:
     cmcost:int
     sspcost:int
 
-/backend/searchcampaignbymanagerame
+/backend/searchcampaignbyclient
   auth:manager/senior
   input:POST
-    name:string
-  output:JSON
+    client:int
+  output:JSONARRAY
     id:int
-    campaign:string
+    campaign:String
     manager:int
     manager_name:int
     client:int
-    client_name:string
+    client_name:String
     status:int
     sdate:int
     edate:int
     contact:int
-    contact_person:string
+    contact_person:String
+    staff:array
+      id:int
+      name:String
+      workhour:int
+      payrate:int
+    cmcost:int
+    sspcost:int
+
+/backend/searchcampaignbytime
+  auth:manager/senior
+  input:POST
+    start:int
+    end:int
+  output:JSONARRAY
+    id:int
+    campaign:String
+    manager:int
+    manager_name:int
+    client:int
+    client_name:String
+    status:int
+    sdate:int
+    edate:int
+    contact:int
+    contact_person:String
     staff:array
       id:int
       name:String
@@ -230,7 +258,7 @@ Campaign:
       :int
   output:JSON
     status:0/1
-    message:string
+    message:String
 
 /backend/deletestafffromcampaign
   auth:manager
@@ -238,7 +266,7 @@ Campaign:
     id:int
   output:JSON
     status:0/1
-    message:string
+    message:String
 
 /backend/pay
   auth:manager
@@ -248,59 +276,90 @@ Campaign:
     payrate:int
   output:JSON
     status:0/1
-    message:string
+    message:String
 
 Staff:
+/*
+  /backend/addstaff
+    auth:manager
+    input:POST
+      firstname:String
+      lastname:String
+      phone:String
+      email:String
+      password:String
+    output:JSON
+      status:0/1
+      message:String
 
-/backend/addstaff
-  auth:manager
-  input:POST
-    firstname:string
-    lastname:String
-    phone:string
-    email:string
-    password:string
-  output:JSON
-    status:0/1
-    message:string
+  /backend/updatestaff
+    auth:manager/staff
+    input:POST
+      firstname:String
+      lastname:String
+      phone:String
+      password:String
+    output:JSON
+      status:0/1
+      message:String
 
-/backend/updatestaff
-  auth:manager/staff
-  input:POST
-    firstname:string
-    lastname:String
-    phone:string
-    password:string
-  output:JSON
-    status:0/1
-    message:string
-
-/backend/deletestaff
-  auth:manager
-  input:POST
-    id:int
-  output:JSON
-    status:0/1
-    message:string
+  /backend/deletestaff
+    auth:manager
+    input:POST
+      id:int
+    output:JSON
+      status:0/1
+      message:String
+*/
 
 /backend/searchstaffbyid
   auth:manager/staff/senior
   input:POST
     id:int
   output:JSON
-    firstname:string
+    firstname:String
     lastname:String
-    phone:string
-    email:string
+    phone:String
+    email:String
     payrate:int
 
 /backend/searchstaffbyname
   auth:manager/staff/senior
   input:POST
-    name:string
+    name:String
   output:JSON
-    firstname:string
+    firstname:String
     lastname:String
-    phone:string
-    email:string
+    phone:String
+    email:String
     payrate:int
+
+/backend/changepayrate
+  auth:manager
+  input:POST
+    id:int
+    payrate:int
+  output:JSON
+    status:0/1
+    message:String
+
+/backend/getallmanager
+  auth:manager
+  input:none
+  output:JSONARRAY
+    name:String
+    id:int
+
+/backend/getallstaff
+  auth:manager
+  input:none
+  output:JSONARRAY
+    name:String
+    id:int
+
+/backend/getallpurass
+  auth:manager
+  input:none
+  output:JSONARRAY
+    name:String
+    id:int
