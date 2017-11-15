@@ -29,10 +29,12 @@ $(document).ready(function(){
         $("#fade").show();
         $("#light").show();
     });
-    $("#btn4").click(function(){
-        $("#detail").replaceWith('<span id="detail">compaign detail.</span>');
+    $("#close").click(function(){
+      //  $("#detail").replaceWith('<span id="detail">compaign detail.</span>');
+      //  $("#select").html('');
         $("#fade").hide();
         $("#light").hide();
+        layout1();
     });
     $("#fade").click(function(){
         $("#fade").hide();

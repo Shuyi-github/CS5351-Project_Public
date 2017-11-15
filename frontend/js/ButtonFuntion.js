@@ -61,7 +61,6 @@ function showcamp(){
     console.log("after ajax");
 ///* for local json test, delete later
     var obj = JSON.parse('{ "101":"camp_1", "106":"camp_2", "270":"camp_3","350":"camp_4"}');
-    $("#tb1").replaceWith('<table id="tb1"></table>');
     var i=0;
     $.each(obj,function (camp_id,camp_name) {
         i++;
@@ -184,10 +183,15 @@ function changebtn(){
         },
         error: function (err) {
             alert("err:" + err);
-            var obj = JSON.parse('{ "101":"camp_1", "106":"camp_2", "270":"camp_3","350":"camp_4"}');
-            $("input[name='staf']").replaceWith('<select id="select"> <option>Option</option></select>');
-            $.each(obj,function (staff_id,staff) {
-                $('#select').append('<option id="'+staff_id+'">'+staff+'</option>');
+            var obj1 = JSON.parse('{ "101":"camp_1", "106":"camp_2", "270":"camp_3","350":"camp_4"}');
+            var obj2 = JSON.parse('{ "101":"camp_1", "106":"camp_2", "270":"camp_3","350":"camp_4"}');
+            $("input[name='am']").replaceWith('<select id="select1"> <option>Option</option></select>');
+            $("input[name='staf']").replaceWith('<select id="select2"> <option>Option</option></select>');
+            $.each(obj1,function (id,name) {
+                $('#select1').append('<option id="'+id+'">'+name+'</option>');
+            })
+            $.each(obj2,function (id,name) {
+                $('#select2').append('<option id="'+id+'">'+name+'</option>');
             })
         }
     });
@@ -203,7 +207,7 @@ function changebtn(){
             var staff = $("input[name='staf']").val();
             var cmc = $("input[name='cmc']").val();
             var ssapc = $("input[name='ssapc']").val();
-            if(name.length < 1 || am.length < 1) {
+            if(name.length < 1 || client.length < 1) {
                 alert("Please enter Client Name and Address.");
             } else {
                 $.ajax({
@@ -227,6 +231,8 @@ function changebtn(){
                         //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
                         if (!data.status) {
                             alert("save success");
+                            $("#fade").hide();
+                            $("#light").hide();
                             layout1();
                         }
                         else alert("server error");
@@ -234,6 +240,10 @@ function changebtn(){
                     error: function (err) {
                         alert("err:" + err);
                     //    alert(name+client+am+st);
+                    var x=$('#select1 option:selected').attr("id");
+                            alert(x);
+                        $("#fade").hide();
+                        $("#light").hide();
                         layout1();
 
                     }
