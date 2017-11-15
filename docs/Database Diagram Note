@@ -1,6 +1,6 @@
 Authorization:
 Privilege:
-  8 bits to represent access rights. 1 for enabled, 0 for disabled. Privilegs not mentioned are assumed to be implicitly enabled.
+  9 bits to represent access rights. 1 for enabled, 0 for disabled. Privilegs not mentioned are assumed to be implicitly enabled.
   Starting from LSB to MSB, each bit denotes
     1st: get personal campaigns
     2nd: get personal teams
@@ -9,7 +9,7 @@ Privilege:
     5th: set personal campaigns' cost
     6th: set personal campaigns' ads
     7th: set personal teams
-    7th: set all campaigns
-    8th: set all teams
-  i.e. Manager: 00111111, means a manager can do everything except setting all campaigns and teams (as some are owned by other managers)
+    8th: set all campaigns
+    9th: set all teams
+  i.e. Manager: 001111111, means a manager can do everything except setting all campaigns and teams (as some are owned by other managers)
   i.e. Creative Staff: 000100011, means he can get his own campaigns/teams, and update the ads for those campaigns
