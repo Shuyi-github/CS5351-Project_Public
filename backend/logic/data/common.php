@@ -16,11 +16,11 @@
 			return $this;
 		}
 
-		function where($where, $statement) {
+		/*function where($where, $statement) {
 			$this->whereParam = $statement;
 			$this->where = $where;
 			return $this;
-		}
+		}*/
 
 		function limit($limit) {
 			$this->limit = $limit;
@@ -37,7 +37,7 @@
 		function execute() {
 			$sql = "select ";
 			if($this->select == null) {
-				$sql = $sql . "* from "
+				$sql = $sql . "* from ";
 			} else {
 				$field = "";
 				foreach ($this->select as $aera) {

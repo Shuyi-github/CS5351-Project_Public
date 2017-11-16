@@ -6,13 +6,15 @@ Login:
     email:String
     password:String
   output:JSON
-    id:int
-    firstname:String
-    lastname:String
-    eamil:String
-    auth:int
-    cookie:array
-      key:value
+    status:0/1
+    message:array
+      id:int
+      firstname:String
+      lastname:String
+      eamil:String
+      auth:int
+      cookie:array
+        key:value
 
 /backend/logout
   auth:public

@@ -1,29 +1,23 @@
 <?php
-	if(strlen($_SERVER['REQUEST_URI']) <= 9) {
+	preg_match_all("/\//", $_SERVER['REQUEST_URI'], $path);
+	if(sizeof($path[0]) != 3) {
 		echo json_encode(['status' => 1, 'message' => 'Invalid path.']);
 		exit;
 	}
-	$api = substr($_SERVER['REQUEST_URI'], 9);
-	if(!file_exists('./backend/logic/' . $api . '.php')) {
+	preg_match("/\/([^\/]*)?\/([^\/]*)?\/([^\/]*)?/", $_SERVER['REQUEST_URI'], $path);
+	if(!file_exists('./backend/logic/' . $path[2] . '.php')) {
 		echo json_encode(['status' => 1, 'message' => 'Invalid path.']);
 		exit;
 	}
+
 
 	include 'config.php';
 	include 'tool.php';
 	Tool::initDB(Config::$DBCONFIG);
 	session_start();
-	
-	/*if($api != 'login' && !$TOOL->checkUserStatus()) {
-		echo json_encode(['status' => 1, 'message' => 'Please login first.']);
-		exit;
-	}*/
 
-	include 'logic/' . $api . '.php';
-	$classname = $api . 'Logic';
-	if(Tool::checkAuthoriation($classname::auth())) {
-		echo json_encode($classname::$api());
-	} else {
-		echo json_encode(['status' => 1, 'message' => 'Not authorized.']);
-	}
+	include 'logic/' . $path[2] . '.php';
+	$classname = $path[2] . 'Logic';
+	$api = $path[3];
+	echo json_encode($classname::$api());
 ?>
