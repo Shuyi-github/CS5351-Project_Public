@@ -16,6 +16,7 @@
 				$_SESSION['firstname'] = $user['FirstName'];
 				$_SESSION['lastname'] = $user['LastName'];
 				$_SESSION['email'] = $user['Email'];
+				$_SESSION['role'] = $user['Role'];
 				$_SESSION['auth'] = AuthorizationModel::findByRoleID($user['Role'])['Privilege'];
 
 				return ['status' => 0,
