@@ -1,7 +1,7 @@
 function confirm(){
     var user=$('#user').val()//获取页面中登录名和密码
     var pwd=$('#password').val();
-    var hash_pas = $.md5(pwd);
+    var hash_pas = hex_md5(pwd);
     if(user==""|| hash_pas==""){                          //判断两个均不为空（其他判断规则在其输入时已经判断）
         alert(" You should enter your name or password!")
         return false;
