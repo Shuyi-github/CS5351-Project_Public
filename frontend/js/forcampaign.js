@@ -17,8 +17,8 @@ function getdetail(elem){
                 popup();
                 $("#detail").replaceWith('<span id="detail">compaign detail.</span>');
                 $('#changebtn').replaceWith('<span id="changebtn"><button id="edit"  class="adbtn" onclick="changebtn('+elem+')">edit</button></span>');
-                $.each(data,function (detail_type,detail_content) {
-                    $("input[name='"+ detail_type +"']").val(detail_content);
+                $.each(data,function (key,value) {
+                    $("input[name='"+ value.detail_type +"']").val(value.detail_content);
                 });
             }
             else alert("server error");
@@ -66,8 +66,8 @@ function getads(elem){
         success: function (data) {
             //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
             if(!data.status){
-                $.each(data,function (ads_id,ads_type,cost_type,cost) {
-                    $('<tr id="'+elem.id+ads_id+'" class="trads"><th aligh="right">'+ads_type+'</th><th>idea</th><th aligh="right">'+cost_type+'</th><th aligh="right">'+cost+'</th></tr>').insertAfter($('#'+camp).closest('tr'));
+                $.each(data,function (key,value) {
+                    $('<tr id="'+elem.id+value.ads_id+'" class="trads"><th aligh="right">'+value.ads_type+'</th><th>idea</th><th aligh="right">'+value.cost_type+'</th><th aligh="right">'+value.cost+'</th></tr>').insertAfter($('#'+camp).closest('tr'));
                 });
                 $('#'+elem.id).replaceWith('<button class="button button-pill button-tiny" id="close'+id+'" ></button>');
                 $('#close'+id).click(function () {
@@ -111,6 +111,7 @@ function showcamp(){
 ///* for local json test, delete later
     var obj = JSON.parse('{ "101":"camp_1", "106":"camp_2", "270":"camp_3","350":"camp_4"}');
     var i=0;
+
     $.each(obj,function (camp_id,camp_name) {
         i++;
         $("#tb1").append('<tr id="ca'+camp_id+'"><th align="left">'+i+'</th><th><button id="'+camp_id+'"class="adbtn" onclick="getdetail(this)">'+camp_name+'</button></th><th><button id="a'+camp_id+'"class="button button-circle button-tiny" onclick="getads(this)"></button></th><th align="right"><button id="'+camp_id+'"class="button button-circle button-tiny" onclick="deletecamp(this)">-</button></th></tr>');
@@ -234,8 +235,8 @@ function changebtn(elem){
              //   $.each(obj1,function (id,name) {
              //       $('#select1').append('<option id="'+id+'">'+name+'</option>');
              //   })
-                $.each(data,function (id,name) {
-                    $('#select2').append('<option id="'+id+'">'+name+'</option>');
+                $.each(data,function (key,value) {
+                    $('#select2').append('<option id="'+value.id+'">'+value.name+'</option>');
                 })}
             else alert("server error");
         },
