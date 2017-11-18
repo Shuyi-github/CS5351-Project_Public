@@ -1,14 +1,14 @@
 <?php
-	class StaffModel {
+	class AuthorizationModel {
 		public static function tableName() {
-			return "staff";
+			return "authorization";
 		}
 
-		public static function findByEmail($email) {
+		public static function findByRoleID($id) {
 			$conn = Tool::getDBConnection();
-			$sql = "select * from " . self::tableName()  . " where Email = ? limit 1;";
+			$sql = "select * from " . self::tableName()  . " where RoleID = ? limit 1;";
 			$stmt = $conn->prepare($sql);
-			$stmt->bind_param('s', $email);
+			$stmt->bind_param('i', $id);
 			$stmt->execute();
 			$result = $stmt->get_result();
 			return $result->fetch_all(MYSQLI_ASSOC)[0];

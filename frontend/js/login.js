@@ -6,14 +6,15 @@ function confirm(){
         alert(" You should enter your name or password!")
         return false;
     }else{                                       //以上均符合要求，则调用登录esb接口
-        $.ajax({
-            url:'backend/test.php',
-            type:'post',
-            datatype : 'json',
-            data:{username:user,password:hash_pas},         //向服务器（接口）传递的参数
-            success:function(data)
-            {                                        //服务器（接口）返回来的数据
-                if(data.status==0) {
+        $.post('backend/login/login', {
+            //url:'backend/login/login',
+            //type:'post',
+            //datatype:"json",
+                username:user,
+                password:hash_pas,        //向服务器（接口）传递的参数
+            }, function(data) {                                        //服务器（接口）返回来的数据
+                console.log(data);
+                if(data.status == 0) {/*
                     $.cookie('id', data.message.id);
                     $.cookie('firstname', data.message.firstname);
                     $.cookie('lastname', data.message.lastname);
@@ -21,13 +22,11 @@ function confirm(){
                     $.cookie('auth', data.message.auth);
                     data.message.cookie.forEach(function (item, index) {
                         $.cookie(item.key, item.value);
-                    });
+                    });*/
                     window.location.href = 'home';
+                } else {
+                    alert(" error username or password");
                 }
-                else{
-                     alert(" error username or password")
-                    }
-                }
-        })
+        }, 'json');
     }
 }
