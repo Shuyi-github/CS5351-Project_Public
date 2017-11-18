@@ -24,6 +24,7 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
+
 body {
   line-height: 1;
 }
@@ -48,7 +49,7 @@ table {
 }
 
 .header{
-  width: 2000px;
+  width: 1600px;
   height:60px;
   background-color: #48fbff;
 }
@@ -57,7 +58,7 @@ table {
 body {
   font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
   color: #404040;
-  background: #2168ee;
+  background: #48fbff;
 }
 
 .container {
@@ -128,8 +129,23 @@ body {
   margin-right: 4px;
   vertical-align: middle;
 }
-.login p.submit {
-  text-align: right;
+
+.submit {
+  background-color: #48fbff; /* Green */
+  position: relative;
+  border: none;
+  color: white;
+  padding: 10px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .login-help {

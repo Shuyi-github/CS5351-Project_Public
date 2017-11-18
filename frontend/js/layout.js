@@ -53,6 +53,7 @@ function layout1(){
 
 }
 function layout2(){
+    $.
     $('.centercontent_layout0').css('display','none');
     $('.centercontent_layout1').css('display','none');
     $('.centercontent_layout2').css('display','block');

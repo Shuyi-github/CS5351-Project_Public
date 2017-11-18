@@ -9,7 +9,7 @@ function confirm(){
         $.ajax({
             url:'backend/test.php',
             type:'post',
-            datatype:"json",
+            datatype : 'json',
             data:{username:user,password:hash_pas},         //向服务器（接口）传递的参数
             success:function(data)
             {                                        //服务器（接口）返回来的数据
@@ -29,32 +29,5 @@ function confirm(){
                     }
                 }
         })
-    }
-}
-function setcookie(name,value,hours,path) {
-    var username = escape(name);
-    var value = escape(value);
-    var expires = new Date();
-    expires.setTime(expires.getTime()+days*3600000*24);
-    path = path == "" ? "" : ";path=" + path;
-    var _expires = (typeof days) == "string" ? "" : ";expires=" + expires.toUTCString();
-    document.cookie = name + "=" + value + _expires + path;
-
-}
-
-function getCookie(name) {
-    var name = escape(name);
-    var allcookies = document.cookie;
-    name += "=";
-    var pos = allcookies.indexOf(name);
-    if (pos != -1){                        //如果pos值为-1则说明搜索"version="失败  
-        var start = pos + name.length;                  //cookie值开始的位置  
-        var end = allcookies.indexOf(";",start);        //从cookie值开始的位置起搜索第一个";"的位置,即cookie值结尾的位置  
-        if (end == -1) end = allcookies.length;        //如果end值为-1说明cookie列表里只有一个cookie  
-        var value = allcookies.substring(start,end);        //提取cookie的值  
-        return (value);                           //对它解码        
-    }else{                                                 //搜索失败，返回空字符串  
-        return "";
-
     }
 }
