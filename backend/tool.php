@@ -3,7 +3,7 @@
 		public static $DB;
 
 		public static function checkUserStatus() {
-			if(session_is_registered('id')) {
+			if(isset($_SESSION['id'])) {
 				return TRUE;
 			}
 			return FALSE;

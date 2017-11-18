@@ -11,7 +11,7 @@
 			$stmt->bind_param('i', $id);
 			$stmt->execute();
 			$result = $stmt->get_result();
-			return $result->fetch_all(MYSQLI_ASSOC)[0];
+			return $result->fetch_all(MYSQLI_ASSOC);
 		}
 	}
 ?>

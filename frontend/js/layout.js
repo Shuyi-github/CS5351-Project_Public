@@ -26,12 +26,10 @@ function layout1(){
         success: function (data) {
             //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
             if(!data.status){
-                showcamp();
                 $("#tb1").replaceWith('<table id="tb1"></table>');
                 var i=0;
-                $.each(data,function (camp_id,camp_name) {
-                    i++;
-                    $("#tb1").append('<tr id="ca'+camp_id+'"><th align="left">'+i+'</th><th><button id="'+camp_id+'"class="adbtn" onclick="getdetail(this)">'+camp_name+'</button></th><th><button id="a'+camp_id+'"class="button button-circle button-tiny" onclick="getads(this)"></button></th><th align="right"><button id="'+camp_id+'"class="button button-circle button-tiny" onclick="deletecamp(this)">-</button></th></tr>');
+                $.each(data, function (key,value) {
+                    $("#tb1").append('<tr id="ca'+value.camp_id+'"><th align="left">'+(key+1)+'</th><th><button id="'+value.camp_id+'"class="adbtn" onclick="getdetail(this)">'+value.camp_name+'</button></th><th><button id="a'+value.camp_id+'"class="button button-circle button-tiny" onclick="getads(this)"></button></th><th align="right"><button id="'+value.camp_id+'"class="button button-circle button-tiny" onclick="deletecamp(this)">-</button></th></tr>');
 
                 });
             }

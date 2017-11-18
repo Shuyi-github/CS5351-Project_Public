@@ -11,7 +11,10 @@
 			$stmt->bind_param('i', $id);
 			$stmt->execute();
 			$result = $stmt->get_result();
-			return $result->fetch_all(MYSQLI_ASSOC)[0];
+			if($stmt->infect_lines == 1) {
+				return [$result->fetch_all(MYSQLI_ASSOC)];
+			}
+			return $result->fetch_all(MYSQLI_ASSOC);
 		}
 	}
 ?>
