@@ -53,7 +53,7 @@ function layout1(){
 
 }
 function layout2(){
-    console.log("begin ajex");
+    console.log("begin ajax");
     $("#team").html(null);
     $.ajax({
         type: "POST",
@@ -70,19 +70,19 @@ function layout2(){
                     $("#team").append('<table><tr><th align="center">'+value.teamid+'</th><th align="center">'+value.cpname+'</th></tr>')
                     $.each(value,function (ke,val) {
                         $("#team").append('<tr><td align="left">'+val.staffname+'</td> <td align="center">'+val.stafftype+'</td><td align="right">'+val.hours+'</td></tr>')
-                    })
+                    });
                     $("#team").append('</table>')
-                })
+                });
 
 
                 }
             }
 
-        })
+        });
 
         }
 
-    )
+
     $('.centercontent_layout0').css('display','none');
     $('.centercontent_layout1').css('display','none');
     $('.centercontent_layout2').css('display','block');
