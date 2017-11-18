@@ -19,5 +19,26 @@
 				return ['status' => 1, 'message' => $conn->error_list];
 			}
 		}
+
+		/*public static function db() {
+			$conn = Tool::getDBConnection();
+			$sql = "select * from staff;";
+			$staff = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
+			foreach($staff as $val) {
+				$sql = "update staff set Password = '" . md5($val['Password']) . "' where StaffID = " . $val['StaffID'] . ";";
+				$conn->query($sql);
+			}
+			echo "OK!";
+		}*/
+
+		/*public static function power() {
+			$conn = Tool::getDBConnection();
+			$power = [0 => 777, 1 => 177, 2 => 43, 3 => 23, 4 => 7];
+			foreach ($power as $key => $value) {
+				$sql = "update authorization set Privilege = " . $value . " where RoleID = " . $key . ";";
+				$conn->query($sql);
+			}
+			echo "OK!";
+		}*/
 	}
 ?>
