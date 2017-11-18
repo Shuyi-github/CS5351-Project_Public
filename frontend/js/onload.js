@@ -40,8 +40,18 @@ $(document).ready(function(){
         $("#fade").hide();
         $("#light").hide();
     });
-
-
+    $( "input[name='start_date']" ).datepicker({
+        showButtonPanel: false
+    });
+    $( "input[name='end_date']" ).datepicker({
+        showButtonPanel: false
+        });
+    $( "input[name='sd']" ).datepicker({
+        showButtonPanel: false
+    });
+    $( "input[name='ed']" ).datepicker({
+        showButtonPanel: false
+    });
 //    $("#btn5").click(function(){
 //        $("#brline").append(" <li>Appended text</li>");
 //    })
