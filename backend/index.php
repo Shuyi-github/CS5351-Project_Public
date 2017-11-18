@@ -20,4 +20,5 @@
 	$classname = $path[2] . 'Logic';
 	$api = $path[3];
 	echo json_encode($classname::$api());
+	Tool::getDBConnection()->close();
 ?>

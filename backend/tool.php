@@ -26,5 +26,26 @@
 		public static function getDBConnection() {
 			return self::$DB;
 		}
+
+		public static function checkParameters($param) {
+			foreach($param as $key => $value) {
+				if(isset($_POST[$key])) {
+					switch($value) {
+						case 'not null':
+							if(empty($_POST[$key])) {
+								return FALSE;
+							}
+							break;
+						case 'int':
+							$_POST[$key] = intval($_POST[$key]);
+							break;
+						default:
+					}
+				} else {
+					return FALSE;
+				}
+			}
+			return TRUE;
+		}
 	}
 ?>
