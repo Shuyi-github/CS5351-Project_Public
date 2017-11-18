@@ -7,7 +7,7 @@ function confirm(){
         return false;
     }else{                                       //以上均符合要求，则调用登录esb接口
         $.ajax({
-            url:'backend/test.php'
+            url:'backend/test.php',
             type:'post',
             datatype:"json",
             data:{username:user,password:hash_pas},         //向服务器（接口）传递的参数
@@ -57,3 +57,4 @@ function getCookie(name) {
         return "";
 
     }
+}
