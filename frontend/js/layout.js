@@ -21,6 +21,7 @@ function layout1(){
         data: {
             //request_type: "1",
             //user_role: "1",
+
             //user_id: address,
         },
         success: function (data) {
@@ -53,6 +54,36 @@ function layout1(){
 
 }
 function layout2(){
+    console.log("begin ajex");
+    $("#team").html(null);
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url:'backend/js',
+        data: {
+
+        },
+        success: function (data) {
+            if(!data.status){
+                var i=0;
+                var j=0;
+                $.each(data,function (key,value) {
+                    $("#team").append('<table><tr><th align="center">'+value.teamid+'</th><th align="center">'+value.cpname+'</th></tr>')
+                    $.each(value,function (ke,val) {
+                        $("#team").append('<tr><td align="left">'+val.staffname+'</td> <td align="center">'+val.stafftype+'</td><td align="right">'+val.hours+'</td></tr>')
+                    })
+                    $("#team").append('</table>')
+                })
+
+
+                }
+            }
+
+        })
+
+        }
+
+    )
     $('.centercontent_layout0').css('display','none');
     $('.centercontent_layout1').css('display','none');
     $('.centercontent_layout2').css('display','block');
