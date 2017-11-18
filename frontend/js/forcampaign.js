@@ -109,15 +109,8 @@ function adsdetail(ads){
 function showcamp(){
     console.log("after ajax");
 ///* for local json test, delete later
-    var obj = JSON.parse('{ "101":"camp_1", "106":"camp_2", "270":"camp_3","350":"camp_4"}');
-    var i=0;
+    
 
-    $.each(obj,function (camp_id,camp_name) {
-        i++;
-        $("#tb1").append('<tr id="ca'+camp_id+'"><th align="left">'+i+'</th><th><button id="'+camp_id+'"class="adbtn" onclick="getdetail(this)">'+camp_name+'</button></th><th><button id="a'+camp_id+'"class="button button-circle button-tiny" onclick="getads(this)"></button></th><th align="right"><button id="'+camp_id+'"class="button button-circle button-tiny" onclick="deletecamp(this)">-</button></th></tr>');
-
-    });
-//*/
     $('.centercontent_layout0').css('display','none');
     $('.centercontent_layout1').css('display','block');
     $('.centercontent_layout2').css('display','none');
