@@ -52,6 +52,7 @@ $(document).ready(function(){
     $( "input[name='ed']" ).datepicker({
         showButtonPanel: false
     });
+
 //    $("#btn5").click(function(){
 //        $("#brline").append(" <li>Appended text</li>");
 //    })

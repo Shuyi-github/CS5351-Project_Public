@@ -7,7 +7,7 @@ function getdetail(elem){
     $.ajax({
         type: "POST",     //提交方式
         dataType: "json",     //传回类型
-        url: 'backend/test.php',
+        url: 'backend/campaign/getcampaignbyid',
         data: {
             request_id:elem.id,
         },
@@ -16,9 +16,9 @@ function getdetail(elem){
             if(!data.status){
                 popup();
                 $("#detail").replaceWith('<span id="detail">compaign detail.</span>');
+                $('#changebtn').replaceWith('<span id="changebtn"><button id="edit"  class="adbtn" onclick="changebtn('+elem+')">edit</button></span>');
                 $.each(data,function (detail_type,detail_content) {
-                    $("#detail").append("<br>");
-                    $("#detail").append('<input id="'+detail_type+'" disable>'+detail_type+":"+detail_content+'</input>');
+                    $("input[name='"+ detail_type +"']").val(detail_content);
                 });
             }
             else alert("server error");
@@ -47,6 +47,64 @@ function getdetail(elem){
         timeout:3000
     });
 }
+function getads(elem){
+   // alert("show me:"+elem.id);
+    var fromcamp=elem.id.replace('a','');
+    var id=elem.id;
+    var camp="c"+elem.id;
+  //  alert(trs);
+   // $('#'+trs).append('<tr id="123"></tr>');
+//    $('<tr class="trads"><th aligh="right"> ads type</th><th>idea</th><th aligh="right">cost type</th><th aligh="right">cost</th></tr>').insertAfter($('#'+trs).closest('tr'));
+
+    $.ajax({
+        type: "POST",     //提交方式
+        dataType: "json",     //传回类型
+        url: 'backend/test.php',
+        data: {
+            request_camp_id: fromcamp,
+        },
+        success: function (data) {
+            //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
+            if(!data.status){
+                $.each(data,function (ads_id,ads_type,cost_type,cost) {
+                    $('<tr id="'+elem.id+ads_id+'" class="trads"><th aligh="right">'+ads_type+'</th><th>idea</th><th aligh="right">'+cost_type+'</th><th aligh="right">'+cost+'</th></tr>').insertAfter($('#'+camp).closest('tr'));
+                });
+                $('#'+elem.id).replaceWith('<button class="button button-pill button-tiny" id="close'+id+'" ></button>');
+                $('#close'+id).click(function () {
+                    $('tr[id^="' + id + '"]').replaceWith("");
+                    $('#close'+id).replaceWith('<button id="' + id + '"class="button button-circle button-tiny" onclick="getads(this)"></button>');
+                });
+            }
+            else alert("server error");
+        },
+        error: function (err,textStatus) {
+
+            var data = JSON.parse('{ "1":"1000", "2":"tom", "3":"edfdg","4":"camp_4"}');
+            $.each(data,function (ads_id,ads_type) {
+                $('<tr id="'+elem.id+ads_id+'" class="trads"><th aligh="right">'+ads_type+'</th><th><button class="jqbtn" onclick="adsdetail('+ads_id+')">idea</button></th><th aligh="right">cost_type</th><th aligh="right">cost</th></tr>').insertAfter($('#'+camp).closest('tr'));
+            });
+            $('#'+elem.id).replaceWith('<button class="button button-pill button-tiny" id="close'+id+'" ></button>');
+            $('#close'+id).click(function () {
+                $('tr[id^="' + id + '"]').replaceWith("");
+                $('#close'+id).replaceWith('<button id="' + id + '"class="button button-circle button-tiny" onclick="getads(this)"></button>');
+            });
+
+
+        },
+        timeout:3000
+    });
+
+   // closeads(id);
+    //$("#closeads").click(closeads(id));
+
+}
+function adsdetail(ads){
+    $('#tb2').hide();
+    $('#tb3').show();
+    //$('#tb3').css("display","block");
+    alert(ads);
+    popup();
+}
 
 function showcamp(){
     console.log("after ajax");
@@ -55,14 +113,15 @@ function showcamp(){
     var i=0;
     $.each(obj,function (camp_id,camp_name) {
         i++;
-        $("#tb1").append('<tr><th align="right">'+i+'</th><th><button id="'+camp_id+'"class="adbtn" onclick="getdetail(this)">'+camp_name+'</button></th><th align="right"><button id="'+camp_id+'"class="button button-circle button-tiny" onclick="deletecamp(this)">-</button></th></tr>');
+        $("#tb1").append('<tr id="ca'+camp_id+'"><th align="left">'+i+'</th><th><button id="'+camp_id+'"class="adbtn" onclick="getdetail(this)">'+camp_name+'</button></th><th><button id="a'+camp_id+'"class="button button-circle button-tiny" onclick="getads(this)"></button></th><th align="right"><button id="'+camp_id+'"class="button button-circle button-tiny" onclick="deletecamp(this)">-</button></th></tr>');
 
     });
 //*/
     $('.centercontent_layout0').css('display','none');
     $('.centercontent_layout1').css('display','block');
     $('.centercontent_layout2').css('display','none');
-
+    $('#tb3').hide();
+    $('#tb2').show();
 }
 
 function to_newcam_lyt(){
@@ -72,9 +131,9 @@ function to_newcam_lyt(){
     $('#lt1_right_hide').css('display','block');
 }
 function insertcamp() {
-    var name = $("input[name='campaign_name']").val();
-    var client = $("input[name='client_id']").val();
-    var am = $("input[name='am_id']").val();
+    var name = $("input[name='c_name']").val();
+    var client = $("input[name='cl_id']").val();
+ //   var am = $("input[name='am_id']").val();
 //    var st = $("input[name='status']").val();
     var sd = $("input[name='start_date']").val();
     var ed = $("input[name='end_date']").val();
@@ -83,20 +142,20 @@ function insertcamp() {
 //    var cmc = $("input[name='cm_cost']").val();
 //    var ssapc = $("input[name='ssap_cost']").val();
     if( name.length < 1 || client.length < 1) {
-        alert("Please enter Client Name and Address.");
+        alert("Please enter campaign Name and client name.");
     } else {
         $.ajax({
             type: "POST",     //提交方式
             //contentType: "application/json; charset=utf-8",   //内容类型
             dataType: "json",     //传回类型
-            url: 'backend/test.php',
+            url: 'backend/campaign/addcampaign',
             data: {
                 campaign: name,
                 client: client, //id
-                manager: am,
+                //manager: am,
                 sdate: sd,
                 edate: ed,
-                contact: name, //id
+                //contact: name, //id
             },
             success: function (data) {
                 //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
@@ -134,7 +193,7 @@ function deletecamp(elem){
         type: "POST",     //提交方式
         //contentType: "application/json; charset=utf-8",   //内容类型
         dataType: "json",     //传回类型
-        url: 'backend/test.php',
+        url: 'backend/campaign/deletecampaign',
         data: {
             delete_id:elem.id,
         },
@@ -154,22 +213,30 @@ function deletecamp(elem){
     });
 }
 
-function changebtn(){
+function changebtn(elem){
     $('.inputDisabled').prop("disabled", false); // Element(s) are now enabled.
     $('#edit').replaceWith('<span id="changebtn"><button id="submit_edit"  class="adbtn">submit</button><span>');
+//  get staff information
     $.ajax({
         type: "POST",     //提交方式
         //contentType: "application/json; charset=utf-8",   //内容类型
         dataType: "json",     //传回类型
-        url: 'backend/test.php',
+        url: 'backend/campaign/getallstaff',
         data: {
         },
         success: function (data) {
             //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
             if (!data.status) {
-                alert("save success");
-                $("input[name='staf']").replaceWith('<select> <option>Option</option> <option>Option1</option><option>Option2</option></select>');
-            }
+                alert("get staff success");
+              //  $("input[name='am']").replaceWith('<select id="select1"> <option>Option</option></select>');
+                $("input[name='staf']").replaceWith('<select id="select2"> <option>Option</option></select>');
+                //    $("input[name='st']").replaceWith('<select id="select3"></select>');
+             //   $.each(obj1,function (id,name) {
+             //       $('#select1').append('<option id="'+id+'">'+name+'</option>');
+             //   })
+                $.each(data,function (id,name) {
+                    $('#select2').append('<option id="'+id+'">'+name+'</option>');
+                })}
             else alert("server error");
         },
         error: function (err) {
@@ -185,11 +252,10 @@ function changebtn(){
             $.each(obj2,function (id,name) {
                 $('#select2').append('<option id="'+id+'">'+name+'</option>');
             })
-            //    $("input[name='sd']").datepicker("option", "showAnim", $( this ).val());
-            //    $("input[name='ed']").datepicker("option", "showAnim", $( this ).val());
-            // $('.ui-datepicker').css('z-index', 99999999999999);
+
         }
     });
+
     //     $("input[name='staf']").replaceWith('<select> <option>Option</option> <option>Option1</option><option>Option2</option></select>');
     $('#submit_edit').click(function () {
         var name = $("input[name='cn']").val();
@@ -209,11 +275,12 @@ function changebtn(){
                 type: "POST",     //提交方式
                 //contentType: "application/json; charset=utf-8",   //内容类型
                 dataType: "json",     //传回类型
-                url: 'backend/test.php',
+                url: 'ackend/campaign/updatecampaign',
                 data: {
+                    id:elem,
                     campaign: name,
                     client: client, //id
-                    manager: am,
+                    //manager: am,
                     status: st,
                     sdate: sd,
                     edate: ed,
@@ -234,7 +301,6 @@ function changebtn(){
                 },
                 error: function (err) {
                     alert("err:" + err);
-                    //    alert(name+client+am+st);
                     var x=$('#select1 option:selected').attr("id");
                     alert(x);
                     $("#fade").hide();

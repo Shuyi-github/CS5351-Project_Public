@@ -17,10 +17,10 @@ function layout1(){
     $.ajax({
         type: "POST",     //提交方式
         dataType: "json",     //传回类型
-        url: 'backend/test.php',
+        url: 'backend/campaign/getcampaignbystaff',
         data: {
-            request_type: "1",
-            user_role: "1",
+            //request_type: "1",
+            //user_role: "1",
             //user_id: address,
         },
         success: function (data) {
@@ -29,9 +29,9 @@ function layout1(){
                 showcamp();
                 $("#tb1").replaceWith('<table id="tb1"></table>');
                 var i=0;
-                $.each(data,function (camp_id,camp_name) {
+                $.each(obj,function (camp_id,camp_name) {
                     i++;
-                    $("#tb1").append('<tr><th align="right">'+i+'</th><th><button id="'+camp_id+'"class="adbtn" onclick="getdetail()">'+camp_name+'</button></th><th align="right"><button id="'+camp_id+'"class="adbtn" onclick="deletecamp()">delete</button></th></tr>');
+                    $("#tb1").append('<tr id="ca'+camp_id+'"><th align="left">'+i+'</th><th><button id="'+camp_id+'"class="adbtn" onclick="getdetail(this)">'+camp_name+'</button></th><th><button id="a'+camp_id+'"class="button button-circle button-tiny" onclick="getads(this)"></button></th><th align="right"><button id="'+camp_id+'"class="button button-circle button-tiny" onclick="deletecamp(this)">-</button></th></tr>');
 
                 });
             }
@@ -53,7 +53,6 @@ function layout1(){
 
 }
 function layout2(){
-    $.
     $('.centercontent_layout0').css('display','none');
     $('.centercontent_layout1').css('display','none');
     $('.centercontent_layout2').css('display','block');

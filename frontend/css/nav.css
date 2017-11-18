@@ -254,6 +254,10 @@ delbtn{
 #tb1{
     width:100%;
     background-color: #888888;
+    table-layout: fixed;
+}
+.trads{
+    background-color: white;
 }
 
 
