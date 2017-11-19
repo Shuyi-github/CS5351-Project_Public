@@ -52,30 +52,34 @@ function layout1(){
     });
 
 }
+
 function layout2(){
     console.log("begin ajax");
     $("#team").html(null);
     $.ajax({
         type: "POST",
         dataType: "json",
-        url:'backend/js',
+        url:'backend/team/getteam',
         data: {
+            
 
         },
         success: function (data) {
             if(!data.status){
-                var i=0;
-                var j=0;
                 $.each(data,function (key,value) {
-                    $("#team").append('<table><tr><th align="center">'+value.teamid+'</th><th align="center">'+value.cpname+'</th></tr>')
-                    $.each(value,function (ke,val) {
-                        $("#team").append('<tr><td align="left">'+val.staffname+'</td> <td align="center">'+val.stafftype+'</td><td align="right">'+val.hours+'</td></tr>')
+                    $("#team").append('<table id="teamtable"><tr><th align="center">'+value.teamid+'</th><th align="center">'+value.cpid+value.cpname+'</th></tr>')
+                    $.each(value.staff,function (ke,val) {
+                        $("#team").append('<tr><td align="center">'+val.staffname+'</td> <td align="center">'+val.stafftype+'</td><td align="center">'+val.hours+'</td></tr>')
                     });
                     $("#team").append('</table>')
                 });
-
+                console.log("after ajax")
+                $('.centercontent_layout0').css('display','none');
+                $('.centercontent_layout1').css('display','none');
+                $('.centercontent_layout2').css('display','block');
 
                 }
+                else (alert("server error"))
             }
 
         });
@@ -83,7 +87,5 @@ function layout2(){
         }
 
 
-    $('.centercontent_layout0').css('display','none');
-    $('.centercontent_layout1').css('display','none');
-    $('.centercontent_layout2').css('display','block');
-}
+
+
