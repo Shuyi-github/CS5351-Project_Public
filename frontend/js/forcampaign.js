@@ -66,7 +66,7 @@ function getads(elem){
             //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
             if(!data.status){
                 $.each(data,function (key,value) {
-                    $('<tr id="'+elem.id+value.ID+'" class="trads"><td align="middle">'+value.Type+'</td><td align="middle">idea</td><td align="middle">'+value.FromCampaign+'</td><td align="middle">'+value.Cost+'</td></tr>').insertAfter($('#'+camp).closest('tr'));
+                    $('<tr id="'+elem.id+value.ID+'" class="trads"><td align="middle">'+value.Type+'</td><td align="middle"></td><td align="middle">'+value.ID+'</td><td align="middle">'+value.Cost+'</td></tr>').insertAfter($('#'+camp).closest('tr'));
                 });
                 $('#'+elem.id).replaceWith('<button class="button button-pill button-tiny" id="close'+id+'" ></button>');
                 $('#close'+id).click(function () {
