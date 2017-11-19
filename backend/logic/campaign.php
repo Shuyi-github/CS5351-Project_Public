@@ -3,6 +3,7 @@
 	include 'data/campaignModel.php';
 	include 'data/teamModel.php';
 	include 'data/membersModel.php';
+	include 'data/clientModel.php';
 	class campaignLogic {
 		public static function getcampaign() {
 			if(!Tool::checkUserStatus()) {
@@ -41,7 +42,18 @@
 
 			$campaign = CampaignModel::findByID($_POST['request_id']);
 			$result = [];
-			return $campaign;
+			$result['cn'] = $campaign['Title'];
+			$result['cd'] = ClientModel::findByID($campaign['OwnerClient'])['Name'];
+			$manager = StaffModel::findByID(TeamModel::findByID($campaign['AssignedTeam'])['Manager']);
+			$result['am'] = $manager['FirstName'] . ' ' . $manager['LastName'];
+			$result['st'] = $campaign['Status'];
+			$result['sd'] = date('m/d/Y', $campaign['StartDate']);
+			$result['ed'] = date('m/d/Y', $campaign['EndDate']);
+			$contact = StaffModel::findByID($campaign['ContactPerson']);
+			$result['cp'] = $contact['FirstName'] . ' ' . $contact['LastName'];
+			$result['cmc'] = $campaign['MaterialCost'];
+			$result['ssapc'] = $campaign['SerProdCost'];
+			return $result;
 		}
 	}
 ?>
