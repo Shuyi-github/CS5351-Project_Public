@@ -230,7 +230,7 @@ function changebtn(elem){
         type: "POST",     //提交方式
         //contentType: "application/json; charset=utf-8",   //内容类型
         dataType: "json",     //传回类型
-        url: 'backend/campaign/getallstaff',
+        url: 'backend/staff/getallstaff',
         data: {
         },
         success: function (data) {
