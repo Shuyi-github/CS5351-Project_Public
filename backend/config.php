@@ -14,6 +14,12 @@
 			'CHECKTEAM_ALL' => 2,
 			'PUBLIC' => 65535,
 		];
+
+		public static $ADTYPE = [
+			1 => 'NEWSPAPER AD',
+			2 => 'ONLINE AD',
+			3 => 'TV COMMERCIAL'
+		];
 	}
 	
 ?>

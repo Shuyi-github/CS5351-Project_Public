@@ -58,15 +58,15 @@ function getads(elem){
     $.ajax({
         type: "POST",     //提交方式
         dataType: "json",     //传回类型
-        url: 'backend/test.php',
+        url: 'backend/ads/getadsbycampaign',
         data: {
-            request_camp_id: fromcamp,
+            campaign_id: fromcamp,
         },
         success: function (data) {
             //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
             if(!data.status){
                 $.each(data,function (key,value) {
-                    $('<tr id="'+elem.id+value.ads_id+'" class="trads"><td align="middle">'+value.ads_type+'</td><td align="middle">idea</td><td align="middle">'+value.cost_type+'</td><td align="middle">'+value.cost+'</td></tr>').insertAfter($('#'+camp).closest('tr'));
+                    $('<tr id="'+elem.id+value.ID+'" class="trads"><td align="middle">'+value.Type+'</td><td align="middle"></td><td align="middle">'+value.ID+'</td><td align="middle">'+value.Cost+'</td></tr>').insertAfter($('#'+camp).closest('tr'));
                 });
                 $('#'+elem.id).replaceWith('<button class="button button-pill button-tiny" id="close'+id+'" ></button>');
                 $('#close'+id).click(function () {
