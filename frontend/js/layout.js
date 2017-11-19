@@ -74,7 +74,7 @@ function layout2(){
                         $("#team").append('<tr><td align="center">'+val.staffname+'</td> <td align="center">'+val.stafftype+'</td><td align="center">'+val.hours+'</td></tr>')
                     });
                     $("#team").append('</tbody></table>');
-                    $("#team").append('<tr>');
+                    $("#team").append('<br>');
                     $("#team").append('</div>');
 
 
