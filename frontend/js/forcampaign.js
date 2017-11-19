@@ -237,7 +237,7 @@ function changebtn(elem){
             //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
             if (!data.status) {
                 alert("get staff success");
-                 $("input[name='staf']").replaceWith('<select id="select2"> <option>Option</option></select>');
+                 $("input[name='staf']").replaceWith('<select id="select2"></select>');
                 $.each(data,function (key,value) {
                     $('#select2').append('<option id="'+value.id+'">'+value.name+'</option>');
                 })}
@@ -248,7 +248,7 @@ function changebtn(elem){
             var obj1 = JSON.parse('{ "101":"camp_1", "106":"camp_2", "270":"camp_3","350":"camp_4"}');
             var obj2 = JSON.parse('{ "101":"camp_1", "106":"camp_2", "270":"camp_3","350":"camp_4"}');
             $("input[name='am']").replaceWith('<select id="select1"> <option>Option</option></select>');
-            $("input[name='staf']").replaceWith('<select id="select2"> <option>Option</option></select>');
+            $("input[name='staf']").replaceWith('<select id="select2"></select>');
             //    $("input[name='st']").replaceWith('<select id="select3"></select>');
             $.each(obj1,function (id,name) {
                 $('#select1').append('<option id="'+id+'">'+name+'</option>');
