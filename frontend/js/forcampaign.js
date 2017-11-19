@@ -18,8 +18,14 @@ function getdetail(elem){
                 $("#detail").replaceWith('<span id="detail">compaign detail.</span>');
                 $('#changebtn').replaceWith('<span id="changebtn"><button id="edit"  class="adbtn" onclick="changebtn('+elem.id+')">edit</button></span>');
                 $.each(data,function (key,value) {
-                    $("input[name='"+ key +"']").val(value);
+                    if(key =="staff"){
+                        $.each(data,function(key,value){
+                            $('#showstaff').append('<tr><th align="right"></th><th><input type="text" class="inputDisabled" disabled>'+value.name+' </input></th> </tr>');
+                        });
+                    }
+                   else $("input[name='"+ key +"']").val(value);
                 });
+
             }
             else alert("server error");
         },
