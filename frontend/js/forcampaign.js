@@ -18,7 +18,7 @@ function getdetail(elem){
                 $("#detail").replaceWith('<span id="detail">compaign detail.</span>');
                 $('#changebtn').replaceWith('<span id="changebtn"><button id="edit"  class="adbtn" onclick="changebtn('+elem+')">edit</button></span>');
                 $.each(data,function (key,value) {
-                    $("input[name='"+ value.detail_type +"']").val(value.detail_content);
+                    $("input[name='"+ key +"']").val(value);
                 });
             }
             else alert("server error");
@@ -38,8 +38,7 @@ function getdetail(elem){
             $("#detail").replaceWith('<span id="detail">compaign detail.</span>');
             $('#changebtn').replaceWith('<span id="changebtn"><button id="edit"  class="adbtn" onclick="changebtn()">edit</button></span>');
             $.each(obj,function (detail_type,detail_content) {
-//                $("#tb2").append('<tr><th aligh="left"><input  value="'+detail_type+'"disabled> </input></th><th aligh="right"><input id="'+detail_type+'"value="'+detail_content+'" class="inputDisabled" disabled> </input></th>>');
-                $("input[name='"+ detail_type +"']").val(detail_content);
+               $("input[name='"+ detail_type +"']").val(detail_content);
 
             });
             //
@@ -238,12 +237,7 @@ function changebtn(elem){
             //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
             if (!data.status) {
                 alert("get staff success");
-                //  $("input[name='am']").replaceWith('<select id="select1"> <option>Option</option></select>');
-                $("input[name='staf']").replaceWith('<select id="select2"> <option>Option</option></select>');
-                //    $("input[name='st']").replaceWith('<select id="select3"></select>');
-                //   $.each(obj1,function (id,name) {
-                //       $('#select1').append('<option id="'+id+'">'+name+'</option>');
-                //   })
+                 $("input[name='staf']").replaceWith('<select id="select2"> <option>Option</option></select>');
                 $.each(data,function (key,value) {
                     $('#select2').append('<option id="'+value.id+'">'+value.name+'</option>');
                 })}

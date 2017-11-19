@@ -6,7 +6,7 @@
 
 		public static function findByID($id) {
 			$conn = Tool::getDBConnection();
-			$sql = "select * from " . self::tableName() . " where Client = ? limit 1;";
+			$sql = "select * from " . self::tableName() . " where ClientID = ? limit 1;";
 			$stmt = $conn->prepare($sql);
 			$stmt->bind_param('i', $id);
 			$stmt->execute();
