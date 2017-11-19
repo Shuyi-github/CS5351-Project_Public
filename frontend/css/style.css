@@ -189,6 +189,7 @@ input {
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: rgb(230, 189, 189);
+
 }
 
 /* Padding and font style */
@@ -196,6 +197,7 @@ input {
   padding: 10px 10px;
   font-size: 20px;
   font-family: Verdana;
+  width:30%;
   color: rgb(19, 105, 238);
 }
 
