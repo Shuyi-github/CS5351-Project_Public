@@ -58,7 +58,7 @@ function getads(elem){
     $.ajax({
         type: "POST",     //提交方式
         dataType: "json",     //传回类型
-        url: 'backend/test.php',
+        url: 'backend/ads/getadsbycampaign',
         data: {
             compaign_id: fromcamp,
         },
