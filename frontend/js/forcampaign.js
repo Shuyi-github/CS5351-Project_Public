@@ -270,7 +270,7 @@ function changebtn(elem){
     });
     $('#addstaff').click(function () {
         var options = $("#select2 option").clone();
-        $('<select id="selectadd"></select>').insertAfter($('#select2'));
+        $('<br><select id="selectadd" class="selectadd"></select>').insertAfter($('#select2'));
         $('#selectadd').append(options);
        // $('#selectadd').val($('#select2').val());
     });
