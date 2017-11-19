@@ -53,7 +53,57 @@
 			$result['cp'] = $contact['FirstName'] . ' ' . $contact['LastName'];
 			$result['cmc'] = $campaign['MaterialCost'];
 			$result['ssapc'] = $campaign['SerProdCost'];
+			$result['staff'] = [];
+			$member = MembersModel::findByTeam($campaign['AssignedTeam']);
+			foreach ($member as $m) {
+				$t = [];
+				$s = StaffModel::findByID($m['StaffID']);
+				$t['name'] = $s['FirstName'] . ' ' . $s['LastName'];
+				$t['hour'] = $m['Hours'];
+				$result['staff'][] = $t;
+			}
 			return $result;
+		}
+
+		public static function updatecampaign() {
+			if(!Tool::checkUserStatus()) {
+				return ['status' => 1, 'message' => 'Please logon first.'];
+			}
+			if(!Tool::checkParameters(['campaign_id' => 'int', 'cpname' => 'not null', 'start' => 'int', 'end' => 'int', 'status' => 'int', 'contact' => 'int', 'copyright' => 'int', 'ssp' => 'int'])) {
+				return ['status' => 1, 'message' => 'Invalid parameters.'];
+			}
+			$campaign = CampaignModel::findByID($_POST['campaign_id']);
+			if(empty($campaign)) {
+				return ['status' => 1, 'message' => 'Invalid parameters.'];
+			}
+
+			Tool::getDBConnection()->begin_transaction();
+			if(CampaignModel::updatecampaign($_POST['campaign_id'], $_POST['cpname'], $_POST['start'], $_POST['end'], 0, $_POST['copyright'], $_POST['ssp'], 0, $_POST['contact'])) {
+				Tool::getDBConnection()->rollback();
+				return ['status' => 1, 'message' => 'Invalid parameters.'];
+			} else {
+				foreach ($staff as $value) {
+					$member = MembersModel::findByTeam($campaign['AssignedTeam']);
+					$flag = TRUE;
+					foreach ($member as $m) {
+						if($m['StaffID'] == $value['id']) {
+							$flag = FALSE;
+							break;
+						}
+					}
+					if($flag) {
+						if(MembersModel::addMenber($campaign['AssignedTeam'], 2, $value['id'], $value['hour'])) {
+							Tool::getDBConnection()->rollback();
+							return ['status' => 1, 'message' => 'Invalid parameters.'];
+						}
+						$t = [];
+						$t['StaffID'] = $value['id'];
+						$member[] = $t;
+					}
+				}
+				Tool::getDBConnection()->commit();
+				return ['status' => 0, 'message' => 'success'];
+			}
 		}
 	}
 ?>

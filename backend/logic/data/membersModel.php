@@ -30,11 +30,11 @@
 			return $result->fetch_all(MYSQLI_ASSOC);
 		}
 
-		public static function addMenber($team, $type, $staff) {
+		public static function addMenber($team, $type, $staff, $hour) {
 			$conn = Tool::getDBConnection();
-			$sql = "insert into " . self::tableName() . "(FromTeam, StaffType, StaffID, Hours) values(?, ?, ?, 0);";
+			$sql = "insert into " . self::tableName() . "(FromTeam, StaffType, StaffID, Hours) values(?, ?, ?, ?);";
 			$stmt = $conn->prepare($sql);
-			$stmt->bind_param('iii', $team, $type, $staff);
+			$stmt->bind_param('iiii', $team, $type, $staff, $hour);
 			$stmt->execute();
 			return $stmt->insert_id;
 		}
