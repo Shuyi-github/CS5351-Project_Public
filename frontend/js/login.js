@@ -7,9 +7,6 @@ function confirm(){
         return false;
     }else{                                       //以上均符合要求，则调用登录esb接口
         $.post('backend/login/login', {
-            //url:'backend/login/login',
-            //type:'post',
-            //datatype:"json",
                 username:user,
                 password:hash_pas,        //向服务器（接口）传递的参数
             }, function(data) {                                        //服务器（接口）返回来的数据
