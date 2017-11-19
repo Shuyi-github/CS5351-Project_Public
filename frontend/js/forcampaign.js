@@ -16,7 +16,7 @@ function getdetail(elem){
             if(!data.status){
                 popup();
                 $("#detail").replaceWith('<span id="detail">compaign detail.</span>');
-                $('#changebtn').replaceWith('<span id="changebtn"><button id="edit"  class="adbtn" onclick="changebtn('+elem+')">edit</button></span>');
+                $('#changebtn').replaceWith('<span id="changebtn"><button id="edit"  class="adbtn" onclick="changebtn()">edit</button></span>');
                 $.each(data,function (key,value) {
                     $("input[name='"+ key +"']").val(value);
                 });
@@ -281,7 +281,7 @@ function changebtn(elem){
                 dataType: "json",     //传回类型
                 url: 'ackend/campaign/updatecampaign',
                 data: {
-                    id:elem,
+                    id:elem.id,
                     campaign: name,
                     client: client, //id
                     //manager: am,
