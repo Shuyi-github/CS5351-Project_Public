@@ -13,7 +13,7 @@ function layout0(){
 function layout1(){
 
     console.log("begin ajax");
-    $("#tb1").html("");
+    $("#tb1").find('tbody').html("");
     $.ajax({
         type: "POST",     //提交方式
         dataType: "json",     //传回类型
@@ -21,19 +21,17 @@ function layout1(){
         data: {
             //request_type: "1",
             //user_role: "1",
-
             //user_id: address,
         },
         success: function (data) {
             //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
             if(!data.status){
-                $("#tb1").replaceWith('<table id="tb1"></table>');
+                //   $("#tb1").replaceWith('<table id="tb1"></table>');
                 var i=0;
                 $.each(data, function (key,value) {
-                    $("#tb1").append('<tr id="ca'+value.camp_id+'"><th align="left">'+(key+1)+'</th><th><button id="'+value.camp_id+'"class="adbtn" onclick="getdetail(this)">'+value.camp_name+'</button></th><th><button id="a'+value.camp_id+'"class="button button-circle button-tiny" onclick="getads(this)"></button></th><th align="right"><button id="'+value.camp_id+'"class="button button-circle button-tiny" onclick="deletecamp(this)">-</button></th></tr>');
-
+                    $("#tb1").find("tbody").append('<tr id="ca'+value.camp_id+'"><td align="middle">'+i+'</td><td align="middle"><button id="'+value.camp_id+'" class="button button-glow button-border button-rounded button-primary" onclick="getdetail(this)">'+value.camp_name+'</button></td><td align="middle"><button id="a'+value.camp_id+'"class="button button-circle button-tiny" onclick="getads(this)"></button></td><td align="middle"><button id="'+value.camp_id+'"class="button button-circle button-tiny" onclick="deletecamp(this)">-</button></td></tr>');
                 });
-                showcamp();
+            showcamp();
             }
             else alert("server error");
         },
