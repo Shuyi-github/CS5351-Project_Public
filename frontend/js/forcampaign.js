@@ -7,37 +7,42 @@ function getdetail(elem){
     $.ajax({
         type: "POST",     //提交方式
         dataType: "json",     //传回类型
-        url: 'backend/test.php',
+        url: 'backend/campaign/getcampaignbyid',
         data: {
-            request_camp_id: fromcamp,
+            request_id:elem.id,
         },
         success: function (data) {
             //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
             if(!data.status){
+                popup();
+                $("#detail").replaceWith('<span id="detail">compaign detail.</span>');
+                $('#changebtn').replaceWith('<span id="changebtn"><button id="edit"  class="adbtn" onclick="changebtn('+elem+')">edit</button></span>');
                 $.each(data,function (key,value) {
-                    $('<tr id="'+elem.id+value.ads_id+'" class="trads"><td align="middle">'+value.ads_type+'</td><td align="middle">idea</td><td align="middle">'+value.cost_type+'</td><td align="middle">'+value.cost+'</td></tr>').insertAfter($('#'+camp).closest('tr'));
-                });
-                $('#'+elem.id).replaceWith('<button class="button button-pill button-tiny" id="close'+id+'" ></button>');
-                $('#close'+id).click(function () {
-                    $('tr[id^="' + id + '"]').replaceWith("");
-                    $('#close'+id).replaceWith('<button id="' + id + '"class="button button-circle button-tiny" onclick="getads(this)"></button>');
+                    $("input[name='"+ value.detail_type +"']").val(value.detail_content);
                 });
             }
             else alert("server error");
         },
         error: function (err,textStatus) {
+            console.log("timeout");
+            if(textStatus=='timeout')
+            {
+                alert('Failed from timeout');
+            }
+            else{
+                alert("err:" + err);
+            }
+            popup();
+            //for test function, delete later
+            var obj = JSON.parse('{ "cn":"1000", "cd":"tom", "am":"edfdg","cmc":"camp_4"}');
+            $("#detail").replaceWith('<span id="detail">compaign detail.</span>');
+            $('#changebtn').replaceWith('<span id="changebtn"><button id="edit"  class="adbtn" onclick="changebtn()">edit</button></span>');
+            $.each(obj,function (detail_type,detail_content) {
+//                $("#tb2").append('<tr><th aligh="left"><input  value="'+detail_type+'"disabled> </input></th><th aligh="right"><input id="'+detail_type+'"value="'+detail_content+'" class="inputDisabled" disabled> </input></th>>');
+                $("input[name='"+ detail_type +"']").val(detail_content);
 
-            var data = JSON.parse('{ "1":"1000", "2":"tom", "3":"edfdg","4":"camp_4"}');
-            $.each(data,function (ads_id,ads_type) {
-                $('<tr id="'+elem.id+ads_id+'" class="trads"><td align="middle">'+ads_type+'</td><td align="middle"><button class="jqbtn" onclick="adsdetail('+ads_id+')">idea</button></td><td align="middle">cost_type</td><td align="middle">cost</td></tr>').insertAfter($('#'+camp).closest('tr'));
             });
-            $('#'+elem.id).replaceWith('<button class="button button-pill button-tiny" id="close'+id+'" ></button>');
-            $('#close'+id).click(function () {
-                $('tr[id^="' + id + '"]').replaceWith("");
-                $('#close'+id).replaceWith('<button id="' + id + '"class="button button-circle button-tiny" onclick="getads(this)"></button>');
-            });
-
-
+            //
         },
         timeout:3000
     });
