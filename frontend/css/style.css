@@ -51,7 +51,7 @@ table {
 .header{
   width: 1600px;
   height:60px;
-  background-color: #48fbff;
+  background-color:  #006198;
 }
 
 
@@ -131,7 +131,7 @@ body {
 }
 
 .submit {
-  background-color: #48fbff; /* Green */
+  background-color:  #006198; /* Green */
   position: relative;
   border: none;
   color: white;
