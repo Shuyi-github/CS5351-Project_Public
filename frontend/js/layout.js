@@ -67,11 +67,12 @@ function layout2(){
         success: function (data) {
             if(!data.status){
                 $.each(data,function (key,value) {
-                    $("#team").append('<table id="teamtable"><tr><th align="center">'+value.teamid+'</th><th align="center">'+value.cpid+value.cpname+'</th></tr>')
+                    $("#team").append('<div id="teamdiv"><h1>'+"team"+value.teamid+"   "+value.cpname+'</h1><table id="teamtable"><tr><th>name</th><th>type</th><th>work hours</th></tr>')
                     $.each(value.staff,function (ke,val) {
                         $("#team").append('<tr><td align="center">'+val.staffname+'</td> <td align="center">'+val.stafftype+'</td><td align="center">'+val.hours+'</td></tr>')
                     });
                     $("#team").append('</table>');
+                    $("#team").append('</div>')
 
                 });
                 console.log("after ajax")
