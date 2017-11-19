@@ -17,6 +17,7 @@ function layout1(){
     $('.inputDisabled').prop("disabled", true);
     $('.staffinfo').replaceWith("");
     $('#select2').replaceWith('<input type="text" name="staf" class="inputDisabled" disabled> </input></th>');
+    $('#addstaff').css("display","none");
     $.ajax({
         type: "POST",     //提交方式
         dataType: "json",     //传回类型
