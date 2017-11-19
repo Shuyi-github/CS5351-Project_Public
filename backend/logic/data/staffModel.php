@@ -34,6 +34,15 @@
 			return $result->fetch_all(MYSQLI_ASSOC);
 		}
 
+		public static function findAll() {
+			$conn = Tool::getDBConnection();
+			$sql = "select * from " . self::tableName()  . ";";
+			$stmt = $conn->prepare($sql);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			return $result->fetch_all(MYSQLI_ASSOC);
+		}
+
 		public static function addStaff($firstname, $lastname, $phone, $email, $password, $pay) {
 			$conn = Tool::getDBConnection();
 			$sql = "insert into " . self::tableName() . "(FirstName, Lastname, Phone, Email, Password, Payrate, Role) values(?, ?, ?, ?, ?, ?, 2);";
