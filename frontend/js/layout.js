@@ -71,7 +71,7 @@ function layout2(){
                     $.each(value.staff,function (ke,val) {
                         $("#team").append('<tr><td align="center">'+val.staffname+'</td> <td align="center">'+val.stafftype+'</td><td align="center">'+val.hours+'</td></tr>')
                     });
-                    $("#team").append('</table>')
+                    $("#team").append('</table>');
 
                 });
                 console.log("after ajax")
