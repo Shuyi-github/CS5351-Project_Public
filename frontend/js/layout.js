@@ -55,13 +55,13 @@ function layout1(){
 
 function layout2(){
     console.log("begin ajax");
-    $("#team").html(null);
+    $("#team").html("");
     $.ajax({
         type: "POST",
         dataType: "json",
         url:'backend/team/getteam',
         data: {
-            
+
 
         },
         success: function (data) {
