@@ -72,14 +72,16 @@ function layout2(){
                         $("#team").append('<tr><td align="center">'+val.staffname+'</td> <td align="center">'+val.stafftype+'</td><td align="center">'+val.hours+'</td></tr>')
                     });
                     $("#team").append('</table>')
+
                 });
                 console.log("after ajax")
                 $('.centercontent_layout0').css('display','none');
                 $('.centercontent_layout1').css('display','none');
                 $('.centercontent_layout2').css('display','block');
 
+
                 }
-                else (alert("server error"))
+                else (alert("server error"));
             }
 
         });
