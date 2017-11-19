@@ -72,13 +72,6 @@ function layout2(){
                     $("#team").append('<div id="teamdiv"><h2>'+"team"+value.teamid+"&nbsp"+value.cpname+'</h2><table id="teamtable"><tbody><tr><th>name</th><th>type</th><th>work hours</th></tr>')
                     $.each(value.staff,function (ke,val) {
                         $("#team").append('<tr><td align="center">'+val.staffname+'</td> <td align="center">'+val.stafftype+'</td><td align="center">'+val.hours+'</td></tr>')
-                        $("#teamtable").easyTable({
-                            hover:'btn-primary',
-                            buttons:false,
-                            select:false,
-                            sortable:false,
-                            scroll: {active: true, height: '400px'}
-                        })
                     });
                     $("#team").append('</tbody></table>');
                     $("#team").append('</div>');

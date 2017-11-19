@@ -178,6 +178,36 @@ input {
   font-size: 14px;
 }
 
+
+#teamtable thead, #teamtable tr {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: rgb(230, 189, 189);
+}
+#teamtable {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(230, 189, 189);
+}
+
+/* Padding and font style */
+#teamtable td, #teamtable th {
+  padding: 5px 10px;
+  font-size: 12px;
+  font-family: Verdana;
+  color: rgb(177, 106, 104);
+}
+
+/* Alternating background colors */
+#teamtable tr:nth-child(even) {
+  background: rgb(238, 211, 210)
+}
+#teamtable tr:nth-child(odd) {
+  background: #FFF
+}
+
+
+
 input[type=text], input[type=password] {
   margin: 5px;
   padding: 0 10px;
