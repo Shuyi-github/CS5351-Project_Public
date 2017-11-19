@@ -30,10 +30,11 @@ $(document).ready(function(){
         $("#light").show();
     });
     $("#close").click(function(){
-      //  $("#detail").replaceWith('<span id="detail">compaign detail.</span>');
-      //  $("#select").html('');
+        //  $("#detail").replaceWith('<span id="detail">compaign detail.</span>');
+        //  $("#select").html('');
         $("#fade").hide();
         $("#light").hide();
+        $('#edads').hide();
         layout1();
     });
     $("#fade").click(function(){
@@ -45,15 +46,20 @@ $(document).ready(function(){
     });
     $( "input[name='end_date']" ).datepicker({
         showButtonPanel: false
-        });
+    });
     $( "input[name='sd']" ).datepicker({
         showButtonPanel: false
     });
     $( "input[name='ed']" ).datepicker({
         showButtonPanel: false
     });
-    $("#tb1").DataTable();
-
+    $("#tb1").easyTable({
+        hover:'btn-primary',
+        buttons:false,
+        select:true,
+        sortable:false,
+        scroll: {active: true, height: '400px'}
+    });
 //    $("#btn5").click(function(){
 //        $("#brline").append(" <li>Appended text</li>");
 //    })

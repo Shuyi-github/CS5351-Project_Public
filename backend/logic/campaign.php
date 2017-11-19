@@ -6,7 +6,7 @@
 	class campaignLogic {
 		public static function getcampaign() {
 			if(!Tool::checkUserStatus()) {
-				return ['status' => 0, 'message' => 'Please logon first.'];
+				return ['status' => 1, 'message' => 'Please logon first.'];
 			}
 
 			$team = TeamModel::findByManager($_SESSION['id']);
@@ -29,6 +29,19 @@
 				}
 			}
 			return $result;
+		}
+
+		public static function getcampaignbyid() {
+			if(!Tool::checkUserStatus()) {
+				return ['status' => 1, 'message' => 'Please logon first.'];
+			}
+			if(!Tool::checkParameters(['request_id' => 'int'])) {
+				return ['status' => 1, 'message' => 'Invalid parameters.'];
+			}
+
+			$campaign = CampaignModel::findByID($_POST['request_id']);
+			$result = [];
+			return $campaign;
 		}
 	}
 ?>

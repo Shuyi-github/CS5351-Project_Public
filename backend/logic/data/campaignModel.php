@@ -54,6 +54,15 @@
 			return $result->fetch_all(MYSQLI_ASSOC);
 		}
 
+		public static function findAll() {
+			$conn = Tool::getDBConnection();
+			$sql = "select * from " . self::tableName() . ";";
+			$stmt = $conn->prepare($sql);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			return $result->fetch_all(MYSQLI_ASSOC);
+		}
+
 		public static function addCampaign($client, $title, $start, $end, $team) {
 			$conn = Tool::getDBConnection();
 			$sql = "insert into " . self::tableName() . "(OwnerClient, Title, StartDate, EndDate, Status, EstimateCost, MaterialCost, SerProdCost, OtherCost, ContactPerson, AssignedTeam) values(?, ?, ?, ?, 0, 0, 0, 0, 0, 0, ?);";

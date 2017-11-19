@@ -257,7 +257,6 @@ delbtn{
 }
 #tb1{
     width:100%;
-    background-color: #888888;
     table-layout: fixed;
 }
 
@@ -272,6 +271,9 @@ delbtn{
 }
 .trads{
     background-color: white;
+}
+#tb1 tr:hover{
+    background-color: darkgrey;
 }
 
 
