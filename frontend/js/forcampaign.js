@@ -19,8 +19,8 @@ function getdetail(elem){
                 $('#changebtn').replaceWith('<span id="changebtn"><button id="edit"  class="adbtn" onclick="changebtn('+elem.id+')">edit</button></span>');
                 $.each(data,function (key,value) {
                     if(key =="staff"){
-                        $.each(data,function(key,value){
-                            $('#showstaff').append('<tr><th align="right"></th><th><input type="text" class="inputDisabled" disabled>'+value.name+' </input></th> </tr>');
+                        $.each(data,function(ky,val){
+                            $('#showstaff').append('<tr><th align="right"></th><th><input type="text" class="inputDisabled" disabled>'+val.name+' </input></th> </tr>');
                         });
                     }
                    else $("input[name='"+ key +"']").val(value);
