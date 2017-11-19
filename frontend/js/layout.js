@@ -15,7 +15,10 @@ function layout1(){
     console.log("begin ajax");
     $("#tb1").find('tbody').html("");
     $('.inputDisabled').prop("disabled", true);
+    $('.staffinfo').replaceWith("");
     $('#select2').replaceWith('<input type="text" name="staf" class="inputDisabled" disabled> </input></th>');
+    $('#addstaff').css("display","none");
+    $('.selectadd').replaceWith("");
     $.ajax({
         type: "POST",     //提交方式
         dataType: "json",     //传回类型

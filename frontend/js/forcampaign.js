@@ -16,11 +16,12 @@ function getdetail(elem){
             if(!data.status){
                 popup();
                 $("#detail").replaceWith('<span id="detail">compaign detail.</span>');
+                $('input[name=staf]').css("display","none");
                 $('#changebtn').replaceWith('<span id="changebtn"><button id="edit"  class="adbtn" onclick="changebtn('+elem.id+')">edit</button></span>');
                 $.each(data,function (key,value) {
                     if(key =="staff"){
                         $.each(value,function(ky,val){
-                            $('<tr><th align="right"></th><th><input type="text" class="inputDisabled" disabled value="'+val.name+'"> </input></th> </tr>').insertAfter($('#showstaff'));
+                            $('<tr class="staffinfo"><th align="right"></th><th><input type="text" disabled value="'+val.name+'"> </input></th><th><input type="text" disabled value="'+val.hour+'" class="inputDisabled" disabled> </input></th></tr>').insertAfter($('#showstaff'));
                         });
                     }
                    else $("input[name='"+ key +"']").val(value);
@@ -229,6 +230,8 @@ function deletecamp(elem){
 }
 
 function changebtn(elem){
+    $('input[name=staf]').css("display","block");
+    $('#addstaff').css("display","block");
     $('.inputDisabled').prop("disabled", false); // Element(s) are now enabled.
     $('#edit').replaceWith('<span id="changebtn"><button id="submit_edit"  class="adbtn">submit</button><span>');
 //  get staff information
@@ -242,7 +245,7 @@ function changebtn(elem){
         success: function (data) {
             //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
             if (!data.status) {
-                alert("get staff success");
+             //   alert("get staff success");
                  $("input[name='staf']").replaceWith('<select id="select2"></select>');
                 $.each(data,function (key,value) {
                     $('#select2').append('<option id="'+value.id+'">'+value.name+'</option>');
@@ -265,12 +268,18 @@ function changebtn(elem){
 
         }
     });
+    $('#addstaff').click(function () {
+        var options = $("#select2 option").clone();
+        $('<br><select id="selectadd" class="selectadd"></select>').insertAfter($('#select2'));
+        $('#selectadd').append(options);
+       // $('#selectadd').val($('#select2').val());
+    });
 
     //     $("input[name='staf']").replaceWith('<select> <option>Option</option> <option>Option1</option><option>Option2</option></select>');
     $('#submit_edit').click(function () {
         var name = $("input[name='cn']").val();
         var client = $("input[name='cd']").val();
-        var am = $("input[name='am']").val();
+    //    var am = $("input[name='am']").val();
         var st = $("input[name='st']").val();
         var sd = $("input[name='sd']").val();
         var ed = $("input[name='ed']").val();
@@ -278,6 +287,7 @@ function changebtn(elem){
         var staff = $("input[name='staf']").val();
         var cmc = $("input[name='cmc']").val();
         var ssapc = $("input[name='ssapc']").val();
+
         if(name.length < 1 || client.length < 1) {
             alert("Please enter Client Name and Address.");
         } else {
@@ -285,19 +295,19 @@ function changebtn(elem){
                 type: "POST",     //提交方式
                 //contentType: "application/json; charset=utf-8",   //内容类型
                 dataType: "json",     //传回类型
-                url: 'ackend/campaign/updatecampaign',
+                url: 'backend/campaign/updatecampaign',
                 data: {
-                    id:elem,
-                    campaign: name,
-                    client: client, //id
+                    campaign_id:elem,
+                    cpname: name,
+                    //client: client, //id
                     //manager: am,
                     status: st,
-                    sdate: sd,
-                    edate: ed,
+                    start: sd,
+                    end: ed,
                     contact: cp, //id
                     staff: staff,
-                    cmc: cmc,
-                    ssapc: ssapc,
+                    copyright: cmc,
+                    ssp: ssapc,
                 },
                 success: function (data) {
                     //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
