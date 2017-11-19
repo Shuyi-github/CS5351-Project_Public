@@ -65,12 +65,20 @@ function layout2(){
         success: function (data) {
             if(!data.status){
                 $.each(data,function (key,value) {
-                    $("#team").append('<div id="teamdiv"><h1>'+"team"+value.teamid+"   "+value.cpname+'</h1><table id="teamtable"><tbody><tr><th>name</th><th>type</th><th>work hours</th></tr>')
+                    $("#team").append('<div id="teamdiv"><h2>'+"team"+value.teamid+"&nbsp"+value.cpname+'</h2><table id="teamtable"><tbody><tr><th>name</th><th>type</th><th>work hours</th></tr>')
                     $.each(value.staff,function (ke,val) {
                         $("#team").append('<tr><td align="center">'+val.staffname+'</td> <td align="center">'+val.stafftype+'</td><td align="center">'+val.hours+'</td></tr>')
                     });
                     $("#team").append('</tbody></table>');
-                    $("#team").append('</div>')
+                    $("#teamtable").easyTable({
+                        hover:'btn-primary',
+                        buttons:false,
+                        select:true,
+                        sortable:false,
+                        scroll: {active: true, height: '400px'}
+                    })
+                    $("#team").append('</div>');
+
 
                 });
                 console.log("after ajax")
