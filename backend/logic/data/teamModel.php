@@ -16,12 +16,12 @@
 
 		public static function findByID($id) {
 			$conn = Tool::getDBConnection();
-			$sql = "select * from " . self::tableName()  . " where TeamID = ?;";
+			$sql = "select * from " . self::tableName()  . " where TeamID = ? limit 1;";
 			$stmt = $conn->prepare($sql);
 			$stmt->bind_param('i', $id);
 			$stmt->execute();
 			$result = $stmt->get_result();
-			return $result->fetch_all(MYSQLI_ASSOC);
+			return $result->fetch_all(MYSQLI_ASSOC)[0];
 		}
 
 		public static function addTeam($manager) {
