@@ -70,7 +70,7 @@ function layout2(){
         success: function (data) {
             if(!data.status){
                 $.each(data,function (key,value) {
-                    $("#team").append('<div id="teamdiv"><h2>'+"team"+value.teamid+"&nbsp"+value.cpname+'</h2><table id="teamtable" align="center" width="1200"><tr><th>name</th><th>type</th><th>work hours</th></tr>')
+                    $("#team").append('<div id="teamdiv"><pre style="font-size: larger">'+"team"+value.teamid+"        "+value.cpname+'</pre><table id="teamtable" align="center" width="1200"><tr><th>name</th><th>type</th><th>work hours</th></tr>')
                     $.each(value.staff,function (ke,val) {
                         $("#team").append('<table id="teamtable" align="center" width="1200"><tr><td align="center">'+val.staffname+'</td> <td align="center">'+val.stafftype+'</td><td align="center">'+val.hours+'</td></tr></table>')
                     });
