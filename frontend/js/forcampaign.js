@@ -20,7 +20,7 @@ function getdetail(elem){
                 $.each(data,function (key,value) {
                     if(key =="staff"){
                         $.each(value,function(ky,val){
-                            $('#showstaff').append('<tr><th><input type="text" class="inputDisabled" disabled value="'+val.name+'"> </input></th> </tr>');
+                            $('<tr><th align="right"></th><th><input type="text" class="inputDisabled" disabled value="'+val.name+'"> </input></th> </tr>').insertAfter($('#showstaff'));
                         });
                     }
                    else $("input[name='"+ key +"']").val(value);
