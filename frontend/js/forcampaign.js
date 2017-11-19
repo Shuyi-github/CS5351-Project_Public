@@ -60,7 +60,7 @@ function getads(elem){
         dataType: "json",     //传回类型
         url: 'backend/test.php',
         data: {
-            request_camp_id: fromcamp,
+            compaign_id: fromcamp,
         },
         success: function (data) {
             //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
