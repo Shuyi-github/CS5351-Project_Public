@@ -34,7 +34,6 @@ body{
     padding-right: 20px;
     margin:0;
 }
-
 .topnav li{
     float: left;
     display:inline-block;
@@ -106,7 +105,6 @@ body{
     background-color: white;
 }
 #lt1_right{
-
     float:right;
     height:7%;
     width:100%;
@@ -150,8 +148,6 @@ body{
     font-size:15px;
 
 }
-
-
 
 .black_overlay {
     display: none;
@@ -258,16 +254,6 @@ delbtn{
 #tb1{
     width:100%;
     table-layout: fixed;
-}
-
-#team {
-    border: 1px solid blue;
-    background-color: #5e5e5e;
-    width: 100%;
-
-}
-#team table th{
-    height: 20px;
 }
 .trads{
     background-color: white;
