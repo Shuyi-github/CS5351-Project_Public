@@ -18,8 +18,14 @@ function getdetail(elem){
                 $("#detail").replaceWith('<span id="detail">compaign detail.</span>');
                 $('#changebtn').replaceWith('<span id="changebtn"><button id="edit"  class="adbtn" onclick="changebtn('+elem.id+')">edit</button></span>');
                 $.each(data,function (key,value) {
-                    $("input[name='"+ key +"']").val(value);
+                    if(key =="staff"){
+                        $.each(value.staff,function(ky,val){
+                            $('#showstaff').append('<tr><th align="right"></th><th><input type="text" class="inputDisabled" disabled>'+val.name+' </input></th> </tr>');
+                        });
+                    }
+                   else $("input[name='"+ key +"']").val(value);
                 });
+
             }
             else alert("server error");
         },
@@ -230,7 +236,7 @@ function changebtn(elem){
         type: "POST",     //提交方式
         //contentType: "application/json; charset=utf-8",   //内容类型
         dataType: "json",     //传回类型
-        url: 'backend/campaign/getallstaff',
+        url: 'backend/staff/getallstaff',
         data: {
         },
         success: function (data) {
