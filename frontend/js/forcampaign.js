@@ -101,9 +101,26 @@ function getads(elem){
 function adsdetail(ads){
     $('#tb2').hide();
     $('#tb3').show();
+    $('#edit').hide();
+    $('#changebtn').css('display','none');
+    $('#edads').show();
     //$('#tb3').css("display","block");
-    alert(ads);
+    //alert(ads);
     popup();
+    $("#edit_ads").click(function(){
+        $("#edads").replaceWith('<span id="edads"><button id="save_ads"  class="jqbtn">save</button></span>');
+        $('.inputDisabled').prop("disabled", false);
+        var cst_array=[1,2,3,4,5,6];
+        $("input[name='cst_type']").replaceWith('<select id="select3"> </select>');
+        $.each (cst_array,function (i,k) {
+            $('#select3').append('<option>'+k+'</option>');
+        })
+    });
+    //error
+    $("#save_ads").on("click",function () {
+        alert("save success");
+    })
+
 }
 
 function showcamp(){
