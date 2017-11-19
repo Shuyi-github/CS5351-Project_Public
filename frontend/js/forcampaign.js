@@ -126,16 +126,6 @@ function adsdetail(ads){
 
 function showcamp(){
     console.log("after ajax");
-///* for local json test, delete later
-    var obj = JSON.parse('{ "101":"camp_1", "106":"camp_2", "270":"camp_3","350":"camp_4"}');
-    var i=0;
-
-    $.each(obj,function (camp_id,camp_name) {
-        i++;
-        $("#tb1").find("tbody").append('<tr id="ca'+camp_id+'"><td align="middle">'+i+'</td><td align="middle"><button id="'+camp_id+'" class="button button-glow button-border button-rounded button-primary" onclick="getdetail(this)">'+camp_name+'</button></td><td align="middle"><button id="a'+camp_id+'"class="button button-circle button-tiny" onclick="getads(this)"></button></td><td align="middle"><button id="'+camp_id+'"class="button button-circle button-tiny" onclick="deletecamp(this)">-</button></td></tr>');
-        //  $("#tb1").find("tbody").append('<tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>')
-    });
-//*/
 
     $('.centercontent_layout0').css('display','none');
     $('.centercontent_layout1').css('display','block');
