@@ -16,11 +16,12 @@ function getdetail(elem){
             if(!data.status){
                 popup();
                 $("#detail").replaceWith('<span id="detail">compaign detail.</span>');
+                $('input[name=staf]').css("display","none");
                 $('#changebtn').replaceWith('<span id="changebtn"><button id="edit"  class="adbtn" onclick="changebtn('+elem.id+')">edit</button></span>');
                 $.each(data,function (key,value) {
                     if(key =="staff"){
                         $.each(value,function(ky,val){
-                            $('<tr><th align="right"></th><th><input type="text" class="inputDisabled" disabled value="'+val.name+'"> </input></th> </tr>').insertAfter($('#showstaff'));
+                            $('<tr class="staffinfo"><th align="right"></th><th><input type="text" class="inputDisabled" disabled value="'+val.name+'"> </input></th> </tr>').insertAfter($('#showstaff'));
                         });
                     }
                    else $("input[name='"+ key +"']").val(value);
@@ -229,6 +230,7 @@ function deletecamp(elem){
 }
 
 function changebtn(elem){
+    $('input[name=staf]').css("display","block");
     $('.inputDisabled').prop("disabled", false); // Element(s) are now enabled.
     $('#edit').replaceWith('<span id="changebtn"><button id="submit_edit"  class="adbtn">submit</button><span>');
 //  get staff information
