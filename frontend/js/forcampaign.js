@@ -73,7 +73,7 @@ function getads(elem){
             //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
             if(!data.status){
                 $.each(data,function (key,value) {
-                    $('<tr id="'+elem.id+value.ID+'" class="trads"><td align="middle">'+value.Type+'</td><td align="middle"></td><td align="middle">'+value.ID+'</td><td align="middle">'+value.Cost+'</td></tr>').insertAfter($('#'+camp).closest('tr'));
+                    $('<tr id="'+elem.id+value.ID+'" class="trads"><td align="middle">'+value.Type+'</td><td align="middle"></td><td align="middle"><button class="jqbtn" onclick="adsdetail('+value.ID+')">'+value.ID+'</button></td><td align="middle">'+value.Cost+'</td></tr>').insertAfter($('#'+camp).closest('tr'));
                 });
                 $('#'+elem.id).replaceWith('<button class="button button-pill button-tiny" id="close'+id+'" ></button>');
                 $('#close'+id).click(function () {
@@ -130,6 +130,7 @@ function adsdetail(ads){
         })
     });
 */    //error
+
     $("#save_ads").on("click",function () {
         alert("save success");
        // layout1();
@@ -313,6 +314,7 @@ function changebtn(elem){
             //alert(b);
             var t = {};
             t.id = selectstaff;
+            t.hour=
             st_select.push(t);
         });
         console.log(st_select);
