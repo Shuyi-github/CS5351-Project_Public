@@ -75,12 +75,12 @@ function layout2(){
         success: function (data) {
             if(!data.status){
                 $.each(data,function (key,value) {
-                    $("#team").append('<div id="teamdiv"><pre style="font-size: larger">'+"TEAM"+value.teamid+"        "+value.cpname+'</pre><table id="teamtable" align="center" width="1200"><tr><th>name</th><th>type</th><th>work hours</th></tr>')
+                    $("#team").append('<div id="teamdiv"><pre style="font-size: larger">'+"TEAM"+value.teamid+"           "+value.cpname+'</pre><table id="teamtable" align="center" width="1200"><tr><th>name</th><th>type</th><th>work hours</th></tr>')
                     $.each(value.staff,function (ke,val) {
                         $("#team").append('<table id="teamtable" align="center" width="1200"><tr><td align="center">'+val.staffname+'</td> <td align="center">'+val.stafftype+'</td><td align="center">'+val.hours+'</td></tr></table>')
                     });
                     //$("#team").append('</table>');
-                    $("#team").append('<div></div>');
+                    $("#team").append('<div><br></div>');
                     $("#team").append('</div>');
 
 
@@ -98,6 +98,29 @@ function layout2(){
         });
 
         }
+
+
+function logout() {
+    console.log("begin ajax");
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url:'backend/',
+        success: function (data) {
+            console.log(data);
+            window.location.href='home';
+
+            $('.centercontent_layout0').css('display','block');
+            $('.centercontent_layout1').css('display','none');
+            $('.centercontent_layout2').css('display','none');
+
+
+        },
+
+
+    })
+
+}
 
 
 
