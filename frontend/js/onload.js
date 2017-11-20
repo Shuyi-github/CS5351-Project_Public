@@ -96,4 +96,11 @@ $(document).ready(function(){
       //  $('#selectadd').append(''+options+'');
 
     });
+ /*   if(CONFIG.role){
+            1:am;
+            0:senior;
+            2:creativestaff
+            3:purchase
+    }
+*/
 })
