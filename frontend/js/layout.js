@@ -109,7 +109,6 @@ function logout() {
         success: function (data) {
             console.log(data);
             window.location.href='home';
-
             $('.centercontent_layout0').css('display','block');
             $('.centercontent_layout1').css('display','none');
             $('.centercontent_layout2').css('display','none');
