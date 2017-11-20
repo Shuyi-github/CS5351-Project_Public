@@ -1,4 +1,6 @@
+var option;
 function topayrate(){
+    option="";
     $.ajax({
         type: "POST",     //提交方式
         //contentType: "application/json; charset=utf-8",   //内容类型
@@ -11,7 +13,7 @@ function topayrate(){
                  $('#selectpayrate').replaceWith('<select class="selectaddpr" id="selectpayrate">');
                 $.each(data,function (key,value) {
                     $('#select2').append('<option id="'+value.id+'">'+value.name+'</option>');
-                    options+='<option id="'+value.id+'">'+value.name+'</option>';
+                    option+='<option id="'+value.id+'">'+value.name+'</option>';
                 })}
             else alert("server error");
         },
