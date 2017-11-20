@@ -112,15 +112,22 @@ body{
     background-color: white;
 }
 #lt1_left_hide{
+    text-align: center;
     display: none;
-    float:left;
-    width:70%;
+    width:100%;
     background-color: white;
+    margin: 0 auto;
 }
+
+#addCampTable{
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #lt1_right_hide{
     display: none;
     float:right;
-    width:30%;
+    width:0%;
     background-color: white;
 }
 .centercontent_layout2{

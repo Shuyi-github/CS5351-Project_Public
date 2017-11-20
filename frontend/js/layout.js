@@ -35,7 +35,7 @@ function layout1(){
                 //   $("#tb1").replaceWith('<table id="tb1"></table>');
                 $('#idea_del').replaceWith('<th align="middle" style="font-size: 20px" id="idea_del">add idea</th>');
                 $.each(data, function (key,value) {
-                    $("#tb1").find("tbody").append('<tr id="ca'+value.camp_id+'"><td align="middle">'+(key+1)+'</td><td align="middle"><button id="'+value.camp_id+'" class="button button-glow button-border button-rounded button-primary" onclick="getdetail(this)">'+value.camp_name+'</button></td><td align="middle"><button id="a'+value.camp_id+'"class="button button-circle button-tiny" onclick="getads(this)"></button></td><td align="middle"><button id="'+value.camp_id+'"class="button button-circle button-tiny" onclick="deletecamp(this)">-</button></td></tr>');
+                    $("#tb1").find("tbody").append('<tr id="ca'+value.camp_id+'"><td align="middle">'+(key+1)+'</td><td align="middle"><button id="'+value.camp_id+'" class="button button-glow button-border button-rounded button-primary" onclick="getdetail(this)">'+value.camp_name+'</button></td><td align="middle"><button id="a'+value.camp_id+'"class="button button-circle button-tiny" onclick="getads(this)"></button></td><td align="middle"><button id="'+value.camp_id+'"class="button button-caution button-pill button-tiny" onclick="deletecamp(this)">-</button></td></tr>');
                 });
             showcamp();
             }
@@ -53,7 +53,7 @@ function layout1(){
             $('#idea_del').replaceWith('<th align="middle" style="font-size: 20px" id="idea_del">add idea</th>');
             var data = JSON.parse('{ "1":"1000", "2":"tom", "3":"edfdg","4":"camp_4"}');
             $.each(data,function (key,value) {
-                $("#tb1").find("tbody").append('<tr id="ca'+value.camp_id+'"><td align="middle">'+(key+1)+'</td><td align="middle"><button id="'+value.camp_id+'" class="button button-glow button-border button-rounded button-primary" onclick="getdetail(this)">'+value.camp_name+'</button></td><td align="middle"><button id="a'+value.camp_id+'"class="button button-circle button-tiny button-royal" onclick="getads(this)"></button></td><td align="middle"><button id="idea'+value.camp_id+'"class="button button-glow button-rounded button-raised button-primary" onclick="addIdeaTocamp(this)">idea</button></td></tr>');
+                $("#tb1").find("tbody").append('<tr id="ca'+value.camp_id+'"><td align="middle">'+(key+1)+'</td><td align="middle"><button id="'+value.camp_id+'" class="button button-glow button-border button-rounded button-primary" onclick="getdetail(this)">'+value.camp_name+'</button></td><td align="middle"><button id="a'+value.camp_id+'"class="button button-circle button-tiny button-royal" onclick="getads(this)"></button></td><td align="middle"><button id="idea'+value.camp_id+'"class="button  button-pill button-glow button-rounded button-raised button-primary" onclick="addIdeaTocamp(this)">idea</button></td></tr>');
             });
             showcamp();
         },
