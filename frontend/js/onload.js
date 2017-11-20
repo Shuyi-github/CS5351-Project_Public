@@ -91,9 +91,16 @@ $(document).ready(function(){
 
         $('<tr><td><select class="selectaddpr"></select></td><td><input type="text" class="inputpr" placeholder="eg. 8000"> </input></td></tr>').insertAfter($('#pr1'));
           $('.selectaddpr').each(function(){
-            $(this).append('<option>1</option><option>2</option>');
+            $(this).append(''+option+'');
           });  
       //  $('#selectadd').append(''+options+'');
 
     });
+ /*   if(CONFIG.role){
+            1:am;
+            0:senior;
+            2:creativestaff
+            3:purchase
+    }
+*/
 })
