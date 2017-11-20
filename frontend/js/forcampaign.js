@@ -145,10 +145,40 @@ function to_newcam_lyt(){
     $('#lt1_right').css('display','none');
     $('#lt1_left_hide').css('display','block');
     $('#lt1_right_hide').css('display','block');
+
+    $.ajax({
+        type: "POST",     //提交方式
+        //contentType: "application/json; charset=utf-8",   //内容类型
+        dataType: "json",     //传回类型
+        url: 'backend/staff/getallclient',
+        data: {
+        },
+        success: function (data) {
+            //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
+            if (!data.status) {
+                //   alert("get staff success");
+                $("input[name='cl_id']").replaceWith('<select id="select_client"></select>');
+                $.each(data,function (key,value) {
+                    $('#select_client').append('<option id="'+value.id+'">'+value.name+'</option>');
+                })}
+            else alert("server error");
+        },
+        error: function (err) {
+            alert("err:" + err);
+            var obj1 = JSON.parse('{ "101":"camp_1", "106":"camp_2", "270":"camp_3","350":"camp_4"}');
+            $("input[name='cl_id']").replaceWith('<select id="select_client"></select>');
+            //    $("input[name='st']").replaceWith('<select id="select3"></select>');
+            $.each(obj1,function (id,name) {
+                $('#select_client').append('<option id="'+id+'">'+name+'</option>');
+            })
+
+        }
+    });
 }
 function insertcamp() {
     var name = $("input[name='c_name']").val();
-    var client = $("input[name='cl_id']").val();
+    //var client = $("input[name='cl_id']").val();
+    var client=$( "#select_client option:selected" ).attr("id");
     //   var am = $("input[name='am_id']").val();
 //    var st = $("input[name='status']").val();
     var sd = $("input[name='start_date']").val();
@@ -184,20 +214,7 @@ function insertcamp() {
             error: function (err) {
                 alert("err:" + err);
                 layout1();
-                /* for temporary save on frontend
-                            var x=document.createElement("button");
-                            x.setAttribute("type","button");
-                            x.setAttribute("class","jqbtn");
-                            x.setAttribute("id","insertbtn");
-                            x.innerHTML =$("input[name='client_name']").val();
-                          $("#insert").append("<br>");
-                          $("#insert").append(x);
-                          $("#insertbtn").click(function(){
-                              $("#fade").show();
-                              $("#light").show();
-                          });
-                    //      $("#insert").append("<li>"+$("input[name='client_name']").val()+"</li>");
-                */
+
             }
         });
     }
@@ -269,9 +286,17 @@ function changebtn(elem){
         }
     });
     $('#addstaff').click(function () {
-        var options = $("#select2 option").clone();
-        $('<br><select id="selectadd" class="selectadd"></select>').insertAfter($('#select2'));
-        $('#selectadd').append(options);
+//         var options = $("#select2 option").clone();
+        $('<select id="selectadd" class="selectadd"></select>').insertAfter($('#select2'));
+        $("#select2 option").each(function () {
+
+            var options=$(this).val();
+ //           alert(options);
+            $('#selectadd').append('<option>'+options+'</option>');
+        });
+     //   $('<select id="selectadd" class="selectadd"></select>').insertAfter($('#select2'));
+ //       $('#selectadd').append(options);
+//        alert(options);
        // $('#selectadd').val($('#select2').val());
     });
 
