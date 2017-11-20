@@ -49,6 +49,7 @@ function submit_payrate(){
         success: function (data) {
             if (!data.status) {
                  alert("save success");
+                 topayrate();
         },
         error: function (err) {
             alert("err:" + err);
