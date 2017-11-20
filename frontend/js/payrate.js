@@ -12,7 +12,7 @@ function topayrate(){
             if (!data.status) {
                  $('#selectpayrate').replaceWith('<select class="selectaddpr" id="selectpayrate">');
                 $.each(data,function (key,value) {
-                    $('#select2').append('<option id="'+value.id+'">'+value.name+'</option>');
+                    $('#selectpayrate').append('<option id="'+value.id+'">'+value.name+'</option>');
                     option+='<option id="'+value.id+'">'+value.name+'</option>';
                 })}
             else alert("server error");
