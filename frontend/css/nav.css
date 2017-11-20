@@ -345,3 +345,13 @@ delbtn{
     padding: 5px; /* If you add too much padding here, the options won't show in IE */
     width: 216px;
 }
+.selectaddpr{
+    background: transparent;
+    border: 2px solid;
+    border-color: grey;
+    border-radius: none;
+    font-size: 14px;
+    height: 29px;
+    padding: 5px; /* If you add too much padding here, the options won't show in IE */
+    width: 216px;
+}

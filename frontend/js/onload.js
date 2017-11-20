@@ -85,4 +85,15 @@ $(document).ready(function(){
         $('#selectadd').append(''+options+'');
 
     });
+    $('#addselector').click(function (e) {
+        //console.log("add_click");
+        e.preventDefault();
+
+        $('<tr><td><select class="selectaddpr"></select></td><td><input type="text" class="inputpr" placeholder="eg. 8000"> </input></td></tr>').insertAfter($('#pr1'));
+          $('.selectaddpr').each(function(){
+            $(this).append('<option>1</option><option>2</option>');
+          });  
+      //  $('#selectadd').append(''+options+'');
+
+    });
 })

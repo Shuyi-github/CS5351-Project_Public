@@ -22,6 +22,7 @@
     <script type="text/javascript" src="js/layout.js"></script>
     <script type="text/javascript" src="js/forcampaign.js"></script>
     <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/payrate.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/button.css" >
     <script type="text/javascript" src="js/http_code.jquery.com_jquery-2.0.0.js"></script>
@@ -135,6 +136,9 @@
              <li>
                  <a href="#Teams" type="button" onclick="layout2()">Teams</a>
              </li>
+             <li>
+                    <a href="#payrate" type="button" onclick="topayrate()">PayRate</a>
+                </li>
             </ul>
                 </th>
                 <th>
@@ -231,33 +235,26 @@
                     right
 
 
-                    <table>
+                    <table id="payratetb">
                         <br>please input following value for a new compaign:</br>
-                        <tr>
-                            <th align="right">compaign name:</th>
-                            <th><input type="text" name="compaign_name" placeholder="eg. Black Friday"> </input></th>
-                        </tr>
-                        <tr>
-                            <th align="right">client:</th>
-                            <th><input type="text" name="client_name" placeholder="eg. JSMITH"> </input></th>
-                        </tr>
-                        <tr>
-                            <th align="right">account manager:</th>
-                            <th><input type="text" name="account_manager" placeholder="eg. JSMITH"> </input></th>
-                        </tr>
-                        <tr>
-                            <th align="right">status:</th>
-                            <th><input type="text" name="status" placeholder="eg. JSMITH"> </input></th>
-                        </tr>
-                        <tr>
-                            <th align="right">start date:</th>
-                            <th><input type="text" name="start_date"> </input></th>
-                        </tr>
+                        <br><button class="button button-circle" id="addselector">add</button></br>
 
-                        <!--    cost: <input type="text" name="cost"><br>
-                            staff: <input type="text" name="LastName"><br>          -->
+                        <thead>
+                            <th>staff name</th>
+                            <th>pay rate</th>
+                        </thead>
+                        <tr id="pr1">
+                            <td><select class="selectaddpr" id="selectpayrate">
+                                <option>1</option>
+                                <option>2</option>
+                            </select></td>
+                            <td><input type="text" class="inputpr" placeholder="eg. 8000"> </input></td>
+                        </tr>
+                        
+
+            
                     </table>
-                    <input type="button" value="Submit" onclick="insertclient()"> </input>
+                    <input type="button" value="submit" onclick="submit_payrate()"> </input>
 
                 </div>
             </div>
