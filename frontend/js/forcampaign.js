@@ -275,14 +275,31 @@ function deletecamp(elem){
     });
 }
 function addIdeaTocamp(elem){
-    var forcamp=elem.id.replace('idea','');
-    alert(forcamp);
+    console.log("begin ajax");
+    var ideacamp = elem.id.replace('idea','');
+    $('#tb4').html();
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url:'backend/campaign/getnote/',
+        data: {
+              campaign_id : ideacamp ;
+
+        },
+    success :function (key,value) {
+            $("#hehe").append('<div style="word-wrap:break-word">'+value.idea+'</div>')
+
+    }
     popup();
     $('#tb2').hide();
     $('#tb4').css("display","block");
     $('#div_btn').css('display','none');
+    })
+
+
 }
 var options;
+
 function changebtn(elem){
     options="";
     $('input[name=staf]').css("display","block");
