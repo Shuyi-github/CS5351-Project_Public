@@ -185,37 +185,39 @@
                         </div>
 
                         <div id="lt1_left_hide" >
-                            <table align="middle">
+                            <table id="addCampTable">
                                 <br>please input following value for a new compaign:</br>
                                 <tr >
-                                    <th align="middle">compaign name:</th>
+                                    <th align="middle" >compaign name:</th>
                                     <th><input type="text" name="c_name" placeholder="eg. Black Friday"> </input></th>
                                 </tr>
                                 <tr>
-                                    <th align="right">client:</th>
+                                    <th align="middle">client:</th>
                                     <th><input type="text" name="cl_id" placeholder="eg. JSMITH"> </input></th>
                                 </tr>
 
                                 <tr>
-                                    <th align="right">status:</th>
+                                    <th align="middle">status:</th>
                                     <th><input type="text" name="status" placeholder="eg. JSMITH"> </input></th>
                                 </tr>
                                 <tr>
-                                    <th align="right">start date:</th>
+                                    <th align="middle">start date:</th>
                                     <th><input type="text" name="start_date"> </input></th>
                                 </tr>
                                 <tr>
-                                    <th align="right">end date:</th>
+                                    <th align="middle">end date:</th>
                                     <th><input type="text" name="end_date"> </input></th>
                                 </tr>
                                 <tr>
-                                    <th align="right">contact person:</th>
+                                    <th align="middle">contact person:</th>
                                     <th><input type="text" name="contact_person"> </input></th>
                                 </tr>
 
                                 <!--    cost: <input type="text" name="cost"><br>
                                     staff: <input type="text" name="LastName"><br>          -->
                             </table>
+                            <button class="button button-primary button-pill button-large" value="Submit" onclick="insertcamp()">Submit</button><br>
+                            <button class="abutton button-caution button-pill button-large" id="cancel" onclick="layout1()">Cancel</button>
                         </div>
                             <div id="lt1_right_hide">
                                 <button class="button button-highlight button-pill button-large" value="Submit" onclick="insertcamp()">Submit</button><br>
