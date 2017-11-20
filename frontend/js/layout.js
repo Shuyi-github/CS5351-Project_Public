@@ -109,7 +109,7 @@ function logout() {
         url:'backend/',
         success: function (data) {
             console.log(data);
-            window.location.href='home';
+            window.location.href='index';
             $('.centercontent_layout0').css('display','block');
             $('.centercontent_layout1').css('display','none');
             $('.centercontent_layout2').css('display','none');
