@@ -44,7 +44,7 @@ function submit_payrate(){
         dataType: "json",     //传回类型
         url: 'backend/staff/updatepayrate',
         data: {
-            staff:stf_select;
+            staff:stf_select,
         },
         success: function (data) {
             if (!data.status) {
