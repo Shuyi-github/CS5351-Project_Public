@@ -37,6 +37,7 @@ $(document).ready(function(){
         $('#edads').hide();
         $('#tb4').css('display','none');
         $('#div_btn').css('display','block');
+        $('.staffbr').replaceWith("");
         layout1();
     });
     $("#fade").click(function(){
@@ -45,6 +46,7 @@ $(document).ready(function(){
         $('#edads').hide();
         $('#tb4').css('display','none');
         $('#div_btn').css('display','block');
+        $('.staffbr').replaceWith("");
         layout1();
     });
     $( "input[name='start_date']" ).datepicker({
@@ -78,7 +80,7 @@ $(document).ready(function(){
     $('#addstaff').click(function (e) {
         //console.log("add_click");
         e.preventDefault();
-        $('<select id="selectadd" class="selectadd"></select>').insertAfter($('#select2'));
+        $('<br class="staffbr"><select id="selectadd" class="selectadd"></select>').insertAfter($('#select2'));
         $('#selectadd').append(''+options+'');
 
     });
