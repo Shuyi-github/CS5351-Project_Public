@@ -17,7 +17,7 @@ function getdetail(elem){
                 popup();
                 $("#detail").replaceWith('<span id="detail">compaign detail.</span>');
                 $('input[name=staf]').css("display","none");
-                $('#changebtn').replaceWith('<span id="changebtn"><button id="edit"  class="adbtn" onclick="changebtn('+elem.id+')">edit</button></span>');
+                $('#changebtn').replaceWith('<span id="changebtn"><button id="edit"  class="button button-pill button-tiny" onclick="changebtn('+elem.id+')">edit</button></span>');
                 $.each(data,function (key,value) {
                     if(key =="staff"){
                         $.each(value,function(ky,val){
@@ -43,7 +43,7 @@ function getdetail(elem){
             //for test function, delete later
             var obj = JSON.parse('{ "cn":"1000", "cd":"tom", "am":"edfdg","cmc":"camp_4"}');
             $("#detail").replaceWith('<span id="detail">compaign detail.</span>');
-            $('#changebtn').replaceWith('<span id="changebtn"><button id="edit"  class="adbtn" onclick="changebtn()">edit</button></span>');
+            $('#changebtn').replaceWith('<span id="changebtn"><button id="edit"  class="button button-pill button-tiny" onclick="changebtn()">edit</button></span>');
             $.each(obj,function (detail_type,detail_content) {
                $("input[name='"+ detail_type +"']").val(detail_content);
 
@@ -267,7 +267,7 @@ function changebtn(elem){
     $('input[name=staf]').css("display","block");
     $('#addstaff').css("display","block");
     $('.inputDisabled').prop("disabled", false); // Element(s) are now enabled.
-    $('#edit').replaceWith('<span id="changebtn"><button id="submit_edit"  class="adbtn">submit</button><span>');
+    $('#edit').replaceWith('<span id="changebtn"><button id="submit_edit"  class="button button-pill button-tiny">submit</button><span>');
 //  get staff information
     $.ajax({
         type: "POST",     //提交方式
