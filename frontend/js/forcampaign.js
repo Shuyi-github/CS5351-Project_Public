@@ -115,9 +115,9 @@ function adsdetail(ads){
     popup();
     $("input[name='cst_type']").prop("disabled", false);
     $("input[name='cst']").prop("disabled", false);
-    var cst_array=[1,2,3,4,5,6];
+    var obj=JSON.parse('{ "1":"NEWSPAPER AD", "2":"ONLINE AD", "3":"TV COMMERCIAL"}');
     $("input[name='cst_type']").replaceWith('<select id="select3"> </select>');
-    $.each (cst_array,function (i,k) {
+    $.each (obj,function (i,k) {
         $('#select3').append('<option>' + k + '</option>');
     });
 /*    $("#edit_ads").click(function(){
@@ -154,6 +154,28 @@ function adsdetail(ads){
     $("#save_ads").on("click",function () {
         alert("save success");
        // layout1();
+       $.ajax({
+        type: "POST",     //提交方式
+        dataType: "json",     //传回类型
+        url: 'backend/ads/updatead',
+        data: {
+            ads_id: ads,
+            type:,
+            cost:,
+        },
+        success: function (data) {
+            //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
+            if(!data.status){
+                $("input[name='cst']").val(data.cost);
+            }
+            else alert("server error");
+        },
+        error: function (err,textStatus) {
+
+
+        },
+        timeout:3000
+    });
     });
 
 }
