@@ -10,12 +10,12 @@
 		}
 
 		public static function checkAuthoriation($auth) {
-			foreach($auth as $a) {
-				if($_SESSION['auth'] & $a == 0) {
-					return FALSE;
-				}			
+			if(isset(Config::$AUTHORITY['$auth'])) {
+				if(Config::$AUTHORITY['$auth'] & $_SESSION['auth']) {
+					return TRUE;
+				}
 			}
-			return TRUE;
+			return FALSE;
 		}
 
 		public static function initDB($dbConfig) {

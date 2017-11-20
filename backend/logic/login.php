@@ -17,7 +17,9 @@
 				$_SESSION['lastname'] = $user['LastName'];
 				$_SESSION['email'] = $user['Email'];
 				$_SESSION['role'] = $user['Role'];
-				$_SESSION['auth'] = AuthorizationModel::findByRoleID($user['Role'])['Privilege'];
+				$auth = AuthorizationModel::findByRoleID($user['Role']);
+				$_SESSION['auth'] = $auth['Privilege'];
+				$_SESSION['role_name'] = $auth['RoleName'];
 
 				return ['status' => 0,
 					'message' => [
@@ -39,6 +41,14 @@
 		public static function logout() {
 			session_destroy();
 			return ['status' => 0, 'message' => 'success'];
+		}
+
+		public static function getauth() {
+			if(!Tool::checkUserStatus()) {
+				return ['role' => -1, 'role_name' => 'Not Authorized'];
+			} else {
+				return ['role' => -1, 'role_name' => $_SESSION['role_name']];
+			}
 		}
 	}
 ?>

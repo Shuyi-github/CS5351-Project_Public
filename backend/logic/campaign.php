@@ -82,7 +82,11 @@
 				Tool::getDBConnection()->rollback();
 				return ['status' => 1, 'message' => 'Invalid parameters.'];
 			} else {
-				foreach ($staff as $value) {
+				if(!isset($_POST['staff'])) {
+					Tool::getDBConnection()->commit();
+					return ['status' => 0, 'message' => 'success'];
+				}
+				foreach ($_POST['staff'] as $value) {
 					$member = MembersModel::findByTeam($campaign['AssignedTeam']);
 					$flag = TRUE;
 					foreach ($member as $m) {

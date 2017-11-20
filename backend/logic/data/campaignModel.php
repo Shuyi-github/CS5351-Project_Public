@@ -76,7 +76,7 @@
 			$conn = Tool::getDBConnection();
 			$sql = "update " . self::tableName() . " set Title = ?, StartDate = ?, EndDate = ?, EstimateCost = ?, MaterialCost = ?, SerProdCost = ?, OtherCost = ?, ContactPerson = ? where CampaignID = ?;";
 			$stmt = $conn->prepare($sql);
-			$stmt->bind_param('siiiiiiiii', $title, $start, $end, $estimate, $material, $ser, $other, $conntact, $id);
+			$stmt->bind_param('siiiiiiii', $title, $start, $end, $estimate, $material, $ser, $other, $conntact, $id);
 			$stmt->execute();
 			return $stmt->errno;
 		}
