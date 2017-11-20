@@ -307,13 +307,15 @@ function changebtn(elem){
 
     //     $("input[name='staf']").replaceWith('<select> <option>Option</option> <option>Option1</option><option>Option2</option></select>');
     $('#submit_edit').click(function () {
-        var st_select="";
+        var st_select=[];
         $('.selectaddstaff option:selected').map(function () {
             var selectstaff = $(this).attr("id");
             //alert(b);
-            st_select+=selectstaff;
+            var t = [];
+            t['id'] = selectstaff;
+            st_select.push(t);
         });
-        alert(st_select);
+        console.log(st_select);
 
         var name = $("input[name='cn']").val();
         var client = $("input[name='cd']").val();
@@ -322,7 +324,7 @@ function changebtn(elem){
         var sd = $("input[name='sd']").val();
         var ed = $("input[name='ed']").val();
         var cp = $("input[name='cp']").val();
-        var staff = $("input[name='staf']").val();
+  //      var staff = $("input[name='staf']").val();
         var cmc = $("input[name='cmc']").val();
         var ssapc = $("input[name='ssapc']").val();
 
@@ -343,7 +345,7 @@ function changebtn(elem){
                     start: sd,
                     end: ed,
                     contact: cp, //id
-                    staff: staff,
+                    staff: st_select,
                     copyright: cmc,
                     ssp: ssapc,
                 },
