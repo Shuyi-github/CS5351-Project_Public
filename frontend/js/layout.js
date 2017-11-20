@@ -32,7 +32,6 @@ function layout1(){
         success: function (data) {
             //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
             if(!data.status){
-                //   $("#tb1").replaceWith('<table id="tb1"></table>');
                 $('#idea_del').replaceWith('<th align="middle" style="font-size: 20px" id="idea_del">add idea</th>');
                 $.each(data, function (key,value) {
                     $("#tb1").find("tbody").append('<tr id="ca'+value.camp_id+'"><td align="middle">'+(key+1)+'</td><td align="middle"><button id="'+value.camp_id+'" class="button button-glow button-border button-rounded button-primary" onclick="getdetail(this)">'+value.camp_name+'</button></td><td align="middle"><button id="a'+value.camp_id+'"class="button button-circle button-tiny" onclick="getads(this)"></button></td><td align="middle"><button id="'+value.camp_id+'"class="button button-caution button-pill button-tiny" onclick="deletecamp(this)">-</button></td></tr>');
