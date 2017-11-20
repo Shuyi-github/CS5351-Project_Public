@@ -130,6 +130,26 @@ function adsdetail(ads){
         })
     });
 */    //error
+ $.ajax({
+        type: "POST",     //提交方式
+        dataType: "json",     //传回类型
+        url: 'backend/ads/getadbyid',
+        data: {
+            ads_id: ads,
+        },
+        success: function (data) {
+            //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
+            if(!data.status){
+                $("input[name='cst']").val(data.cost);
+            }
+            else alert("server error");
+        },
+        error: function (err,textStatus) {
+
+
+        },
+        timeout:3000
+    });
 
     $("#save_ads").on("click",function () {
         alert("save success");
