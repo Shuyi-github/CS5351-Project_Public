@@ -35,11 +35,17 @@ $(document).ready(function(){
         $("#fade").hide();
         $("#light").hide();
         $('#edads').hide();
+        $('#tb4').css('display','none');
+        $('#div_btn').css('display','block');
         layout1();
     });
     $("#fade").click(function(){
         $("#fade").hide();
         $("#light").hide();
+        $('#edads').hide();
+        $('#tb4').css('display','none');
+        $('#div_btn').css('display','block');
+        layout1();
     });
     $( "input[name='start_date']" ).datepicker({
         showButtonPanel: false
@@ -64,4 +70,16 @@ $(document).ready(function(){
 //        $("#brline").append(" <li>Appended text</li>");
 //    })
 
+/*    accoutmag(except modify ads)
+    creativestaff(idea)
+    purchase(costtype cost)
+    seniormag
+    */
+    $('#addstaff').click(function (e) {
+        //console.log("add_click");
+        e.preventDefault();
+        $('<select id="selectadd" class="selectadd"></select>').insertAfter($('#select2'));
+        $('#selectadd').append(''+options+'');
+
+    });
 })

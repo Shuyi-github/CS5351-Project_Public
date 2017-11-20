@@ -87,7 +87,7 @@ function getads(elem){
 
             var data = JSON.parse('{ "1":"1000", "2":"tom", "3":"edfdg","4":"camp_4"}');
             $.each(data,function (ads_id,ads_type) {
-                $('<tr id="'+elem.id+ads_id+'" class="trads"><td align="middle">'+ads_type+'</td><td align="middle"><button class="jqbtn" onclick="adsdetail('+ads_id+')">idea</button></td><td align="middle">cost_type</td><td align="middle">cost</td></tr>').insertAfter($('#'+camp).closest('tr'));
+                $('<tr id="'+elem.id+ads_id+'" class="trads"><td align="middle">'+ads_type+'</td><td align="middle"><button class="jqbtn" onclick="adsdetail('+ads_id+')">'+ads_id+'</button></td><td align="middle">cost_type</td><td align="middle">cost</td></tr>').insertAfter($('#'+camp).closest('tr'));
             });
             $('#'+elem.id).replaceWith('<button class="button button-pill button-tiny" id="close'+id+'" ></button>');
             $('#close'+id).click(function () {
@@ -110,10 +110,17 @@ function adsdetail(ads){
     $('#edit').hide();
     $('#changebtn').css('display','none');
     $('#edads').show();
-    //$('#tb3').css("display","block");
+    $('#tb3').css("display","block");
     //alert(ads);
     popup();
-    $("#edit_ads").click(function(){
+    $("input[name='cst_type']").prop("disabled", false);
+    $("input[name='cst']").prop("disabled", false);
+    var cst_array=[1,2,3,4,5,6];
+    $("input[name='cst_type']").replaceWith('<select id="select3"> </select>');
+    $.each (cst_array,function (i,k) {
+        $('#select3').append('<option>' + k + '</option>');
+    });
+/*    $("#edit_ads").click(function(){
         $("#edads").replaceWith('<span id="edads"><button id="save_ads"  class="jqbtn">save</button></span>');
         $('.inputDisabled').prop("disabled", false);
         var cst_array=[1,2,3,4,5,6];
@@ -122,10 +129,11 @@ function adsdetail(ads){
             $('#select3').append('<option>'+k+'</option>');
         })
     });
-    //error
+*/    //error
     $("#save_ads").on("click",function () {
         alert("save success");
-    })
+       // layout1();
+    });
 
 }
 
@@ -245,8 +253,17 @@ function deletecamp(elem){
         }
     });
 }
-
+function addIdeaTocamp(elem){
+    var forcamp=elem.id.replace('idea','');
+    alert(forcamp);
+    popup();
+    $('#tb2').hide();
+    $('#tb4').css("display","block");
+    $('#div_btn').css('display','none');
+}
+var options;
 function changebtn(elem){
+    options="";
     $('input[name=staf]').css("display","block");
     $('#addstaff').css("display","block");
     $('.inputDisabled').prop("disabled", false); // Element(s) are now enabled.
@@ -278,27 +295,15 @@ function changebtn(elem){
             //    $("input[name='st']").replaceWith('<select id="select3"></select>');
             $.each(obj1,function (id,name) {
                 $('#select1').append('<option id="'+id+'">'+name+'</option>');
-            })
+            });
             $.each(obj2,function (id,name) {
                 $('#select2').append('<option id="'+id+'">'+name+'</option>');
-            })
+                options+='<option id="'+id+'">'+name+'</option>';
+            });
 
         }
     });
-    $('#addstaff').click(function () {
-//         var options = $("#select2 option").clone();
-        $('<select id="selectadd" class="selectadd"></select>').insertAfter($('#select2'));
-        $("#select2 option").each(function () {
 
-            var options=$(this).val();
- //           alert(options);
-            $('#selectadd').append('<option>'+options+'</option>');
-        });
-     //   $('<select id="selectadd" class="selectadd"></select>').insertAfter($('#select2'));
- //       $('#selectadd').append(options);
-//        alert(options);
-       // $('#selectadd').val($('#select2').val());
-    });
 
     //     $("input[name='staf']").replaceWith('<select> <option>Option</option> <option>Option1</option><option>Option2</option></select>');
     $('#submit_edit').click(function () {
@@ -358,5 +363,6 @@ function changebtn(elem){
     })
 
 }
+
 
 

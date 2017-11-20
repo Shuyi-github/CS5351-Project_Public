@@ -36,9 +36,9 @@
 
                             <div id="light" class="white_content">
                                 <span id="detail">This is the lightbox content.</span>
-                                <div style="float: right">
+                                <div id="div_btn" style="float: right">
                                     <span id="changebtn"><button id="edit"  class="adbtn">edit</button></span>
-                                    <span id="edads" style="display: none"><button id="edit_ads"  class="jqbtn">edit</button></span>
+                                    <span id="edads" style="display: none"><button id="save_ads"  class="jqbtn">save</button></span>
                                     <a class="jqbtn" id="close">Close</a>
                                 </div>
                                 <table id="tb2">
@@ -105,6 +105,10 @@
                                     </tr>
 
                                 </table>
+                                <div id="tb4" style="display: none" align="center">
+                                    <textarea name="Text1" cols="40" rows="5"></textarea>
+                                    <button id="submit_idea">submit</button>
+                                </div>
                             </div>
                             <div id="fade" class="black_overlay">
                             </div>
@@ -171,7 +175,7 @@
                                 <th align="middle">Id</th>
                                 <th align="middle">Name</th>
                                 <th align="middle">Ads</th>
-                                <th align="middle">Delete</th>
+                                <th align="middle" id="idea_del">Delete</th>
                                 </thead>
                                 <tbody>
 
