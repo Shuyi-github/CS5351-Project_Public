@@ -30,7 +30,7 @@ function topayrate(){
 function submit_payrate(){
 		var stf_select=[];
         $('.selectaddpr option:selected').map(function () {
-            var selectstaff = $(this).val();
+            var selectstaff = $(this).attr("id");
             //alert(b);
             var t = {};
             t.id = selectstaff;
