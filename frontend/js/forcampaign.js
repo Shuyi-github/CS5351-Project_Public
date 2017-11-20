@@ -158,7 +158,7 @@ function to_newcam_lyt(){
         type: "POST",     //提交方式
         //contentType: "application/json; charset=utf-8",   //内容类型
         dataType: "json",     //传回类型
-        url: 'backend/staff/getallclient',
+        url: 'backend/client/getallclient',
         data: {
         },
         success: function (data) {
