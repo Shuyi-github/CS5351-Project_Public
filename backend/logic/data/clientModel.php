@@ -4,6 +4,15 @@
 			return "client";
 		}
 
+		public static function findAll() {
+			$conn = Tool::getDBConnection();
+			$sql = "select * from " . self::tableName() . ";";
+			$stmt = $conn->prepare($sql);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			return $result->fetch_all(MYSQLI_ASSOC);
+		}
+
 		public static function findByID($id) {
 			$conn = Tool::getDBConnection();
 			$sql = "select * from " . self::tableName() . " where ClientID = ? limit 1;";
