@@ -106,7 +106,7 @@ function logout() {
     $.ajax({
         type: "POST",
         dataType: "json",
-        url:'backend/',
+        url:'backend/login/logout',
         success: function (data) {
             console.log(data);
             window.location.href='index';
