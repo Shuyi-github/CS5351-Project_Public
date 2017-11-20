@@ -81,7 +81,7 @@ $(document).ready(function(){
     $('#addstaff').click(function (e) {
         //console.log("add_click");
         e.preventDefault();
-        $('<br class="staffbr"><select id="selectadd" class="selectadd"></select>').insertAfter($('#select2'));
+        $('<br class="staffbr"><select id="selectadd" class="selectaddstaff"></select>').insertAfter($('#select2'));
         $('#selectadd').append(''+options+'');
 
     });
