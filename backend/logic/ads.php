@@ -15,5 +15,17 @@
 			}
 			return $ads;
 		}
+
+		public static function getadbyid() {
+			if(!Tool::checkUserStatus()) {
+				return ['status' => 1, 'message' => 'Please logon first.'];
+			}
+			if(!Tool::checkParameters(['ads_id' => 'int'])) {
+				return ['status' => 1, 'message' => 'Invalid parameters.'];
+			}
+
+			$ad = AdsModel::findByID($_POST['ads_id']);
+			return ['cost' => $ad['Cost']];
+		}
 	}
 ?>
