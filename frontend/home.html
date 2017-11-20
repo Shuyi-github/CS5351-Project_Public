@@ -8,7 +8,9 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- 没有local地址，网上下载可能耗费时间
     -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery1.8.0.js"></script>
+ <!--   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+ -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 
@@ -219,10 +221,7 @@
                             <button class="button button-primary button-pill button-large" value="Submit" onclick="insertcamp()">Submit</button><br>
                             <button class="abutton button-caution button-pill button-large" id="cancel" onclick="layout1()">Cancel</button>
                         </div>
-                            <div id="lt1_right_hide">
-                                <button class="button button-highlight button-pill button-large" value="Submit" onclick="insertcamp()">Submit</button><br>
-                                <button class="abutton button-caution button-pill button-large" id="cancel" onclick="layout1()">Cancel</button>
-                            </div>
+
 
                     </div>
             <div class="centercontent_layout2" id="lt2">
@@ -233,11 +232,10 @@
 
             </div>
                 <div id="centercontent_right">
-                    right
 
 
                     <table id="payratetb">
-                        <br>please input following value for a new compaign:</br>
+                        <br>please input payrate for staff:</br>
                         <br><button class="button button-circle" id="addselector">add</button></br>
 
                         <thead>
@@ -245,7 +243,7 @@
                             <th>pay rate</th>
                         </thead>
                         <tr id="pr1">
-                            <td><select class="selectaddpr" id="selectpayrate">
+                            <td align="middle"><select class="selectaddpr" id="selectpayrate">
                                 <option>1</option>
                                 <option>2</option>
                             </select></td>

@@ -88,12 +88,12 @@ $(document).ready(function(){
     $('#addselector').click(function (e) {
         //console.log("add_click");
         e.preventDefault();
-
-        $('<tr><td><select class="selectaddpr"></select></td><td><input type="text" class="inputpr" placeholder="eg. 8000"> </input></td></tr>').insertAfter($('#pr1'));
-          $('.selectaddpr').each(function(){
-            $(this).append(''+option+'');
-          });  
-      //  $('#selectadd').append(''+options+'');
+    // option="<option>1</option><option>2</option>";
+        $('<tr><td><select class="selectaddpr" id="setpr"></select></td><td><input type="text" class="inputpr" placeholder="eg. 8000"> </input></td></tr>').insertAfter($('#pr1'));
+       //   $('.selectaddpr').each(function(){
+        //    $(this).append(''+option+'');
+        //  });
+        $('#setpr').append(''+option+'');
 
     });
  /*   if(CONFIG.role){
