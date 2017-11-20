@@ -4,6 +4,7 @@
 	include 'data/teamModel.php';
 	include 'data/membersModel.php';
 	include 'data/clientModel.php';
+	include 'data/campnoteModel';
 	class campaignLogic {
 		public static function getcampaign() {
 			if(!Tool::checkUserStatus()) {
@@ -128,6 +129,25 @@
 			CampaignModel::addCampaign($_POST['client'], $_POST['campaign'], $start, $end, $team);
 			Tool::getDBConnection()->commit();
 			return ['status' => 0, 'message' => 'success'];
+		}
+
+		public static function getnote() {
+			if(!Tool::checkUserStatus()) {
+				return ['status' => 1, 'message' => 'Please logon first.'];
+			}
+			if(!Tool::checkParameters(['campaign_id' => 'int'])) {
+				return ['status' => 1, 'message' => 'Invalid parameters.'];
+			}
+
+			$notes = CampnoteModel::findByCampaign($_POST['campaign_id']);
+			$result = [];
+			foreach ($notes as $n) {
+				$t = [];
+				$staff = StaffModel::findByID($n['Poster']);
+				$t['name'] = $staff['FirstName'] . ' ' . $staff['LastName'];
+				$t['idea'] = $n['Note'];
+			}
+			return $result;
 		}
 	}
 ?>

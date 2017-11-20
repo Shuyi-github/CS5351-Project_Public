@@ -74,7 +74,7 @@
 
 		public static function updateStaffPayrate($id, $pay) {
 			$conn = Tool::getDBConnection();
-			$sql = "update " . self::tableName()  . " set Payrate = ?, where StaffID = ?;";
+			$sql = "update " . self::tableName()  . " set Payrate = ? where StaffID = ?;";
 			$stmt = $conn->prepare($sql);
 			$stmt->bind_param('ii', $pay, $id);
 			$stmt->execute();
