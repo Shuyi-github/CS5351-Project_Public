@@ -100,20 +100,29 @@ $(document).ready(function(){
     });
     switch (CONFIG.role){
         case 0:
-
+            $('#navpr').css("display","none");
+            $('#changebtn').replaceWith("");
+            $('#add').replaceWith("");
             break;
         case 1:
             break;
         case 2:
+            $('#changebtn').replaceWith("");
+            $('#add').replaceWith("");
             break;
         case 3:
+            $('#changebtn').replaceWith("");
+            $('#add').replaceWith("");
             break;
         default:
             alert("you have no right");
+            $('#navpr').css("display","none");
+            $('#changebtn').replaceWith("");
+            $('#add').replaceWith("");
     }
  /*   if(CONFIG.role){
-            1:am;
             0:senior;
+            1:am;
             2:creativestaff
             3:purchase
     }
