@@ -311,8 +311,8 @@ function changebtn(elem){
         $('.selectaddstaff option:selected').map(function () {
             var selectstaff = $(this).attr("id");
             //alert(b);
-            var t = [];
-            t['id'] = selectstaff;
+            var t = {};
+            t.id = selectstaff;
             st_select.push(t);
         });
         console.log(st_select);

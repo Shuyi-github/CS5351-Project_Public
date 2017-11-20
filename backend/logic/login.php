@@ -47,7 +47,7 @@
 			if(!Tool::checkUserStatus()) {
 				return ['role' => -1, 'role_name' => 'Not Authorized'];
 			} else {
-				return ['role' => -1, 'role_name' => $_SESSION['role_name']];
+				return ['role' => $_SESSION['role'], 'role_name' => $_SESSION['role_name']];
 			}
 		}
 	}

@@ -109,5 +109,25 @@
 				return ['status' => 0, 'message' => 'success'];
 			}
 		}
+
+		public static function addcampaign() {
+			if(!Tool::checkUserStatus()) {
+				return ['status' => 1, 'message' => 'Please logon first.'];
+			}
+			if(!Tool::checkParameters(['campaign' => 'not null', 'client' => 'int', 'sdate' => 'not null', 'edate' => 'not null'])) {
+				return ['status' => 1, 'message' => 'Invalid parameters.'];
+			}
+
+			preg_match("/^(\d\d)\/(\d\d)\/(\d\d)$/", $_POST['sdate'], $date);
+			$start = mktime(0, 0, 0, $date[1], $date[2], $date[3]);
+			preg_match("/^(\d\d)\/(\d\d)\/(\d\d)$/", $_POST['edate'], $date);
+			$end = mktime(0, 0, 0, $date[1], $date[2], $date[3]);
+
+			Tool::getDBConnection()->begin_transaction();
+			$team = TeamModel::addTeam($_SESSION['id']);
+			CampaignModel::addCampaign($_POST['client'], $_POST['campaign'], $start, $end, $team);
+			Tool::getDBConnection()->commit();
+			return ['status' => 0, 'message' => 'success'];
+		}
 	}
 ?>

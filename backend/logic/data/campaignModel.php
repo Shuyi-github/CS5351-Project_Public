@@ -67,7 +67,7 @@
 			$conn = Tool::getDBConnection();
 			$sql = "insert into " . self::tableName() . "(OwnerClient, Title, StartDate, EndDate, Status, EstimateCost, MaterialCost, SerProdCost, OtherCost, ContactPerson, AssignedTeam) values(?, ?, ?, ?, 0, 0, 0, 0, 0, 0, ?);";
 			$stmt = $conn->prepare($sql);
-			$stmt->bind_param('isii', $client, $start, $end, $team);
+			$stmt->bind_param('isiii', $client, $title, $start, $end, $team);
 			$stmt->execute();
 			return $stmt->insert_id;
 		}
