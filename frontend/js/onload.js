@@ -38,6 +38,7 @@ $(document).ready(function(){
         $('#tb4').css('display','none');
         $('#div_btn').css('display','block');
         $('.staffbr').replaceWith("");
+        $('.selectads').replaceWith('<input type="text" name="cst_type" class="inputDisabled" disabled>');
         layout1();
     });
     $("#fade").click(function(){
@@ -47,6 +48,7 @@ $(document).ready(function(){
         $('#tb4').css('display','none');
         $('#div_btn').css('display','block');
         $('.staffbr').replaceWith("");
+        $('.selectads').replaceWith('<input type="text" name="cst_type" class="inputDisabled" disabled>');
         layout1();
     });
     $( "input[name='start_date']" ).datepicker({
@@ -96,6 +98,19 @@ $(document).ready(function(){
         $('#setpr').append(''+option+'');
 
     });
+    switch (CONFIG.role){
+        case 0:
+
+            break;
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        default:
+            alert("you have no right");
+    }
  /*   if(CONFIG.role){
             1:am;
             0:senior;
