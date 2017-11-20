@@ -50,6 +50,7 @@ function submit_payrate(){
             if (!data.status) {
                  alert("save success");
                  topayrate();
+            }
         },
         error: function (err) {
             alert("err:" + err);
