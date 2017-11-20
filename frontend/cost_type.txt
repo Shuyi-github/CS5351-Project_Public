@@ -1,0 +1,4 @@
+ads cost_type:
+1 NEWSPAPER AD
+2 ONLINE AD
+3 TV COMMERCIAL
