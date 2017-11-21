@@ -10,8 +10,8 @@
 		public static  $DOMAIN = "http://localhost";
 
 		public static  $AUTHORITY = [
-			'CHECKTEAM_SELF' => 1,
-			'CHECKTEAM_ALL' => 2,
+			'CHECK_SELF' => 1,
+			'UPDATE_CAMPAIGN' => 8,
 			'PUBLIC' => 65535,
 		];
 

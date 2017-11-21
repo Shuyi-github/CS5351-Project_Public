@@ -43,9 +43,7 @@
 			}
 		};
 		this.message = {
-			all: 'Marcar todos registros.',
-			clear: 'Desmarcar todos registos.',
-			search: 'Search by',
+			search: 'Search by ...',
 			searchText:'Search',prev:'Previous',next:'Next'
 		};
 		this.select = function () {
@@ -245,7 +243,7 @@
 	   };
 	   this.filter = function () {
 		  var table = this;
-		  var search = '<div class="col-md-6 pull-right"><div class="input-group"> <label class="input-group-addon"> '+this.message.searchText +' </label> <input type="text" class="form-control cari" placeholder="' + this.message.search + ' " > </div></div>';
+		  var search = '<div class="col-md-6 pull-right"><div class="input-group"> <input type="text" class="form-control cari" id="searchbar" placeholder="' + this.message.search + ' " > </div></div>';
 		  var menu = this.makeMenu();
 		  menu.prepend(search);
 

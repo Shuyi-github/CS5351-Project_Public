@@ -36,7 +36,7 @@
 				return ['status' => 1, 'message' => 'Invalid parameters.'];
 			}
 
-			if(AdsModel::updateAd($_POST['id'], $_POST['type'], $_POST['cost'])) {
+			if(AdsModel::updateAd($_POST['ads_id'], $_POST['type'], $_POST['cost'])) {
 				return ['status' => 1, 'message' => 'Server error.'];
 			} else {
 				return ['status' => 0, 'message' => 'success'];

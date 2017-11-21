@@ -10,8 +10,8 @@
 		}
 
 		public static function checkAuthoriation($auth) {
-			if(isset(Config::$AUTHORITY['$auth'])) {
-				if(Config::$AUTHORITY['$auth'] & $_SESSION['auth']) {
+			if(isset(Config::$AUTHORITY[$auth])) {
+				if(Config::$AUTHORITY[$auth] & $_SESSION['auth']) {
 					return TRUE;
 				}
 			}
