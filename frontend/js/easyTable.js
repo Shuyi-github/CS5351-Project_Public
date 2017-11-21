@@ -16,9 +16,7 @@ $.fn.easyTable = function (options) {
       scroll: {active: false, height: '400px'}
    };
    this.message = {
-      all: 'Marcar todos registros.',
-      clear: 'Desmarcar todos registos.',
-      search: 'Search by'
+      search: 'Search by ...'
    };
    this.select = function () {
       var table = this;
