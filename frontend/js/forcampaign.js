@@ -17,11 +17,12 @@ function getdetail(elem){
                 popup();
                 $("#detail").replaceWith('<span id="detail">compaign detail.</span>');
                 $('input[name=staf]').css("display","none");
+                $('input[name=hou]').css("display","none");
                 $('#changebtn').replaceWith('<span id="changebtn"><button id="edit"  class="button button-pill button-tiny button-primary" onclick="changebtn('+elem.id+')">edit</button></span>');
                 $.each(data,function (key,value) {
                     if(key =="staff"){
                         $.each(value,function(ky,val){
-                            $('<tr class="staffinfo"><th align="right"></th><th><input type="text" disabled value="'+val.name+'"> </input></th><th><input type="text" disabled value="'+val.hour+'" class="inputDisabled" disabled> </input></th></tr>').insertAfter($('#showstaff'));
+                            $('<tr class="staffinfo"><th align="right"><input type="text" class="orignstaff" disabled value="'+val.name+'"> </input></th><th><input type="text" disabled value="'+val.hour+'" class="inputDisabled" disabled> </input></th></tr>').insertAfter($('#opstaff'));
                         });
                     }
                    else $("input[name='"+ key +"']").val(value);
@@ -43,9 +44,11 @@ function getdetail(elem){
             //for test function, delete later
             var obj = JSON.parse('{ "cn":"1000", "cd":"tom", "am":"edfdg","cmc":"camp_4"}');
             $("#detail").replaceWith('<span id="detail">compaign detail.</span>');
-            $('#changebtn').replaceWith('<span id="changebtn"><button id="edit"  class="button button-pill button-tiny button-primary" onclick="changebtn()">edit</button></span>');
-            $.each(obj,function (detail_type,detail_content) {
-               $("input[name='"+ detail_type +"']").val(detail_content);
+            $('input[name=staf]').css("display","none");
+            $('input[name=hou]').css("display","none");
+            $('#changebtn').replaceWith('<span id="changebtn"><button id="edit"  class="button button-pill button-tiny button-primary" onclick="changebtn('+elem.id+')">edit</button></span>');
+                $.each(obj,function(ky,val){
+                    $('<tr class="staffinfo"><th><input type="text" class="orignstaff" disabled value="'+ky+'"> </input></th><th><input type="text" disabled value="'+val+'" class="inputDisabled" disabled> </input></th></tr>').insertAfter($('#opstaff'));
 
             });
             //
@@ -310,6 +313,7 @@ function deletecamp(elem){
         }
     });
 }
+/*
 function addIdeaTocamp(elem){
     console.log("begin ajax");
     var ideacamp = elem.id.replace('idea','');
@@ -338,12 +342,13 @@ function addIdeaTocamp(elem){
 
 
 }
-
+*/
 var options;
 
 function changebtn(elem){
     options="";
     $('input[name=staf]').css("display","block");
+    $('input[name=hou]').css("display","block");
     $('#addstaff').css("display","block");
     $('.inputDisabled').prop("disabled", false); // Element(s) are now enabled.
     $('#edit').replaceWith('<span id="changebtn"><button id="submit_edit"  class="button button-pill button-tiny button-primary">submit</button><span>');
@@ -396,6 +401,14 @@ function changebtn(elem){
             st_select.push(t);
         });
         console.log(st_select);
+        $('.orignstaff').map(function(){
+            var orignstaff=$(this).val();
+            var or={};
+            or.id=orignstaff;
+            or.hour=$(this).parent().next().children("input").val();
+            st_select.push(or);
+        });
+        console.log(st_select);
 
         var name = $("input[name='cn']").val();
         var client = $("input[name='cd']").val();
@@ -409,7 +422,7 @@ function changebtn(elem){
         var ssapc = $("input[name='ssapc']").val();
         var payment = $("input[name='payment']").val();
 
-        if(name.length < 1 || client.length < 1) {
+        if(name.length < 1 || payment.length < 1) {
             alert("Please enter Client Name and Address.");
         } else {
             $.ajax({
@@ -440,6 +453,7 @@ function changebtn(elem){
                         $('#edads').hide();
                         $('#tb4').css('display','none');
                         $('#div_btn').css('display','block');
+                        $('.staffinfo').replaceWith("");
                         $('.addstafh').replaceWith("");
                         layout1();
                     }
@@ -452,6 +466,7 @@ function changebtn(elem){
                     $('#edads').hide();
                     $('#tb4').css('display','none');
                     $('#div_btn').css('display','block');
+                    $('.staffinfo').replaceWith("");
                     $('.addstafh').replaceWith("");
                     layout1();
 
