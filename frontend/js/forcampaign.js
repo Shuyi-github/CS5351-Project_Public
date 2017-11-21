@@ -331,7 +331,8 @@ function addIdeaTocamp(elem){
         },
     success :function(data) {
                 $.each(data,function(key,value){
-                    $("#hehe").append('<pre style="text-align: center">'+"Author:"+" "+value.name+'</pre><br><div style="word-wrap:break-word; border: 2px solid #4cb0f9" >' + value.idea + '</div>');
+                    $("#hehe").append('<pre style="text-align: center">'+"Author:"+" "+value.name+'</pre><div style="word-wrap:break-word; border: 2px solid #4cb0f9" >' + value.idea + '</div><br>');
+
                 });
 
         popup();
