@@ -377,3 +377,7 @@ delbtn{
     display:block;
     float:right;
 }
+#tb3{
+    margin-left: auto;
+    margin-right: auto;
+}
