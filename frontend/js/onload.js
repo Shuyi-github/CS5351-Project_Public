@@ -99,6 +99,7 @@ $(document).ready(function(){
 
     });
 
+console.log(CONFIG.role);
     switch (CONFIG.role){
         case 0:
             $('#changebtn').replaceWith("");
@@ -106,6 +107,7 @@ $(document).ready(function(){
             break;
         case 1:
             //$('#add').show();
+
             break;
         case 2:
             $('#changebtn').replaceWith("");
