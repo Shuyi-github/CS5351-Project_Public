@@ -108,14 +108,14 @@
 			}
 
 			if(!empty($_POST['start'])) {
-				preg_match("/(\d\d)\/(\d\d)\/(\d\d)/", $_POST['start'], $date);
+				preg_match("/(\d\d)\/(\d\d)\/(\d\d\d\d)/", $_POST['start'], $date);
 				$start = mktime(0, 0, 0, $date[1], $date[2], $date[3]);
 			} else {
 				$start = null;
 			}
 
 			if(!empty($_POST['end'])) {
-				preg_match("/(\d\d)\/(\d\d)\/(\d\d)/", $_POST['end'], $date);
+				preg_match("/(\d\d)\/(\d\d)\/(\d\d\d\d)/", $_POST['end'], $date);
 				$end = mktime(0, 0, 0, $date[1], $date[2], $date[3]);
 			} else {
 				$end = null;
@@ -163,14 +163,14 @@
 			}
 
 			if(isset($_POST['sdate'])) {
-				preg_match("/(\d\d)\/(\d\d)\/(\d\d)/", $_POST['sdate'], $date);
+				preg_match("/(\d\d)\/(\d\d)\/(\d\d\d\d)/", $_POST['sdate'], $date);
 				$start = mktime(0, 0, 0, $date[1], $date[2], $date[3]);
 			} else {
 				$start = null;
 			}
 
 			if(isset($_POST['edate'])) {
-				preg_match("/(\d\d)\/(\d\d)\/(\d\d)/", $_POST['edate'], $date);
+				preg_match("/(\d\d)\/(\d\d)\/(\d\d\d\d)/", $_POST['edate'], $date);
 				$end = mktime(0, 0, 0, $date[1], $date[2], $date[3]);
 			} else {
 				$end = null;
@@ -210,6 +210,8 @@
 			if(!Tool::checkParameters(['campaign_id' => 'int', 'note' => 'not null'])) {
 				return ['status' => 1, 'message' => 'Invalid parameters.'];
 			}
+
+			$_POST['note'] = preg_replace('/<.*>/', '', $_POST['note']);
 
 			if(CampnoteModel::addNote($_POST['campaign_id'], $_SESSION['id'], $_POST['note'])) {
 				return ['status' => 0, 'message' => 'success'];
