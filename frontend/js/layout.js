@@ -166,7 +166,7 @@ function submitidea() {
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: 'backend/campaign/adnote',
+            url: 'backend/campaign/addnote',
             data: {
                 campaign_id: ideacamp,
                 note : idea,

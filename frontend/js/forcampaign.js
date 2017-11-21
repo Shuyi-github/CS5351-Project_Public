@@ -318,6 +318,7 @@ function deletecamp(elem){
 
 var ideacamp;
 function addIdeaTocamp(elem){
+
     ideacamp="";
     console.log("begin ajax");
     ideacamp = elem.id.replace('idea','');
