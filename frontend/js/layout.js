@@ -159,7 +159,7 @@ function submitidea() {
     console.log("begin ajax")
  //   ideacamp = $(this).attr('id');
 //    var ideacp = ideacamp.replace('idea','');
-    var idea = $('#hehe').parent().find('textarea[name="Text1"]').text();
+    var idea = $('#hehe').parent().find('textarea[name="Text1"]').val();
     if(idea.length==null)
         alert("Please write your idea")
     else {
@@ -186,7 +186,7 @@ function submitidea() {
                     },
                     success :function(data) {
                         $.each(data,function(key,value){
-                            $("#hehe").append('<pre style="text-align: center">'+"Author:"+" "+value.name+'</pre><br><div style="word-wrap:break-word; border: 2px solid #4cb0f9" >' + value.idea + '</div>');
+                            $("#hehe").append('<pre style="text-align: center">'+"Author:"+" "+value.name+'</pre><div style="word-wrap:break-word; border: 2px solid #4cb0f9" >' + value.idea + '</div><br>');
                         });
 
                         popup();
