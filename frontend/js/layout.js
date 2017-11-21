@@ -20,6 +20,7 @@ function layout1(){
     $('#addstaff').css("display","none");
     $('.selectaddstaff').replaceWith("");
 
+
     $.ajax({
         type: "POST",     //提交方式
         dataType: "json",     //传回类型

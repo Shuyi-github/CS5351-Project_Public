@@ -388,7 +388,7 @@ function changebtn(elem){
             //alert(b);
             var t = {};
             t.id = selectstaff;
-            t.hour=
+            t.hour=$(this).parent().parent().next().children("input").val();
             st_select.push(t);
         });
         console.log(st_select);
@@ -403,6 +403,7 @@ function changebtn(elem){
   //      var staff = $("input[name='staf']").val();
         var cmc = $("input[name='cmc']").val();
         var ssapc = $("input[name='ssapc']").val();
+        var payment = $("input[name='payment']").val();
 
         if(name.length < 1 || client.length < 1) {
             alert("Please enter Client Name and Address.");
@@ -424,6 +425,7 @@ function changebtn(elem){
                     staff: st_select,
                     copyright: cmc,
                     ssp: ssapc,
+                    payment:payment,
                 },
                 success: function (data) {
                     //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
@@ -434,7 +436,7 @@ function changebtn(elem){
                         $('#edads').hide();
                         $('#tb4').css('display','none');
                         $('#div_btn').css('display','block');
-                        $('.staffbr').replaceWith("");
+                        $('.addstafh').replaceWith("");
                         layout1();
                     }
                     else alert("server error");
@@ -446,7 +448,7 @@ function changebtn(elem){
                     $('#edads').hide();
                     $('#tb4').css('display','none');
                     $('#div_btn').css('display','block');
-                    $('.staffbr').replaceWith("");
+                    $('.addstafh').replaceWith("");
                     layout1();
 
                 }

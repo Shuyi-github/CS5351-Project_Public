@@ -37,7 +37,7 @@ $(document).ready(function(){
         $('#edads').hide();
         $('#tb4').css('display','none');
         $('#div_btn').css('display','block');
-        $('.staffbr').replaceWith("");
+        $('.addstafh').replaceWith("");
         $('.selectads').replaceWith('<input type="text" name="cst_type" class="inputDisabled" disabled>');
         layout1();
     });
@@ -47,7 +47,7 @@ $(document).ready(function(){
         $('#edads').hide();
         $('#tb4').css('display','none');
         $('#div_btn').css('display','block');
-        $('.staffbr').replaceWith("");
+        $('.addstafh').replaceWith("");
         $('.selectads').replaceWith('<input type="text" name="cst_type" class="inputDisabled" disabled>');
         layout1();
     });
@@ -83,7 +83,7 @@ $(document).ready(function(){
     $('#addstaff').click(function (e) {
         //console.log("add_click");
         e.preventDefault();
-        $('<br class="staffbr"><select id="selectadd" class="selectaddstaff"></select>').insertAfter($('#select2'));
+        $('<tr class="addstafh"><th><select id="selectadd" class="selectaddstaff"></select></th><th><input type="text"  class="inputDisabled"> </input></th></tr>').insertAfter($('#showstaff'));
         $('#selectadd').append(''+options+'');
 
     });
@@ -98,6 +98,7 @@ $(document).ready(function(){
         $('#setpr').append(''+option+'');
 
     });
+/*
     switch (CONFIG.role){
         case 0:
             $('#navpr').css("display","none");
@@ -120,6 +121,7 @@ $(document).ready(function(){
             $('#changebtn').replaceWith("");
             $('#add').replaceWith("");
     }
+ */
  /*   if(CONFIG.role){
             0:senior;
             1:am;
