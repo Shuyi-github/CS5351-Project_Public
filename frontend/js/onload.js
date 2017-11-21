@@ -117,7 +117,11 @@ console.log(CONFIG.role);
         case 3:
             $('#navpr').css("display","block");
             $('#changebtn').replaceWith("");
-      //      $('#add').replaceWith("");
+            $('#add').hide();
+            break;
+        case 4:
+            $('#navpr').css("display","block");
+            $('#changebtn').replaceWith("");
             $('#add').hide();
             break;
         default:
