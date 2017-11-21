@@ -98,7 +98,7 @@ $(document).ready(function(){
         $('#setpr').append(''+option+'');
 
     });
-/*
+
     switch (CONFIG.role){
         case 0:
             $('#navpr').css("display","none");
@@ -121,7 +121,7 @@ $(document).ready(function(){
             $('#changebtn').replaceWith("");
             $('#add').replaceWith("");
     }
- */
+ 
  /*   if(CONFIG.role){
             0:senior;
             1:am;

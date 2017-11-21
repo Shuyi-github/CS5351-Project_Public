@@ -22,7 +22,7 @@ function getdetail(elem){
                 $.each(data,function (key,value) {
                     if(key =="staff"){
                         $.each(value,function(ky,val){
-                            $('<tr class="staffinfo"><th align="right"><input type="text" class="orignstaff" disabled value="'+val.name+'"> </input></th><th><input type="text" disabled value="'+val.hour+'" class="inputDisabled" disabled> </input></th></tr>').insertAfter($('#opstaff'));
+                            $('<tr class="staffinfo"><th align="right"><input id="'+val.id+'" type="text" class="orignstaff" disabled value="'+val.name+'"> </input></th><th><input type="text" disabled value="'+val.hour+'" class="inputDisabled" disabled> </input></th></tr>').insertAfter($('#opstaff'));
                         });
                     }
                    else $("input[name='"+ key +"']").val(value);
@@ -402,7 +402,7 @@ function changebtn(elem){
         });
         console.log(st_select);
         $('.orignstaff').map(function(){
-            var orignstaff=$(this).val();
+            var orignstaff=$(this).attr("id");
             var or={};
             or.id=orignstaff;
             or.hour=$(this).parent().next().children("input").val();
