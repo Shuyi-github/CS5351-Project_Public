@@ -310,7 +310,7 @@ function deletecamp(elem){
         }
     });
 }
-/*function addIdeaTocamp(elem){
+function addIdeaTocamp(elem){
     console.log("begin ajax");
     var ideacamp = elem.id.replace('idea','');
     $('#tb4').html();
@@ -322,9 +322,13 @@ function deletecamp(elem){
               campaign_id : ideacamp ;
 
         },
-    success :function(key,value) {
-            $("#hehe").append('<div style="word-wrap:break-word">'+value.idea+'</div>')
+    success :function(data) {
+            if(!data.status) {
+                $.each(data,function(key,value){
+                    $("#hehe").append('<pre style="text-align: center">'+"Author:"+" "+value.name+'</pre><br><div style="word-wrap:break-word">' + value.idea + '</div>')
+                })
 
+            }
     }
     popup();
     $('#tb2').hide();
@@ -334,7 +338,7 @@ function deletecamp(elem){
 
 
 }
-*/
+
 var options;
 
 function changebtn(elem){
