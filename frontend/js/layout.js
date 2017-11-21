@@ -159,7 +159,7 @@ function submitidea() {
     console.log("begin ajax")
  //   ideacamp = $(this).attr('id');
 //    var ideacp = ideacamp.replace('idea','');
-    var idea = $(this).find('textarea[name="Text1"]').text();
+    var idea = $(this).parent().find('textarea[name="Text1"]').text();
     if(idea.length==null)
         alert("Please write your idea")
     else {
