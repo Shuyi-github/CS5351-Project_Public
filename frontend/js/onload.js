@@ -101,12 +101,10 @@ $(document).ready(function(){
 
     switch (CONFIG.role){
         case 0:
-
             $('#changebtn').replaceWith("");
-       //     $('#add').replaceWith("");
             break;
         case 1:
-            $('#add').css("display","block");
+            $('#add').show();
             break;
         case 2:
             $('#changebtn').replaceWith("");
