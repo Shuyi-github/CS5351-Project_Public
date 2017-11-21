@@ -318,7 +318,7 @@ function deletecamp(elem){
 
 var ideacamp;
 function addIdeaTocamp(elem){
-   $("#tb4")
+   $("#tb4").clear
     ideacamp="";
     console.log("begin ajax");
     ideacamp = elem.id.replace('idea','');

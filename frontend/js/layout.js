@@ -160,6 +160,7 @@ function submitidea() {
  //   ideacamp = $(this).attr('id');
 //    var ideacp = ideacamp.replace('idea','');
     var idea = $(this).parent().find('textarea[name="Text1"]').text();
+    console.log($(this).parent());
     if(idea.length==null)
         alert("Please write your idea")
     else {
@@ -180,7 +181,7 @@ function submitidea() {
                     dataType: "json",
                     url:'backend/campaign/getnote',
                     data: {
-                        campaign_id : ideacp,
+                        campaign_id : ideacamp,
 
                     },
                     success :function(data) {
