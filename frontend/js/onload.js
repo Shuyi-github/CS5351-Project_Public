@@ -102,18 +102,21 @@ $(document).ready(function(){
     switch (CONFIG.role){
         case 0:
             $('#changebtn').replaceWith("");
+            $('#add').hide();
             break;
         case 1:
-            $('#add').show();
+            //$('#add').show();
             break;
         case 2:
             $('#changebtn').replaceWith("");
       //      $('#add').replaceWith("");
+            $('#add').hide();
             break;
         case 3:
             $('#navpr').css("display","block");
             $('#changebtn').replaceWith("");
       //      $('#add').replaceWith("");
+            $('#add').hide();
             break;
         default:
             $('#add').css("display","none");
