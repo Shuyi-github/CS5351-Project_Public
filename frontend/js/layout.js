@@ -128,6 +128,10 @@ function logout() {
 
 }
 
+function submitidea() {
+    console.log("begin ajax");
+}
+
 
 
 
