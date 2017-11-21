@@ -118,6 +118,9 @@ $(document).ready(function(){
       //      $('#add').replaceWith("");
             break;
         default:
+            $('#add').css("display","none");
+            $('#navpr').css("display","none");
+            $('#changebtn').replaceWith("");
         /*    alert("you have no right");
             $('#navpr').css("display","none");
             $('#changebtn').replaceWith("");

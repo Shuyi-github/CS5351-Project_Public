@@ -372,3 +372,7 @@ delbtn{
     padding: 5px; /* If you add too much padding here, the options won't show in IE */
     width: 216px;
 }
+
+#add{
+    display:none;
+}
