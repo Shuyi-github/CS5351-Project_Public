@@ -116,12 +116,13 @@ $(document).ready(function(){
             $('#add').replaceWith("");
             break;
         default:
-            alert("you have no right");
+        /*    alert("you have no right");
             $('#navpr').css("display","none");
             $('#changebtn').replaceWith("");
             $('#add').replaceWith("");
+    */
     }
- 
+
  /*   if(CONFIG.role){
             0:senior;
             1:am;
