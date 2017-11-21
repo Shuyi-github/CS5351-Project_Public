@@ -106,6 +106,7 @@ $(document).ready(function(){
             $('#add').replaceWith("");
             break;
         case 1:
+            $('#navpr').css("display","none");
             break;
         case 2:
             $('#changebtn').replaceWith("");
