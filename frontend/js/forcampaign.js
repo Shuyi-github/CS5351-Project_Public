@@ -73,7 +73,13 @@ function getads(elem){
             //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
             if(!data.status){
                 $.each(data,function (key,value) {
-                    $('<tr id="'+elem.id+value.ID+'" class="trads"><td align="middle">'+value.Type+'</td><td align="middle"></td><td align="middle"><button class="jqbtn" onclick="adsdetail('+value.ID+')">'+value.ID+'</button></td><td align="middle">'+value.Cost+'</td></tr>').insertAfter($('#'+camp).closest('tr'));
+                    if(CONFIG.role==3) {
+                        $('<tr id="' + elem.id + value.ID + '" class="trads"><td align="middle">' + value.Type + '</td><td align="middle"></td><td align="middle"><button class="jqbtn" onclick="adsdetail(' + value.ID + ')">' + value.ID + '</button></td><td align="middle">' + value.Cost + '</td></tr>').insertAfter($('#' + camp).closest('tr'));
+                    }
+                    else{
+                        $('<tr id="' + elem.id + value.ID + '" class="trads"><td align="middle">' + value.Type + '</td><td align="middle"></td><td align="middle"></td><td align="middle">' + value.Cost + '</td></tr>').insertAfter($('#' + camp).closest('tr'));
+
+                    }
                 });
                 $('#'+elem.id).replaceWith('<button class="button button-pill button-tiny" id="close'+id+'" ></button>');
                 $('#close'+id).click(function () {
@@ -87,8 +93,14 @@ function getads(elem){
 
             var data = JSON.parse('{ "1":"1000", "2":"tom", "3":"edfdg","4":"camp_4"}');
             $.each(data,function (ads_id,ads_type) {
-                $('<tr id="'+elem.id+ads_id+'" class="trads"><td align="middle">'+ads_type+'</td><td align="middle"><button class="jqbtn" onclick="adsdetail('+ads_id+')">'+ads_id+'</button></td><td align="middle">cost_type</td><td align="middle">cost</td></tr>').insertAfter($('#'+camp).closest('tr'));
+                if(CONFIG.role==3) {
+                    $('<tr id="' + elem.id + ads_id + '" class="trads"><td align="middle">' + ads_type + '</td><td align="middle" id="showad"><button class="jqbtn" onclick="adsdetail(' + ads_id + ')">' + ads_id + '</button></td><td align="middle">cost_type</td><td align="middle">cost</td></tr>').insertAfter($('#' + camp).closest('tr'));
+                }
+                else
+                    $('<tr id="' + elem.id + ads_id + '" class="trads"><td align="middle">' + ads_type + '</td><td align="middle" id="showad"></td><td align="middle">cost_type</td><td align="middle">cost</td></tr>').insertAfter($('#' + camp).closest('tr'));
+
             });
+
             $('#'+elem.id).replaceWith('<button class="button button-pill button-tiny" id="close'+id+'" ></button>');
             $('#close'+id).click(function () {
                 $('tr[id^="' + id + '"]').replaceWith("");
@@ -116,9 +128,9 @@ function adsdetail(ads){
     $("input[name='cst_type']").prop("disabled", false);
     $("input[name='cst']").prop("disabled", false);
     var obj=JSON.parse('{ "1":"NEWSPAPER AD", "2":"ONLINE AD", "3":"TV COMMERCIAL"}');
-    $("input[name='cst_type']").replaceWith('<select id="select3"> </select>');
+    $("input[name='cst_type']").replaceWith('<select id="select3" class="selectads"> </select>');
     $.each (obj,function (i,k) {
-        $('#select3').append('<option>' + k + '</option>');
+        $('#select3').append('<option id="costtype'+i+'">' + k + '</option>');
     });
 /*    $("#edit_ads").click(function(){
         $("#edads").replaceWith('<span id="edads"><button id="save_ads"  class="jqbtn">save</button></span>');
@@ -153,6 +165,9 @@ function adsdetail(ads){
 
     $("#save_ads").on("click",function () {
         alert("save success");
+        var costtype=$('#select3 option:selected').attr("id")
+        costtype=costtype.replace('costtype','');
+        money=$("input[name='cst']").val();
        // layout1();
        $.ajax({
         type: "POST",     //提交方式
@@ -160,13 +175,12 @@ function adsdetail(ads){
         url: 'backend/ads/updatead',
         data: {
             ads_id: ads,
-            type:,
-            cost:,
+            type:costtype,
+            cost:money,
         },
         success: function (data) {
             //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
             if(!data.status){
-                $("input[name='cst']").val(data.cost);
             }
             else alert("server error");
         },
@@ -296,7 +310,7 @@ function deletecamp(elem){
         }
     });
 }
-function addIdeaTocamp(elem){
+/*function addIdeaTocamp(elem){
     console.log("begin ajax");
     var ideacamp = elem.id.replace('idea','');
     $('#tb4').html();
@@ -308,7 +322,7 @@ function addIdeaTocamp(elem){
               campaign_id : ideacamp ;
 
         },
-    success :function (key,value) {
+    success :function(key,value) {
             $("#hehe").append('<div style="word-wrap:break-word">'+value.idea+'</div>')
 
     }
@@ -320,6 +334,7 @@ function addIdeaTocamp(elem){
 
 
 }
+*/
 var options;
 
 function changebtn(elem){

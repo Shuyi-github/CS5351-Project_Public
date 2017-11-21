@@ -45,6 +45,12 @@
 				$temp['cpid'] = $c['CampaignID'];
 				$temp['cpname'] = $c['Title'];
 				$temp['staff'] = [];
+				$manager = StaffModel::findByID(TeamModel::findByID($c['AssignedTeam'])['Manager']);
+				$staff = [];
+				$staff['staffname'] = $manager['FirstName'] . ' ' . $manager['LastName'];
+				$staff['stafftype'] = AuthorizationModel::findByRoleID($manager['Role'])['RoleName'];
+				$staff['hours'] = 0;
+				$temp['staff'][] = $staff;
 				$member = MembersModel::findByTeam($c['AssignedTeam']);
 				foreach ($member as $m) {
 					$staff = [];

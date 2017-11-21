@@ -51,11 +51,11 @@
 			return $stmt->errno;
 		}
 
-		public static function updateAd($id, $campaign, $type, $cost) {
+		public static function updateAd($id, $type, $cost) {
 			$conn = Tool::getDBConnection();
-			$sql = "update " . self::tableName() . " set FromCampaign = ?, Type = ?, Cost = ? where ID = ?;";
+			$sql = "update " . self::tableName() . " set Type = ?, Cost = ? where ID = ?;";
 			$stmt = $conn->prepare($sql);
-			$stmt->bind_param('iiii', $campaign, $type, $cost, $id);
+			$stmt->bind_param('iii', $type, $cost, $id);
 			$stmt->execute();
 			return $stmt->errno;
 		}

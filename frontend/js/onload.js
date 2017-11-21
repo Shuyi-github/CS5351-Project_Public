@@ -38,6 +38,7 @@ $(document).ready(function(){
         $('#tb4').css('display','none');
         $('#div_btn').css('display','block');
         $('.staffbr').replaceWith("");
+        $('.selectads').replaceWith('<input type="text" name="cst_type" class="inputDisabled" disabled>');
         layout1();
     });
     $("#fade").click(function(){
@@ -47,6 +48,7 @@ $(document).ready(function(){
         $('#tb4').css('display','none');
         $('#div_btn').css('display','block');
         $('.staffbr').replaceWith("");
+        $('.selectads').replaceWith('<input type="text" name="cst_type" class="inputDisabled" disabled>');
         layout1();
     });
     $( "input[name='start_date']" ).datepicker({
@@ -88,17 +90,39 @@ $(document).ready(function(){
     $('#addselector').click(function (e) {
         //console.log("add_click");
         e.preventDefault();
-
-        $('<tr><td><select class="selectaddpr"></select></td><td><input type="text" class="inputpr" placeholder="eg. 8000"> </input></td></tr>').insertAfter($('#pr1'));
-          $('.selectaddpr').each(function(){
-            $(this).append(''+option+'');
-          });  
-      //  $('#selectadd').append(''+options+'');
+    // option="<option>1</option><option>2</option>";
+        $('<tr><td><select class="selectaddpr" id="setpr"></select></td><td><input type="text" class="inputpr" placeholder="eg. 8000"> </input></td></tr>').insertAfter($('#pr1'));
+       //   $('.selectaddpr').each(function(){
+        //    $(this).append(''+option+'');
+        //  });
+        $('#setpr').append(''+option+'');
 
     });
+    switch (CONFIG.role){
+        case 0:
+            $('#navpr').css("display","none");
+            $('#changebtn').replaceWith("");
+            $('#add').replaceWith("");
+            break;
+        case 1:
+            break;
+        case 2:
+            $('#changebtn').replaceWith("");
+            $('#add').replaceWith("");
+            break;
+        case 3:
+            $('#changebtn').replaceWith("");
+            $('#add').replaceWith("");
+            break;
+        default:
+            alert("you have no right");
+            $('#navpr').css("display","none");
+            $('#changebtn').replaceWith("");
+            $('#add').replaceWith("");
+    }
  /*   if(CONFIG.role){
-            1:am;
             0:senior;
+            1:am;
             2:creativestaff
             3:purchase
     }
