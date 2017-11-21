@@ -154,10 +154,12 @@ function logout() {
     })
 
 }
+var ideacamp;
 
-function submitidea(elem) {
-    console.log("begin ajax");
-    var ideacamp = elem.id.replace('idea','');
+function submitidea() {
+    console.log("begin ajax")
+    ideacamp = $(this).attr('id');
+    var ideacp = ideacamp.replace('idea','');
     var idea = $(this).find('textarea[name="Text1"]').text();
     if(idea.length==null)
         alert("Please write your idea")
@@ -165,20 +167,21 @@ function submitidea(elem) {
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: 'backend/login/logout',
+            url: 'backend/campaign/adnote',
             data: {
-                campaign_id: ideacamp,
-                id : idea,
+                campaign_id: ideacp,
+                note : idea,
             },
             success:function (data) {
                 alert("submit success");
+                $("#Text1").val('');
                 console.log("after ajax");
                 $.ajax({
                     type: "POST",
                     dataType: "json",
                     url:'backend/campaign/getnote',
                     data: {
-                        campaign_id : ideacamp,
+                        campaign_id : ideacp,
 
                     },
                     success :function(data) {
