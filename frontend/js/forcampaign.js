@@ -185,7 +185,7 @@ function adsdetail(ads){
             //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
             if(!data.status){
                 alert("save success");
-                layout1();
+               // layout1();
             }
             else alert("server error");
         },
