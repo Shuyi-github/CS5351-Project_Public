@@ -173,7 +173,7 @@ function submitidea() {
             },
             success:function (data) {
                 alert("submit success");
-                $("#Text1").val('');
+                $('#hehe').parent().find('textarea[name="Text1"]').val('');
                 $("#hehe").html('');
                 console.log("after ajax");
                 $.ajax({
