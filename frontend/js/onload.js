@@ -103,18 +103,19 @@ $(document).ready(function(){
         case 0:
 
             $('#changebtn').replaceWith("");
-            $('#add').replaceWith("");
+       //     $('#add').replaceWith("");
             break;
         case 1:
+            $('#add').css("display","block");
             break;
         case 2:
             $('#changebtn').replaceWith("");
-            $('#add').replaceWith("");
+      //      $('#add').replaceWith("");
             break;
         case 3:
             $('#navpr').css("display","block");
             $('#changebtn').replaceWith("");
-            $('#add').replaceWith("");
+      //      $('#add').replaceWith("");
             break;
         default:
         /*    alert("you have no right");
