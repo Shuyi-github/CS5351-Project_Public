@@ -61,7 +61,9 @@
 			$campaign = CampaignModel::findByID($_POST['request_id']);
 			$result = [];
 			$result['cn'] = $campaign['Title'];
-			$result['cd'] = ClientModel::findByID($campaign['OwnerClient'])['Name'];
+			$client = ClientModel::findByID($campaign['OwnerClient']);
+			$result['cd'] = $client['Name'];
+			$result['ccp'] = $client['ContactPerson'];
 			$manager = StaffModel::findByID(TeamModel::findByID($campaign['AssignedTeam'])['Manager']);
 			$result['am'] = $manager['FirstName'] . ' ' . $manager['LastName'];
 			$result['st'] = $campaign['Status'];
