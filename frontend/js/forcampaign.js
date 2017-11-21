@@ -310,6 +310,7 @@ function deletecamp(elem){
         }
     });
 }
+
 function addIdeaTocamp(elem){
     console.log("begin ajax");
     var ideacamp = elem.id.replace('idea','');
@@ -317,27 +318,27 @@ function addIdeaTocamp(elem){
     $.ajax({
         type: "POST",
         dataType: "json",
-        url:'backend/campaign/getnote/',
+        url:'backend/campaign/getnote',
         data: {
-              campaign_id : ideacamp ;
+              campaign_id : ideacamp,
 
         },
     success :function(data) {
-            if(!data.status) {
                 $.each(data,function(key,value){
-                    $("#hehe").append('<pre style="text-align: center">'+"Author:"+" "+value.name+'</pre><br><div style="word-wrap:break-word">' + value.idea + '</div>')
-                })
+                    $("#hehe").append('<pre style="text-align: center">'+"Author:"+" "+value.name+'</pre><br><div style="word-wrap:break-word">' + value.idea + '</div>');
+                });
 
-            }
-    }
-    popup();
-    $('#tb2').hide();
-    $('#tb4').css("display","block");
-    $('#div_btn').css('display','none');
+        popup();
+        $('#tb2').hide();
+        $('#tb4').css("display","block");
+        $('#div_btn').css('display','none');
+    },
+
     })
 
 
 }
+
 
 var options;
 
