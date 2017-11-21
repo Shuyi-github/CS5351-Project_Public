@@ -115,7 +115,7 @@ console.log(CONFIG.role);
             $('#add').hide();
             break;
         case 3:
-            $('#navpr').css("display","block");
+           // $('#navpr').css("display","block");
             $('#changebtn').replaceWith("");
             $('#add').hide();
             break;
