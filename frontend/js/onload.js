@@ -98,7 +98,7 @@ $(document).ready(function(){
         $('#setpr').append(''+option+'');
 
     });
-/*
+
     switch (CONFIG.role){
         case 0:
             $('#navpr').css("display","none");
@@ -106,6 +106,7 @@ $(document).ready(function(){
             $('#add').replaceWith("");
             break;
         case 1:
+            $('#navpr').css("display","none");
             break;
         case 2:
             $('#changebtn').replaceWith("");
@@ -116,12 +117,13 @@ $(document).ready(function(){
             $('#add').replaceWith("");
             break;
         default:
-            alert("you have no right");
+        /*    alert("you have no right");
             $('#navpr').css("display","none");
             $('#changebtn').replaceWith("");
             $('#add').replaceWith("");
+    */
     }
- */
+
  /*   if(CONFIG.role){
             0:senior;
             1:am;
