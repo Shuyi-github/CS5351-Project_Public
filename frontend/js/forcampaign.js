@@ -422,7 +422,7 @@ function changebtn(elem){
         var ssapc = $("input[name='ssapc']").val();
         var payment = $("input[name='payment']").val();
 
-        if(name.length < 1 || payment.length < 1) {
+        if(name.length < 1 || client.length < 1) {
             alert("Please enter Client Name and Address.");
         } else {
             $.ajax({
