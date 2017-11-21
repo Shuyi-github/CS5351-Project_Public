@@ -47,7 +47,7 @@ function layout1(){
                 else if(CONFIG.role==0){
                     $('#idea_del').replaceWith('<th align="middle" style="font-size: 20px" id="idea_del">client</th>');
                     $.each(data, function (key, value) {
-                        $("#tb1").find("tbody").append('<tr id="ca' + value.camp_id + '"><td align="middle">' + (key + 1) + '</td><td align="middle"><button id="' + value.camp_id + '" class="button button-glow button-border button-rounded button-primary" onclick="getdetail(this)">' + value.camp_name + '</button></td><td align="middle"><button id="a' + value.camp_id + '"class="button button-circle button-tiny" onclick="getads(this)"></button></td><td align="middle">value.client</td></tr>');
+                        $("#tb1").find("tbody").append('<tr id="ca' + value.camp_id + '"><td align="middle">' + (key + 1) + '</td><td align="middle"><button id="' + value.camp_id + '" class="button button-glow button-border button-rounded button-primary" onclick="getdetail(this)">' + value.camp_name + '</button></td><td align="middle"><button id="a' + value.camp_id + '"class="button button-circle button-tiny" onclick="getads(this)"></button></td><td align="middle">'+value.client+'</td></tr>');
                     })
                 }
                 else{
