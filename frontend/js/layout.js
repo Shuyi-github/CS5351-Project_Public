@@ -53,7 +53,7 @@ function layout1(){
                 else{
                     $('#idea_del').replaceWith('<th align="middle" style="font-size: 20px" id="idea_del">idea</th>');
                     $.each(data, function (key, value) {
-                        $("#tb1").find("tbody").append('<tr id="ca' + value.camp_id + '"><td align="middle">' + (key + 1) + '</td><td align="middle"><button id="' + value.camp_id + '" class="button button-glow button-border button-rounded button-primary" onclick="getdetail(this)">' + value.camp_name + '</button></td><td align="middle"><button id="a' + value.camp_id + '"class="button button-circle button-tiny" onclick="getads(this)"></button></td><td></td></tr>');
+                        $("#tb1").find("tbody").append('<tr id="ca' + value.camp_id + '"><td align="middle">' + (key + 1) + '</td><td align="middle"><button id="' + value.camp_id + '" class="button button-glow button-border button-rounded button-primary" onclick="getdetail(this)">' + value.camp_name + '</button></td><td align="middle"><button id="a' + value.camp_id + '"class="button button-circle button-tiny" onclick="getads(this)"></button></td><td align="middle"><button id="idea'+value.camp_id+'"class="button  button-pill button-glow button-rounded button-raised button-primary" onclick="addIdeaTocamp(this)">idea</button></td></tr>');
                     })
                 }
             showcamp();
