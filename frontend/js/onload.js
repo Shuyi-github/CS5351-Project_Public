@@ -101,18 +101,18 @@ $(document).ready(function(){
 
     switch (CONFIG.role){
         case 0:
-            $('#navpr').css("display","none");
+
             $('#changebtn').replaceWith("");
             $('#add').replaceWith("");
             break;
         case 1:
-            $('#navpr').css("display","none");
             break;
         case 2:
             $('#changebtn').replaceWith("");
             $('#add').replaceWith("");
             break;
         case 3:
+            $('#navpr').css("display","block");
             $('#changebtn').replaceWith("");
             $('#add').replaceWith("");
             break;

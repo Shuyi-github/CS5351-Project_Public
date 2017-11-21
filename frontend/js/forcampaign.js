@@ -167,7 +167,7 @@ function adsdetail(ads){
     });
 
     $("#save_ads").on("click",function () {
-        alert("save success");
+
         var costtype=$('#select3 option:selected').attr("id")
         costtype=costtype.replace('costtype','');
         money=$("input[name='cst']").val();
@@ -184,11 +184,13 @@ function adsdetail(ads){
         success: function (data) {
             //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
             if(!data.status){
+                alert("save success");
+                layout1();
             }
             else alert("server error");
         },
         error: function (err,textStatus) {
-
+         layout1();
 
         },
         timeout:3000

@@ -216,6 +216,7 @@ input {
     background:#ccc;
     border:0 none;
     cursor:pointer;
+    text-align: center;
     -webkit-border-radius: 5px;
     border-radius: 5px; }
 .inputDisabled{
