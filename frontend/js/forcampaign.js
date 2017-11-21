@@ -15,7 +15,7 @@ function getdetail(elem){
             //   alert(data.status);        //用data.d来获取后台传过来的json语句，或者是单纯的语句
             if(!data.status){
                 popup();
-                $("#detail").replaceWith('<span id="detail">compaign detail.</span>');
+                //$("#detail").replaceWith('<span id="detail">compaign detail.</span>');
                 $('input[name=staf]').css("display","none");
                 $('input[name=hou]').css("display","none");
                 $('#changebtn').replaceWith('<span id="changebtn"><button id="edit"  class="button button-pill button-tiny button-primary" onclick="changebtn('+elem.id+')">edit</button></span>');
