@@ -149,9 +149,48 @@ function logout() {
 
 }
 
-function submitidea() {
+function submitidea(elem) {
     console.log("begin ajax");
+    var ideacamp = elem.id.replace('idea','');
+    var idea = $(this).find('textarea[name="Text1"]').text();
+    if(idea.length==null)
+        alert("Please write your idea")
+    else {
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: 'backend/login/logout',
+            data: {
+                campaign_id: ideacamp,
+                id : idea,
+            },
+            success:function (data) {
+                alert("submit success");
+                console.log("after ajax");
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url:'backend/campaign/getnote',
+                    data: {
+                        campaign_id : ideacamp,
 
+                    },
+                    success :function(data) {
+                        $.each(data,function(key,value){
+                            $("#hehe").append('<pre style="text-align: center">'+"Author:"+" "+value.name+'</pre><br><div style="word-wrap:break-word; border: 2px solid #4cb0f9" >' + value.idea + '</div>');
+                        });
+
+                        popup();
+                        $('#tb2').hide();
+                        $('#tb4').css("display","block");
+                        $('#div_btn').css('display','none');
+                    },
+
+                })
+
+            }
+        })
+    }
 }
 
 
