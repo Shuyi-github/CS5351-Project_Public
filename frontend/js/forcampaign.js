@@ -316,10 +316,11 @@ function deletecamp(elem){
     });
 }
 
-
+var ideacamp;
 function addIdeaTocamp(elem){
+    ideacamp="";
     console.log("begin ajax");
-    var ideacamp = elem.id.replace('idea','');
+    ideacamp = elem.id.replace('idea','');
     $('#tb4').html();
     $.ajax({
         type: "POST",

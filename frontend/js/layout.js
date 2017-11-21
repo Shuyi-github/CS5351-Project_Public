@@ -154,12 +154,11 @@ function logout() {
     })
 
 }
-var ideacamp;
 
 function submitidea() {
     console.log("begin ajax")
-    ideacamp = $(this).attr('id');
-    var ideacp = ideacamp.replace('idea','');
+ //   ideacamp = $(this).attr('id');
+//    var ideacp = ideacamp.replace('idea','');
     var idea = $(this).find('textarea[name="Text1"]').text();
     if(idea.length==null)
         alert("Please write your idea")
@@ -169,7 +168,7 @@ function submitidea() {
             dataType: "json",
             url: 'backend/campaign/adnote',
             data: {
-                campaign_id: ideacp,
+                campaign_id: ideacamp,
                 note : idea,
             },
             success:function (data) {
