@@ -30,6 +30,8 @@
    margin: 0px;
    cell-spacing: 0px;
    left: 0px;
+   right:0px;
+   width:100%;
 }
 
 .easyTable tbody {

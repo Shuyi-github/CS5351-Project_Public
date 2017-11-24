@@ -3,7 +3,7 @@ body{
     height:100%;
 }
 .container{
-    position:fixed;
+    position:static;
     min-height:100%;
     min-width: 100%;
 }
@@ -188,6 +188,8 @@ body{
 #centercontent_left{
     float:left;
     width:50%;
+    text-align: center;
+    margin: 0 auto;
     background-color: white;
 
 }
@@ -201,8 +203,10 @@ body{
 #centercontent_right{
     text-align: center;
     display: block;
-    width:100%;
+    width:50%;
     margin: 0 auto;
+    overflow: scroll;
+    z-index: 1000000000;
 }
 #payratetb{
     margin-left: auto;
