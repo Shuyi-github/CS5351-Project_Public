@@ -285,7 +285,7 @@ delbtn{
     background-color: white;
 }
 #tb1 tr:hover{
-    background-color: darkgrey;
+    background-color: rgb(160,225,255);
 }
 
 

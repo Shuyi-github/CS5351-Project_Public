@@ -1,5 +1,6 @@
 <?php
 	include 'data/staffModel.php';
+	include 'data/authorizationModel.php'
 	class staffLogic {
 		public static function getallstaff() {
 			if(!Tool::checkUserStatus()) {
@@ -15,6 +16,8 @@
 				$t = [];
 				$t['id'] = $s['StaffID'];
 				$t['name'] = $s['FirstName'] . ' ' . $s['LastName'];
+				$t['rolename'] = AuthorizationModel::findByRoleID($s['Role'])['RoleName'];
+				$t['staffpayrate'] = $s['PayRate'];
 				$result[] = $t;
 			}
 			return $result;
