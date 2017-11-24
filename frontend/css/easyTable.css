@@ -15,6 +15,10 @@
    -moz-user-select: none;
    -o-user-select: none;
    user-select: none;
+   display: block;
+   position:relative;
+   width:100%;
+   right:0px;
 }
 
 .easyTable .row button {
@@ -26,7 +30,8 @@
 
 .easyTable thead {
    cursor: pointer;
-   display: block;
+   display: table;
+   position: relative;
    margin: 0px;
    cell-spacing: 0px;
    left: 0px;
@@ -35,13 +40,13 @@
 }
 
 .easyTable tbody {
-   display: block;
+   display: table;
    overflow: auto;
 }
 
 .easyTable th {
    height: 40px;
-    width: 400px;
+    width: 25%;
     background: silver;
 }
 

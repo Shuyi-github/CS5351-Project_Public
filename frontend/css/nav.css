@@ -187,7 +187,7 @@ body{
 
 #centercontent_left{
     float:left;
-    width:50%;
+    width:40%;
     text-align: center;
     margin: 0 auto;
     background-color: white;
@@ -203,16 +203,15 @@ body{
 #centercontent_right{
     text-align: center;
     display: block;
-    width:50%;
+    width:60%;
     margin: 0 auto;
-    overflow: scroll;
-    z-index: 1000000000;
+    overflow: hidden;
+    
 }
 #payratetb{
     margin-left: auto;
     margin-right: auto;
 }
-
 input {
     vertical-align: middle;
     margin-left: 5px;
@@ -272,9 +271,11 @@ delbtn{
 }
 #tb1{
     width:100%;
-    table-layout: fixed;
+    
 }
-
+#tb1 tr{
+    width:100%;   
+}
 #team {
     border: 1px solid blue;
     background-color: #c7ebee;
