@@ -54,7 +54,7 @@ function submit_payrate(){
         success: function (data) {
             if (!data.status) {
                 alert("save success");
-                $.("#payratestaff").html('');
+                $("#payratestaff").html('');
                 topayrate();
 
             }
