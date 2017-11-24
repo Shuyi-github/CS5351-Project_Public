@@ -466,7 +466,8 @@
 .button-border.button-primary, .button-primary.button-border-thin, .button-primary.button-border-thick,
 .button-border-thin.button-primary,
 .button-border-thick.button-primary {
-    color: #1B9AF7; }
+    color: #1B9AF7;
+}
 .button-border.button-primary:hover, .button-primary.button-border-thin:hover, .button-primary.button-border-thick:hover, .button-border.button-primary:focus, .button-primary.button-border-thin:focus, .button-primary.button-border-thick:focus,
 .button-border-thin.button-primary:hover,
 .button-border-thin.button-primary:focus,
