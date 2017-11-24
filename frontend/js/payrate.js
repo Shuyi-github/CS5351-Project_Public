@@ -10,9 +10,9 @@ function topayrate(){
         },
         success: function (data) {
             if (!data.status) {
-                $("#payratestaff").append('<table id="payratetable" align="center" width="1200"><tr><th align="center">'+"NAME"+'</th> <td align="center">'+"role"+'</td><td align="center">'+"payrate"+'</td></tr></table>');
+                $("#payratestaff").append('<table id="payratetable" style="align-content: center" align="center" width="1200"><tr><th align="center">'+"NAME"+'</th> <td align="center">'+"role"+'</td><td align="center">'+"payrate"+'</td></tr></table>');
                 $.each(data,function (key,value) {
-                    $("#payratestaff").append('<table id="payratetable" align="center" width="1200"><tr><td align="center">'+value.staffname+'</td> <td align="center">'+value.rolename+'</td><td align="center">'+value.staffpayrate+'</td></tr></table>')
+                    $("#payratestaff").append('<table id="payratetable" style="align-content: center" align="center" width="1200"><tr><td align="center">'+value.name+'</td> <td align="center">'+value.rolename+'</td><td align="center">'+value.staffpayrate+'</td></tr></table>')
 
                 });
                  $('#selectpayrate').replaceWith('<select class="selectaddpr" id="selectpayrate">');
@@ -55,6 +55,16 @@ function submit_payrate(){
             if (!data.status) {
                  alert("save success");
                  topayrate();
+                $("#payratestaff").append('<table id="payratetable" style="align-content: center" align="center" width="1200"><tr><th align="center">'+"NAME"+'</th> <td align="center">'+"role"+'</td><td align="center">'+"payrate"+'</td></tr></table>');
+                $.each(data,function (key,value) {
+                    $("#payratestaff").append('<table id="payratetable" style="align-content: center" align="center" width="1200"><tr><td align="center">'+value.name+'</td> <td align="center">'+value.rolename+'</td><td align="center">'+value.staffpayrate+'</td></tr></table>')
+
+                });
+                $('#selectpayrate').replaceWith('<select class="selectaddpr" id="selectpayrate">');
+                $.each(data,function (key,value) {
+                    $('#selectpayrate').append('<option id="'+value.id+'">'+value.name+'</option>');
+                    option+='<option id="'+value.id+'">'+value.name+'</option>';
+                })
             }
         },
         error: function (err) {
