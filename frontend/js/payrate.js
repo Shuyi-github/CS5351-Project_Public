@@ -53,22 +53,17 @@ function submit_payrate(){
         },
         success: function (data) {
             if (!data.status) {
-                 alert("save success");
-                 topayrate();
-                $("#payratestaff").append('<table id="payratetable" style="align-content: center" align="center" width="1200"><tr><th align="center">'+"NAME"+'</th> <td align="center">'+"role"+'</td><td align="center">'+"payrate"+'</td></tr></table>');
-                $.each(data,function (key,value) {
-                    $("#payratestaff").append('<table id="payratetable" style="align-content: center" align="center" width="1200"><tr><td align="center">'+value.name+'</td> <td align="center">'+value.rolename+'</td><td align="center">'+value.staffpayrate+'</td></tr></table>')
+                alert("save success");
+                $.("#payratestaff").html('');
+                topayrate();
 
-                });
-                $('#selectpayrate').replaceWith('<select class="selectaddpr" id="selectpayrate">');
-                $.each(data,function (key,value) {
-                    $('#selectpayrate').append('<option id="'+value.id+'">'+value.name+'</option>');
-                    option+='<option id="'+value.id+'">'+value.name+'</option>';
-                })
             }
-        },
-        error: function (err) {
-            alert("err:" + err);
         }
-    });
-}
+        ,
+            error: function (err) {
+                    alert("err:" + err);
+            }
+        })
+    };
+
+
