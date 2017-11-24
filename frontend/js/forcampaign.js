@@ -459,6 +459,7 @@ function changebtn(elem){
                         $('#tb4').css('display','none');
                         $('#div_btn').css('display','block');
                         $('.staffinfo').replaceWith("");
+                        $('.addstafh').replaceWith("");
                         $('.stafh').replaceWith("");
                         layout1();
                     }
